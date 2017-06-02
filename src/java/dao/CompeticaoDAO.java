@@ -32,11 +32,24 @@ public class CompeticaoDAO {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            if (competicao.getIdCompeticao() != null) {
-                em.merge(competicao);
-            } else {
-                em.persist(competicao);
+            em.persist(competicao);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
             }
+            throw new RuntimeException(e);
+        } finally {
+            PersistenceUtil.close(em);
+        }
+    }
+
+    public void alterar(Competicao competicao) {
+        EntityManager em = PersistenceUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            em.persist(competicao);
             tx.commit();
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {

@@ -28,7 +28,6 @@
             <li><a class="brown-text text-darken-4" href="ManterDesempenhotesteController?acao=prepararOperacao&operacao=incluir">Desempenho de Teste</a></li>
             <li><a class="brown-text text-darken-4" href="ManterDesignController?acao=prepararOperacao&operacao=incluir">Design</a></li>
             <li><a class="brown-text text-darken-4" href="ManterFrequenciaController?acao=prepararOperacao&operacao=incluir">Frequência</a></li>
-
             <li><a class="brown-text text-darken-4" href="ManterIntegranteController?acao=prepararOperacao&operacao=incluir">Integrante</a></li>
             <li><a class="brown-text text-darken-4" href="ManterPecaController?acao=prepararOperacao&operacao=incluir">Peça</a></li>
             <li><a class="brown-text text-darken-4" href="ManterPessoaController?acao=prepararOperacao&operacao=incluir">Pessoa</a></li>
@@ -66,7 +65,7 @@
             <form  action="ManterTipopistaController?acao=confirmarOperacao&operacao=${operacao}" method="POST" name="frmManterTipoPista">
                 <div class="row">
                     <div class="input-field col s6 offset-m3">
-                        <input id="id" name="txtIdTipoPista" class="validate" type="text" value="${tipoPista.idTipoPista}"    required="required" pattern="[0-9]+$"<c:if test="${operacao != 'incluir'}"> readonly</c:if>>
+                        <input id="id" name="txtIdTipopista" class="validate" type="text" value="${tipoPista.idTipoPista}"    required="required" pattern="[0-9]+$"<c:if test="${operacao != 'incluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="id">ID</label>
                         </div>
                     </div>

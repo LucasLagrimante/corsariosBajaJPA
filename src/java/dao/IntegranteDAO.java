@@ -32,11 +32,23 @@ public class IntegranteDAO {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            if (integrante.getMatricula() != null) {
-                em.merge(integrante);
-            } else {
-                em.persist(integrante);
+            em.persist(integrante);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
             }
+            throw new RuntimeException(e);
+        } finally {
+            PersistenceUtil.close(em);
+        }
+    }
+
+    public void alterar(Integrante integrante) {
+        EntityManager em = PersistenceUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            em.merge(integrante);
             tx.commit();
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {

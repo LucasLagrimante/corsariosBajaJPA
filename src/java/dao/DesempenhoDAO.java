@@ -31,12 +31,23 @@ public class DesempenhoDAO {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         try {
-            tx.begin();
-            if (desempenho.getIdDesempenho() != null) {
-                em.merge(desempenho);
-            } else {
-                em.persist(desempenho);
+            em.persist(desempenho);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
             }
+            throw new RuntimeException(e);
+        } finally {
+            PersistenceUtil.close(em);
+        }
+    }
+
+    public void alterar(Desempenho desempenho) {
+        EntityManager em = PersistenceUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            em.merge(desempenho);
             tx.commit();
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {

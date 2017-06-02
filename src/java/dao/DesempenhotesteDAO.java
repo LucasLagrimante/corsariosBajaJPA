@@ -32,11 +32,24 @@ public class DesempenhotesteDAO {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            if (desempenhoTeste.getIdDesempenhoTeste() != null) {
-                em.merge(desempenhoTeste);
-            } else {
-                em.persist(desempenhoTeste);
+            em.persist(desempenhoTeste);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
             }
+            throw new RuntimeException(e);
+        } finally {
+            PersistenceUtil.close(em);
+        }
+    }
+
+    public void alterar(Desempenhoteste desempenhoTeste) {
+        EntityManager em = PersistenceUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            em.merge(desempenhoTeste);
             tx.commit();
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {

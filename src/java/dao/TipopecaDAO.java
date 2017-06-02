@@ -32,11 +32,24 @@ public class TipopecaDAO {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            if (tipopeca.getIdTipopeca() != null) {
-                em.merge(tipopeca);
-            } else {
-                em.persist(tipopeca);
+            em.persist(tipopeca);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
             }
+            throw new RuntimeException(e);
+        } finally {
+            PersistenceUtil.close(em);
+        }
+    }
+
+    public void alterar(Tipopeca tipopeca) {
+        EntityManager em = PersistenceUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            em.merge(tipopeca);
             tx.commit();
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {

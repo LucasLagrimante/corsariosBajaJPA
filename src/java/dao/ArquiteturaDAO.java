@@ -32,11 +32,24 @@ public class ArquiteturaDAO {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            if (arquitetura.getIdArquitetura() != null) {
-                em.merge(arquitetura);
-            } else {
-                em.persist(arquitetura);
+            em.persist(arquitetura);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
             }
+            throw new RuntimeException(e);
+        } finally {
+            PersistenceUtil.close(em);
+        }
+    }
+
+    public void alterar(Arquitetura arquitetura) {
+        EntityManager em = PersistenceUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            em.merge(arquitetura);
             tx.commit();
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {

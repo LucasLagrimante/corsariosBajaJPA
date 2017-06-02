@@ -32,11 +32,24 @@ public class FrequenciaDAO {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            if (frequencia.getIdFrequencia() != null) {
-                em.merge(frequencia);
-            } else {
-                em.persist(frequencia);
+            em.persist(frequencia);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
             }
+            throw new RuntimeException(e);
+        } finally {
+            PersistenceUtil.close(em);
+        }
+    }
+
+    public void alterar(Frequencia frequencia) {
+        EntityManager em = PersistenceUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            em.merge(frequencia);
             tx.commit();
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {

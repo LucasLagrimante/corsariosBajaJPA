@@ -32,11 +32,24 @@ public class DesignDAO {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            if (design.getIdDesign() != null) {
-                em.merge(design);
-            } else {
-                em.persist(design);
+            em.persist(design);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
             }
+            throw new RuntimeException(e);
+        } finally {
+            PersistenceUtil.close(em);
+        }
+    }
+
+    public void alterar(Design design) {
+        EntityManager em = PersistenceUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            em.merge(design);
             tx.commit();
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {

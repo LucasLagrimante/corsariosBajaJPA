@@ -32,11 +32,24 @@ public class AvaliacaoDAO {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            if (avaliacao.getIdAvaliacao() != null) {
-                em.merge(avaliacao);
-            } else {
-                em.persist(avaliacao);
+            em.persist(avaliacao);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
             }
+            throw new RuntimeException(e);
+        } finally {
+            PersistenceUtil.close(em);
+        }
+    }
+
+    public void alterar(Avaliacao avaliacao) {
+        EntityManager em = PersistenceUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            em.merge(avaliacao);
             tx.commit();
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {

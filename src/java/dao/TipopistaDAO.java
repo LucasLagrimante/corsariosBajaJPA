@@ -32,11 +32,24 @@ public class TipopistaDAO {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            if (tipopista.getIdTipopista() != null) {
-                em.merge(tipopista);
-            } else {
-                em.persist(tipopista);
+            em.persist(tipopista);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
             }
+            throw new RuntimeException(e);
+        } finally {
+            PersistenceUtil.close(em);
+        }
+    }
+
+    public void alterar(Tipopista tipopista) {
+        EntityManager em = PersistenceUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            em.merge(tipopista);
             tx.commit();
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {

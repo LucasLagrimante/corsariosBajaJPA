@@ -7,7 +7,7 @@ import model.Automovel;
 import model.Integrante;
 import model.Tipopista;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2017-06-02T07:10:39")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2017-06-02T07:44:13")
 @StaticMetamodel(Desempenhoteste.class)
 public class Desempenhoteste_ { 
 

@@ -32,11 +32,24 @@ public class PecaDAO {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            if (peca.getIdPeca() != null) {
-                em.merge(peca);
-            } else {
-                em.persist(peca);
+            em.persist(peca);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
             }
+            throw new RuntimeException(e);
+        } finally {
+            PersistenceUtil.close(em);
+        }
+    }
+
+    public void alterar(Peca peca) {
+        EntityManager em = PersistenceUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            em.merge(peca);
             tx.commit();
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {
