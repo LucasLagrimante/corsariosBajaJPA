@@ -5,7 +5,7 @@ import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import model.Automovel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2017-06-02T00:41:57")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2017-06-02T07:10:39")
 @StaticMetamodel(Arquitetura.class)
 public class Arquitetura_ { 
 

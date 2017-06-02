@@ -32,11 +32,24 @@ public class AutomovelDAO {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            if (automovel.getIdAutomovel() != null) {
-                em.merge(automovel);
-            } else {
-                em.persist(automovel);
+            em.persist(automovel);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
             }
+            throw new RuntimeException(e);
+        } finally {
+            PersistenceUtil.close(em);
+        }
+    }
+
+    public void alterar(Automovel automovel) {
+        EntityManager em = PersistenceUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            em.merge(automovel);
             tx.commit();
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {
