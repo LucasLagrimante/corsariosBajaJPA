@@ -13,7 +13,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
-import model.Automovel;
+import modelo.Automovel;
 
 public class AutomovelDAO {
 
@@ -104,7 +104,7 @@ public class AutomovelDAO {
         List<Automovel> automoveis = null;
         try {
             tx.begin();
-            TypedQuery<Automovel> query = em.createQuery("select c from Automovel c", Automovel.class);
+            TypedQuery<Automovel> query = em.createQuery("select a from automovel a", Automovel.class);
             automoveis = query.getResultList();
             tx.commit();
         } catch (Exception e) {
@@ -124,7 +124,7 @@ public class AutomovelDAO {
         List<Automovel> automoveis = null;
         try {
             tx.begin();
-            TypedQuery<Automovel> query = em.createQuery("select c from Automovel c", Automovel.class);
+            TypedQuery<Automovel> query = em.createQuery("select a from automovel a", Automovel.class);
             automoveis = query.getResultList();
             tx.commit();
         } catch (Exception e) {
@@ -144,7 +144,7 @@ public class AutomovelDAO {
         List<Automovel> automoveis = null;
         try {
             tx.begin();
-            TypedQuery<Automovel> query = em.createQuery("select c from Automovel c", Automovel.class);
+            TypedQuery<Automovel> query = em.createQuery("select a from automovel a", Automovel.class);
             automoveis = query.getResultList();
             tx.commit();
         } catch (Exception e) {
