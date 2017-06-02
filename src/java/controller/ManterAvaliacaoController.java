@@ -81,7 +81,7 @@ public class ManterAvaliacaoController extends HttpServlet {
                 avaliacao.setComparecimento(comparecimento);
                 avaliacao.setData(data);
                 avaliacao.setFKintegrante(integrante);
-                AvaliacaoDAO.getInstance().salvar(avaliacao);
+                AvaliacaoDAO.getInstance().alterar(avaliacao);
             } else if (operacao.equals("excluir")) {
                 AvaliacaoDAO.getInstance().excluir(avaliacao);
             }

@@ -63,7 +63,7 @@ public class ManterTipopistaController extends HttpServlet {
                 TipopistaDAO.getInstance().salvar(tipopista);
             } else if (operacao.equals("editar")) {
                 tipopista.setNome(nome);
-                TipopistaDAO.getInstance().salvar(tipopista);
+                TipopistaDAO.getInstance().alterar(tipopista);
             } else if (operacao.equals("excluir")) {
                 TipopistaDAO.getInstance().excluir(tipopista);
             }

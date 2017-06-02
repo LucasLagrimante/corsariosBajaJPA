@@ -78,7 +78,7 @@ public class ManterDesignController extends HttpServlet {
             } else if (operacao.equals("editar")) {
                 design.setCaminhoImagem(caminhoImagem);
                 design.setFKautomovel(automovel);
-                DesignDAO.getInstance().salvar(design);
+                DesignDAO.getInstance().alterar(design);
             } else if (operacao.equals("excluir")) {
                 DesignDAO.getInstance().excluir(design);
             }

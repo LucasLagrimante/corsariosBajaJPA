@@ -77,7 +77,7 @@ public class ManterIntegranteController extends HttpServlet {
             } else if (operacao.equals("editar")) {
                 integrante.setCargaHorariaDisponivel(cargaHorariaDisponivel);
                 integrante.setFKpessoa(pessoa);
-                IntegranteDAO.getInstance().salvar(integrante);
+                IntegranteDAO.getInstance().alterar(integrante);
             } else if (operacao.equals("excluir")) {
                 IntegranteDAO.getInstance().excluir(integrante);
             }

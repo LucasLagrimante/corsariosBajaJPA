@@ -82,7 +82,7 @@ public class ManterFrequenciaController extends HttpServlet {
                 frequencia.setData(data);
                 frequencia.setEstado(estado);
                 frequencia.setFKintegrante(integrante);
-                FrequenciaDAO.getInstance().salvar(frequencia);
+                FrequenciaDAO.getInstance().alterar(frequencia);
             } else if (operacao.equals("excluir")) {
                 FrequenciaDAO.getInstance().excluir(frequencia);
             }

@@ -76,7 +76,7 @@ public class ManterArquiteturaController extends HttpServlet {
             } else if (operacao.equals("editar")) {
                 arquitetura.setCaminhoImagem(caminhoImagem);
                 arquitetura.setFKautomovel(automovel);
-                ArquiteturaDAO.getInstance().salvar(arquitetura);
+                ArquiteturaDAO.getInstance().alterar(arquitetura);
             } else if (operacao.equals("excluir")) {
                 ArquiteturaDAO.getInstance().excluir(arquitetura);
             }

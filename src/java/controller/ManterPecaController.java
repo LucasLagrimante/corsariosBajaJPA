@@ -83,8 +83,7 @@ public class ManterPecaController extends HttpServlet {
                 peca.setModelo(modelo);
                 peca.setPrecoCompra(precoCompra);
                 peca.setFKtipopeca(tipopeca);
-
-                PecaDAO.getInstance().salvar(peca);
+                PecaDAO.getInstance().alterar(peca);
             } else if (operacao.equals("excluir")) {
                 PecaDAO.getInstance().excluir(peca);
             }

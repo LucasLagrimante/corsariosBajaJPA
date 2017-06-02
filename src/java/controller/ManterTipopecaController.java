@@ -63,7 +63,7 @@ public class ManterTipopecaController extends HttpServlet {
                 TipopecaDAO.getInstance().salvar(tipopeca);
             } else if (operacao.equals("editar")) {
                 tipopeca.setNome(nome);
-                TipopecaDAO.getInstance().salvar(tipopeca);
+                TipopecaDAO.getInstance().alterar(tipopeca);
             } else if (operacao.equals("excluir")) {
                 TipopecaDAO.getInstance().excluir(tipopeca);
             }

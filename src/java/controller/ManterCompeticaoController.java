@@ -80,7 +80,7 @@ public class ManterCompeticaoController extends HttpServlet {
                 competicao.setHora(hora);
                 competicao.setLocal(local);
                 competicao.setFKtipopista(tipopista);
-                CompeticaoDAO.getInstance().salvar(competicao);
+                CompeticaoDAO.getInstance().alterar(competicao);
             } else if (operacao.equals("excluir")) {
                 CompeticaoDAO.getInstance().excluir(competicao);
             }

@@ -110,8 +110,7 @@ public class ManterDesempenhotesteController extends HttpServlet {
                 desempenhoteste.setFKautomovel(automovel);
                 desempenhoteste.setFKtipopista(tipopista);
                 desempenhoteste.setFKmotorista(integrante);
-
-                DesempenhotesteDAO.getInstance().salvar(desempenhoteste);
+                DesempenhotesteDAO.getInstance().alterar(desempenhoteste);
             } else if (operacao.equals("excluir")) {
                 DesempenhotesteDAO.getInstance().excluir(desempenhoteste);
             }

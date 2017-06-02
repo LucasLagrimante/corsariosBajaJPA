@@ -74,7 +74,7 @@ public class ManterAutomovelController extends HttpServlet {
                 Automovel.setPesoCarro(pesoCarro);
                 Automovel.setPesoChassi(pesoChassi);
                 Automovel.setCustoTotal(custoTotal);
-                AutomovelDAO.getInstance().salvar(Automovel);
+                AutomovelDAO.getInstance().alterar(Automovel);
             } else if (operacao.equals("excluir")) {
                 AutomovelDAO.getInstance().excluir(Automovel);
             }

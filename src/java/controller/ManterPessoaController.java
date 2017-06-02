@@ -70,7 +70,6 @@ public class ManterPessoaController extends HttpServlet {
             Pessoa pessoa = new Pessoa(idPessoa, nome, cpf, logradouro, cep, bairro, uf, numero, telefone);
                 PessoaDAO.getInstance().salvar(Pessoa);
             } else if (operacao.equals("editar")) {
-               
                 Pessoa.setNome(nome);
                  Pessoa.setCpf(cpf);
                 Pessoa.setLogradouro(logradouro);
@@ -79,8 +78,7 @@ public class ManterPessoaController extends HttpServlet {
                 Pessoa.setUf(uf);
                 Pessoa.setNumero(numero);
                 Pessoa.setTelefone(telefone);
-                PessoaDAO.getInstance().salvar(Pessoa);
-                
+                PessoaDAO.getInstance().alterar(Pessoa);
             } else if (operacao.equals("excluir")) {
                 PessoaDAO.getInstance().excluir(Pessoa);
             }
