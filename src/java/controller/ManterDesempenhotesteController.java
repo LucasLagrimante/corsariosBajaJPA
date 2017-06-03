@@ -8,7 +8,6 @@ import dao.AutomovelDAO;
 import dao.DesempenhotesteDAO;
 import dao.IntegranteDAO;
 import dao.TipopistaDAO;
-
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

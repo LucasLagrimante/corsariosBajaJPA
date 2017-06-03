@@ -103,7 +103,7 @@ public class IntegranteDAO {
         List<Integrante> integrantes = null;
         try {
             tx.begin();
-            TypedQuery<Integrante> query = em.createQuery("select c from Integrante c", Integrante.class);
+            TypedQuery<Integrante> query = em.createQuery("select i from integrante i", Integrante.class);
             integrantes = query.getResultList();
             tx.commit();
         } catch (Exception e) {
@@ -123,7 +123,7 @@ public class IntegranteDAO {
         List<Integrante> integrantes = null;
         try {
             tx.begin();
-            TypedQuery<Integrante> query = em.createQuery("select c from Integrante c", Integrante.class);
+            TypedQuery<Integrante> query = em.createQuery("select i from integrante i", Integrante.class);
             integrantes = query.getResultList();
             tx.commit();
         } catch (Exception e) {

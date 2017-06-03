@@ -104,7 +104,7 @@ public class FrequenciaDAO {
         List<Frequencia> frequencias = null;
         try {
             tx.begin();
-            TypedQuery<Frequencia> query = em.createQuery("select c from Frequencia c", Frequencia.class);
+            TypedQuery<Frequencia> query = em.createQuery("select f from frequencia f", Frequencia.class);
             frequencias = query.getResultList();
             tx.commit();
         } catch (Exception e) {
@@ -124,7 +124,7 @@ public class FrequenciaDAO {
         List<Frequencia> frequencias = null;
         try {
             tx.begin();
-            TypedQuery<Frequencia> query = em.createQuery("select c from Frequencia c", Frequencia.class);
+            TypedQuery<Frequencia> query = em.createQuery("select f from frequencia f", Frequencia.class);
             frequencias = query.getResultList();
             tx.commit();
         } catch (Exception e) {

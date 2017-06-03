@@ -104,7 +104,7 @@ public class DesempenhotesteDAO {
         List<Desempenhoteste> desempenhosTeste = null;
         try {
             tx.begin();
-            TypedQuery<Desempenhoteste> query = em.createQuery("select c from Desempenhoteste c", Desempenhoteste.class);
+            TypedQuery<Desempenhoteste> query = em.createQuery("select d from desempenhoteste d", Desempenhoteste.class);
             desempenhosTeste = query.getResultList();
             tx.commit();
         } catch (Exception e) {

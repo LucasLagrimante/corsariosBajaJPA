@@ -104,7 +104,7 @@ public class DesignDAO {
         List<Design> designs = null;
         try {
             tx.begin();
-            TypedQuery<Design> query = em.createQuery("select c from Design c", Design.class);
+            TypedQuery<Design> query = em.createQuery("select d from design d", Design.class);
             designs = query.getResultList();
             tx.commit();
         } catch (Exception e) {

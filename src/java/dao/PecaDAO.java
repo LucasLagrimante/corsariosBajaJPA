@@ -104,7 +104,7 @@ public class PecaDAO {
         List<Peca> pecas = null;
         try {
             tx.begin();
-            TypedQuery<Peca> query = em.createQuery("select c from Peca c", Peca.class);
+            TypedQuery<Peca> query = em.createQuery("select p from peca p", Peca.class);
             pecas = query.getResultList();
             tx.commit();
         } catch (Exception e) {
@@ -124,7 +124,7 @@ public class PecaDAO {
         List<Peca> pecas = null;
         try {
             tx.begin();
-            TypedQuery<Peca> query = em.createQuery("select c from Peca c", Peca.class);
+            TypedQuery<Peca> query = em.createQuery("select p from peca p", Peca.class);
             pecas = query.getResultList();
             tx.commit();
         } catch (Exception e) {

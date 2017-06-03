@@ -104,7 +104,7 @@ public class AvaliacaoDAO {
         List<Avaliacao> avaliacoes = null;
         try {
             tx.begin();
-            TypedQuery<Avaliacao> query = em.createQuery("select c from Avaliacao c", Avaliacao.class);
+            TypedQuery<Avaliacao> query = em.createQuery("select c from avaliacao c", Avaliacao.class);
             avaliacoes = query.getResultList();
             tx.commit();
         } catch (Exception e) {

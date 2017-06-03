@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="corsariosBajaPU" transaction-type="RESOURCE_LOCAL">
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+  <persistence-unit name="corsariosBajaPU" transaction-type="JTA">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>corsariosbaja</jta-data-source>
+    <class>model.Arquitetura</class>
+    <class>model.Automovel</class>
+    <class>model.Avaliacao</class>
+    <class>model.Competicao</class>
+    <class>model.Desempenho</class>
+    <class>model.Desempenhoteste</class>
+    <class>model.Design</class>
+    <class>model.Frequencia</class>
+    <class>model.Integrante</class>
+    <class>model.Peca</class>
+    <class>model.Pessoa</class>
+    <class>model.Tipopeca</class>
+    <class>model.Tipopista</class>
+    <shared-cache-mode>ALL</shared-cache-mode>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/corsariosbaja?zeroDateTimeBehavior=convertToNull"/>
-      <property name="javax.persistence.jdbc.user" value="root"/>
-      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value=""/>
-      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="eclipselink.jdbc.user" value="root"/>
+      <property name="eclipselink.jdbc.password" value=""/>
     </properties>
   </persistence-unit>
 </persistence>
