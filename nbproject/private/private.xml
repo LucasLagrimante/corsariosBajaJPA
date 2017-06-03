@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/modelo/Automovel.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/web/WEB-INF/web.xml</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/BD.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/conf/MANIFEST.MF</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterAutomovelController.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/conf/persistence.xml</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/web/index.jsp</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/web/META-INF/context.xml</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/web/login.jsp</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/AutomovelDAO.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/PersistenceUtil.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

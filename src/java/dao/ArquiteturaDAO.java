@@ -13,7 +13,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
-import modelo.Arquitetura;
+import model.Arquitetura;
 
 public class ArquiteturaDAO {
 

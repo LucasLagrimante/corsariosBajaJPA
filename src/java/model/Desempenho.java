@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo;
+package model;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -11,13 +11,16 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author lucas
  */
-@Entity
+@Entity(name = "desempenho")
+@Table(name = "desempenho")
 public class Desempenho implements Serializable {
+
     @Id
     @Column(name = "idDesempenho")
     private Integer idDesempenho;

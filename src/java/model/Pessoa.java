@@ -3,19 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo;
+package model;
 
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author lucas
  */
-@Entity
+@Entity(name = "pessoa")
+@Table(name = "pessoa")
 public class Pessoa implements Serializable {
+
     @Id
     @Column(name = "idPessoa")
     private Integer idPessoa;

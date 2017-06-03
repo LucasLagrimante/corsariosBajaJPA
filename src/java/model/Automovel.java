@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo;
+package model;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -14,7 +14,7 @@ import javax.persistence.Table;
  *
  * @author lucas
  */
-@Entity
+@Entity(name = "automovel")
 @Table(name = "automovel")
 public class Automovel implements Serializable {
 
