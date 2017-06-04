@@ -88,18 +88,18 @@
                     <tbody>
                         <c:forEach items="${pessoas}" var="pessoa">
                             <tr>
-                                <td><c:out value="${pessoa.idPessoa}" /></td>
-                                <td><c:out value="${pessoa.nome}" /></td>
-                                <td><c:out value="${pessoa.cpf}" /></td>
-                                <td><c:out value="${pessoa.logradouro}" /></td>
-                                <td><c:out value="${pessoa.cep}" /></td>
-                                <td><c:out value="${pessoa.bairro}" /></td>
-                                <td><c:out value="${pessoa.uf}" /></td>
-                                <td><c:out value="${pessoa.numero}" /></td>
-                                <td><c:out value="${pessoa.telefone}" /></td>
+                                <td>${pessoa.idPessoa}</td>
+                                <td>${pessoa.nome}</td>
+                                <td>${pessoa.cpf}</td>
+                                <td>${pessoa.logradouro}</td>
+                                <td>${pessoa.cep}</td>
+                                <td>${pessoa.bairro}</td>
+                                <td>${pessoa.uf}</td>
+                                <td>${pessoa.numero}</td>
+                                <td>${pessoa.telefone}</td>
 
-                                <td><a class="brown-text text-darken-4" href="ManterPessoaController?acao=prepararOperacao&operacao=editar&idPessoa=<c:out value="${pessoa.idPessoa}" />">Editar</a></td>
-                                <td><a class="brown-text text-darken-4" href="ManterPessoaController?acao=prepararOperacao&operacao=excluir&idPessoa=<c:out value="${pessoa.idPessoa}" />">Excluir</a></td>
+                                <td><a class="brown-text text-darken-4" href="ManterPessoaController?acao=prepararOperacao&operacao=editar&idPessoa=${pessoa.idPessoa}">Editar</a></td>
+                                <td><a class="brown-text text-darken-4" href="ManterPessoaController?acao=prepararOperacao&operacao=excluir&idPessoa=${pessoa.idPessoa}">Excluir</a></td>
                             </tr>
                         </c:forEach>
                         <tr> 

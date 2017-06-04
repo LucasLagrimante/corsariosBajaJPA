@@ -90,19 +90,19 @@
                     <tbody>
                         <c:forEach items="${desempenhosTeste}" var="desempenhoTeste">
                             <tr>
-                                <td><c:out value="${desempenhoTeste.idDesempenhoTeste}" /></td>
-                                <td><c:out value="${desempenhoTeste.idAutomovel}" /></td>
-                                <td><c:out value="${desempenhoTeste.idTipoPista}" /></td>
-                                <td><c:out value="${desempenhoTeste.matricula}" /></td>
-                                <td><c:out value="${desempenhoTeste.nome}" /></td>
-                                <td><c:out value="${desempenhoTeste.data}" /></td>
-                                <td><c:out value="${desempenhoTeste.hora}" /></td>
-                                <td><c:out value="${desempenhoTeste.aceleracaoMedia}" /></td>
-                                <td><c:out value="${desempenhoTeste.velocidadeMedia}" /></td>
-                                <td><c:out value="${desempenhoTeste.tempoPista}" /></td>
-                                <td><c:out value="${desempenhoTeste.frenagem}" /></td>
-                                <td><a class="brown-text text-darken-4" href="ManterDesempenhotesteController?acao=prepararOperacao&operacao=editar&idDesempenhoTeste=<c:out value="${desempenhoTeste.idDesempenhoTeste}" />">Editar</a></td>
-                                <td><a class="brown-text text-darken-4" href="ManterDesempenhotesteController?acao=prepararOperacao&operacao=excluir&idDesempenhoTeste=<c:out value="${desempenhoTeste.idDesempenhoTeste}" />">Excluir</a></td>
+                                <td>${desempenhoTeste.idDesempenhoTeste}</td>
+                                <td>${desempenhoTeste.idAutomovel}</td>
+                                <td>${desempenhoTeste.idTipoPista}</td>
+                                <td>${desempenhoTeste.matricula}</td>
+                                <td>${desempenhoTeste.nome}</td>
+                                <td>${desempenhoTeste.data}</td>
+                                <td>${desempenhoTeste.hora}</td>
+                                <td>${desempenhoTeste.aceleracaoMedia}</td>
+                                <td>${desempenhoTeste.velocidadeMedia}</td>
+                                <td>${desempenhoTeste.tempoPista}</td>
+                                <td>${desempenhoTeste.frenagem}</td>
+                                <td><a class="brown-text text-darken-4" href="ManterDesempenhotesteController?acao=prepararOperacao&operacao=editar&idDesempenhoTeste=${desempenhoTeste.idDesempenhoTeste}">Editar</a></td>
+                                <td><a class="brown-text text-darken-4" href="ManterDesempenhotesteController?acao=prepararOperacao&operacao=excluir&idDesempenhoTeste=${desempenhoTeste.idDesempenhoTeste}">Excluir</a></td>
                             </tr>
                         </c:forEach>
                         <tr> 

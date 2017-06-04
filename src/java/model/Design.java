@@ -6,27 +6,37 @@
 package model;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author lucas
  */
-@Entity(name = "design")
+@Entity(name = "Design")
 @Table(name = "design")
 public class Design implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @Id
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "idDesign")
     private Integer idDesign;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "caminhoImagem")
     private String caminhoImagem;
-    @ManyToOne
     @JoinColumn(name = "FK_automovel", referencedColumnName = "idAutomovel")
+    @ManyToOne(optional = false)
     private Automovel fKautomovel;
 
     public Design() {
@@ -36,15 +46,15 @@ public class Design implements Serializable {
         this.idDesign = idDesign;
     }
 
+    public Design(Integer idDesign, String caminhoImagem) {
+        this.idDesign = idDesign;
+        this.caminhoImagem = caminhoImagem;
+    }
+
     public Design(Integer idDesign, String caminhoImagem, Automovel fKautomovel) {
         this.idDesign = idDesign;
         this.caminhoImagem = caminhoImagem;
         this.fKautomovel = fKautomovel;
-    }
-
-    public Design(Integer idDesign, String caminhoImagem) {
-        this.idDesign = idDesign;
-        this.caminhoImagem = caminhoImagem;
     }
 
     public Integer getIdDesign() {

@@ -6,22 +6,33 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Collection;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author lucas
  */
-@Entity(name = "tipopeca")
+@Entity(name = "Tipopeca")
 @Table(name = "tipopeca")
 public class Tipopeca implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @Id
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "idTipopeca")
     private Integer idTipopeca;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 40)
+    @Column(name = "nome")
     private String nome;
 
     public Tipopeca() {

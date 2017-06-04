@@ -104,7 +104,7 @@ public class TipopistaDAO {
         List<Tipopista> tiposPista = null;
         try {
             tx.begin();
-            TypedQuery<Tipopista> query = em.createQuery("select t from tipopista t", Tipopista.class);
+            TypedQuery<Tipopista> query = em.createQuery("select t from Tipopista t", Tipopista.class);
             tiposPista = query.getResultList();
             tx.commit();
         } catch (Exception e) {

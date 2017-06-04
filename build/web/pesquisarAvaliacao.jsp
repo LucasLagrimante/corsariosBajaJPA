@@ -78,13 +78,13 @@
                     <tbody>
                         <c:forEach items="${avaliacoes}" var="avaliacao">
                             <tr>
-                                <td><c:out value="${avaliacao.idAvaliacao}" /></td>
-                                <td><c:out value="${avaliacao.matricula}" /></td>
-                                <td><c:out value="${avaliacao.frequencia}" /></td>
-                                <td><c:out value="${avaliacao.comparecimento}" /></td>
-                                <td><c:out value="${avaliacao.data}" /></td>
-                                <td><a class="brown-text text-darken-4" href="ManterAvaliacaoController?acao=prepararOperacao&operacao=editar&idAvaliacao=<c:out value="${avaliacao.idAvaliacao}" />">Editar</a></td>
-                                <td><a class="brown-text text-darken-4" href="ManterAvaliacaoController?acao=prepararOperacao&operacao=excluir&idAvaliacao=<c:out value="${avaliacao.idAvaliacao}" />">Excluir</a></td>
+                                <td>${avaliacao.idAvaliacao}</td>
+                                <td>${avaliacao.matricula}</td>
+                                <td>${avaliacao.frequencia}</td>
+                                <td>${avaliacao.comparecimento}</td>
+                                <td>${avaliacao.data}</td>
+                                <td><a class="brown-text text-darken-4" href="ManterAvaliacaoController?acao=prepararOperacao&operacao=editar&idAvaliacao=${avaliacao.idAvaliacao}">Editar</a></td>
+                                <td><a class="brown-text text-darken-4" href="ManterAvaliacaoController?acao=prepararOperacao&operacao=excluir&idAvaliacao=${avaliacao.idAvaliacao}">Excluir</a></td>
                             </tr>
                         </c:forEach>
                         <tr> 

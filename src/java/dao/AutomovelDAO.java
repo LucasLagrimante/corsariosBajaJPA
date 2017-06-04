@@ -104,7 +104,7 @@ public class AutomovelDAO {
         List<Automovel> automoveis = null;
         try {
             tx.begin();
-            TypedQuery<Automovel> query = em.createQuery("select a from automovel a", Automovel.class);
+            TypedQuery<Automovel> query = em.createQuery("select a from Automovel a", Automovel.class);
             automoveis = query.getResultList();
             tx.commit();
         } catch (Exception e) {
@@ -124,7 +124,7 @@ public class AutomovelDAO {
         List<Automovel> automoveis = null;
         try {
             tx.begin();
-            TypedQuery<Automovel> query = em.createQuery("select a from automovel a", Automovel.class);
+            TypedQuery<Automovel> query = em.createQuery("select a from Automovel a", Automovel.class);
             automoveis = query.getResultList();
             tx.commit();
         } catch (Exception e) {
@@ -144,7 +144,7 @@ public class AutomovelDAO {
         List<Automovel> automoveis = null;
         try {
             tx.begin();
-            TypedQuery<Automovel> query = em.createQuery("select a from automovel a", Automovel.class);
+            TypedQuery<Automovel> query = em.createQuery("select a from Automovel a", Automovel.class);
             automoveis = query.getResultList();
             tx.commit();
         } catch (Exception e) {

@@ -6,29 +6,54 @@
 package model;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author lucas
  */
-@Entity(name = "avaliacao")
+@Entity(name = "Avaliacao")
 @Table(name = "avaliacao")
 public class Avaliacao implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @Id
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "idAvaliacao")
     private Integer idAvaliacao;
+
+    public Avaliacao(Integer idAvaliacao, int frequencia, String comparecimento, String data, Integrante fKintegrante) {
+        this.idAvaliacao = idAvaliacao;
+        this.frequencia = frequencia;
+        this.comparecimento = comparecimento;
+        this.data = data;
+        this.fKintegrante = fKintegrante;
+    }
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "frequencia")
     private int frequencia;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "comparecimento")
     private String comparecimento;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 30)
+    @Column(name = "data")
     private String data;
-    @ManyToOne
     @JoinColumn(name = "FK_integrante", referencedColumnName = "matricula")
+    @ManyToOne(optional = false)
     private Integrante fKintegrante;
 
     public Avaliacao() {
@@ -43,14 +68,6 @@ public class Avaliacao implements Serializable {
         this.frequencia = frequencia;
         this.comparecimento = comparecimento;
         this.data = data;
-    }
-
-    public Avaliacao(Integer idAvaliacao, int frequencia, String comparecimento, String data, Integrante fKintegrante) {
-        this.idAvaliacao = idAvaliacao;
-        this.frequencia = frequencia;
-        this.comparecimento = comparecimento;
-        this.data = data;
-        this.fKintegrante = fKintegrante;
     }
 
     public Integer getIdAvaliacao() {

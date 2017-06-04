@@ -81,10 +81,10 @@
                     <tbody>
                         <c:forEach items="${tiposPeca}" var="tipoPeca">
                             <tr>
-                                <td><c:out value="${tipoPeca.idTipoPeca}" /></td>
-                                <td><c:out value="${tipoPeca.nome}" /></td>
-                                <td><a class="brown-text text-darken-4" href="ManterTipopecaController?acao=prepararOperacao&operacao=editar&idTipoPeca=<c:out value="${tipoPeca.idTipoPeca}" />">Editar</a></td>
-                                <td><a class="brown-text text-darken-4" href="ManterTipopecaController?acao=prepararOperacao&operacao=excluir&idTipoPeca=<c:out value="${tipoPeca.idTipoPeca}" />">Excluir</a></td>
+                                <td>${tipoPeca.idTipoPeca}</td>
+                                <td>${tipoPeca.nome}</td>
+                                <td><a class="brown-text text-darken-4" href="ManterTipopecaController?acao=prepararOperacao&operacao=editar&idTipoPeca=${tipoPeca.idTipoPeca}">Editar</a></td>
+                                <td><a class="brown-text text-darken-4" href="ManterTipopecaController?acao=prepararOperacao&operacao=excluir&idTipoPeca=${tipoPeca.idTipoPeca}">Excluir</a></td>
                             </tr>
                         </c:forEach>
                         <tr> 

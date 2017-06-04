@@ -104,7 +104,7 @@ public class ArquiteturaDAO {
         List<Arquitetura> arquiteturas = null;
         try {
             tx.begin();
-            TypedQuery<Arquitetura> query = em.createQuery("select a from arquitetura a", Arquitetura.class);
+            TypedQuery<Arquitetura> query = em.createQuery("select a from Arquitetura a", Arquitetura.class);
             arquiteturas = query.getResultList();
             tx.commit();
         } catch (Exception e) {

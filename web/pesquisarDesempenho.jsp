@@ -90,19 +90,19 @@
                 <tbody>
                     <c:forEach items="${desempenhos}" var="desempenho">
                         <tr>
-                            <td><c:out value="${desempenho.idDesempenho}" /></td>
-                            <td><c:out value="${desempenho.idAutomovel}" /></td>
-                            <td><c:out value="${desempenho.idTipoPista}" /></td>
-                            <td><c:out value="${desempenho.matricula}" /></td>
-                            <td><c:out value="${desempenho.nome}" /></td>
-                            <td><c:out value="${desempenho.data}" /></td>
-                            <td><c:out value="${desempenho.hora}" /></td>
-                            <td><c:out value="${desempenho.aceleracaoMedia}" /></td>
-                            <td><c:out value="${desempenho.velocidadeMedia}" /></td>
-                            <td><c:out value="${desempenho.tempoPista}" /></td>
-                            <td><c:out value="${desempenho.frenagem}" /></td>
-                            <td><a class="brown-text text-darken-4" href="ManterDesempenhoController?acao=prepararOperacao&operacao=editar&idDesempenho=<c:out value="${desempenho.idDesempenho}" />">Editar</a></td>
-                            <td><a class="brown-text text-darken-4" href="ManterDesempenhoController?acao=prepararOperacao&operacao=excluir&idDesempenho=<c:out value="${desempenho.idDesempenho}" />">Excluir</a></td>
+                            <td>${desempenho.idDesempenho}</td>
+                            <td>${desempenho.idAutomovel}</td>
+                            <td>${desempenho.idTipoPista}</td>
+                            <td>${desempenho.matricula}</td>
+                            <td>${desempenho.nome}</td>
+                            <td>${desempenho.data}</td>
+                            <td>${desempenho.hora}</td>
+                            <td>${desempenho.aceleracaoMedia}</td>
+                            <td>${desempenho.velocidadeMedia}</td>
+                            <td>${desempenho.tempoPista}</td>
+                            <td>${desempenho.frenagem}</td>
+                            <td><a class="brown-text text-darken-4" href="ManterDesempenhoController?acao=prepararOperacao&operacao=editar&idDesempenho=${desempenho.idDesempenho}">Editar</a></td>
+                            <td><a class="brown-text text-darken-4" href="ManterDesempenhoController?acao=prepararOperacao&operacao=excluir&idDesempenho=${desempenho.idDesempenho}">Excluir</a></td>
                         </tr>
                     </c:forEach>
                     </tr>

@@ -104,7 +104,7 @@ public class TipopecaDAO {
         List<Tipopeca> tipospeca = null;
         try {
             tx.begin();
-            TypedQuery<Tipopeca> query = em.createQuery("select t from tipopeca t", Tipopeca.class);
+            TypedQuery<Tipopeca> query = em.createQuery("select t from Tipopeca t", Tipopeca.class);
             tipospeca = query.getResultList();
             tx.commit();
         } catch (Exception e) {

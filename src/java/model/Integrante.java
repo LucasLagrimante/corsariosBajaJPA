@@ -6,26 +6,44 @@
 package model;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author lucas
  */
-@Entity(name = "integrante")
+@Entity(name = "Integrante")
 @Table(name = "integrante")
 public class Integrante implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "matricula")
     private Integer matricula;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 8)
+    @Column(name = "cargaHorariaDisponivel")
     private String cargaHorariaDisponivel;
-    @ManyToOne
+
+    public Integrante(Integer matricula, String cargaHorariaDisponivel, Pessoa fKpessoa) {
+        this.matricula = matricula;
+        this.cargaHorariaDisponivel = cargaHorariaDisponivel;
+        this.fKpessoa = fKpessoa;
+    }
+
     @JoinColumn(name = "FK_pessoa", referencedColumnName = "idPessoa")
+    @ManyToOne(optional = false)
     private Pessoa fKpessoa;
 
     public Integrante() {
@@ -38,12 +56,6 @@ public class Integrante implements Serializable {
     public Integrante(Integer matricula, String cargaHorariaDisponivel) {
         this.matricula = matricula;
         this.cargaHorariaDisponivel = cargaHorariaDisponivel;
-    }
-
-    public Integrante(Integer matricula, String cargaHorariaDisponivel, Pessoa fKpessoa) {
-        this.matricula = matricula;
-        this.cargaHorariaDisponivel = cargaHorariaDisponivel;
-        this.fKpessoa = fKpessoa;
     }
 
     public Integer getMatricula() {

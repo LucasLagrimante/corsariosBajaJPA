@@ -86,14 +86,14 @@
                         <tbody>
                             <c:forEach items="${competicoes}" var="competicao">
                                 <tr>
-                                    <td><c:out value="${competicao.idCompeticao}" /></td>
-                                    <td><c:out value="${competicao.nome}" /></td>
-                                    <td><c:out value="${competicao.data}" /></td>
-                                    <td><c:out value="${competicao.hora}" /></td>
-                                    <td><c:out value="${competicao.local}" /></td>
-                                    <td><c:out value="${competicao.idTipoPista}" /></td>
-                                    <td><a class="brown-text text-darken-4" href="ManterCompeticaoController?acao=prepararOperacao&operacao=editar&idCompeticao=<c:out value="${competicao.idCompeticao}" />">Editar</a></td>
-                                    <td><a class="brown-text text-darken-4" href="ManterCompeticaoController?acao=prepararOperacao&operacao=excluir&idCompeticao=<c:out value="${competicao.idCompeticao}" />">Excluir</a></td>
+                                    <td>${competicao.idCompeticao}</td>
+                                    <td>${competicao.nome}</td>
+                                    <td>${competicao.data}</td>
+                                    <td>${competicao.hora}</td>
+                                    <td>${competicao.local}</td>
+                                    <td>${competicao.idTipoPista}</td>
+                                    <td><a class="brown-text text-darken-4" href="ManterCompeticaoController?acao=prepararOperacao&operacao=editar&idCompeticao=${competicao.idCompeticao}">Editar</a></td>
+                                    <td><a class="brown-text text-darken-4" href="ManterCompeticaoController?acao=prepararOperacao&operacao=excluir&idCompeticao=${competicao.idCompeticao}">Excluir</a></td>
                                 </tr>
                             </c:forEach>
                             <tr> 

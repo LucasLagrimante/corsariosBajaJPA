@@ -83,12 +83,12 @@
                 <tbody>
                     <c:forEach items="${frequencias}" var="frequencia">
                         <tr>
-                            <td><c:out value="${frequencia.idFrequencia}" /></td>
-                            <td><c:out value="${frequencia.matricula}" /></td>
-                            <td><c:out value="${frequencia.data}" /></td>
-                            <td><c:out value="${frequencia.estado}" /></td>
-                            <td><a class="brown-text text-darken-4" href="ManterFrequenciaController?acao=prepararOperacao&operacao=editar&txtIdFrequencia=<c:out value="${frequencia.idFrequencia}" />">Editar</a></td>
-                            <td><a class="brown-text text-darken-4" href="ManterFrequenciaController?acao=prepararOperacao&operacao=excluir&txtIdFrequencia=<c:out value="${frequencia.idFrequencia}" />">Excluir</a></td>
+                            <td>${frequencia.idFrequencia}</td>
+                            <td>${frequencia.matricula}</td>
+                            <td>${frequencia.data}</td>
+                            <td>${frequencia.estado}</td>
+                            <td><a class="brown-text text-darken-4" href="ManterFrequenciaController?acao=prepararOperacao&operacao=editar&txtIdFrequencia=${frequencia.idFrequencia}">Editar</a></td>
+                            <td><a class="brown-text text-darken-4" href="ManterFrequenciaController?acao=prepararOperacao&operacao=excluir&txtIdFrequencia=${frequencia.idFrequencia}">Excluir</a></td>
                         </tr>
                     </c:forEach>
 

@@ -6,30 +6,75 @@
 package model;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author lucas
  */
-@Entity(name = "pessoa")
+@Entity(name = "Pessoa")
 @Table(name = "pessoa")
 public class Pessoa implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @Id
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "idPessoa")
     private Integer idPessoa;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 40)
+    @Column(name = "nome")
     private String nome;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 14)
+    @Column(name = "cpf")
     private String cpf;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 40)
+    @Column(name = "logradouro")
     private String logradouro;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 9)
+    @Column(name = "cep")
     private String cep;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 40)
+    @Column(name = "bairro")
     private String bairro;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 2)
+    @Column(name = "uf")
     private String uf;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 40)
+    @Column(name = "numero")
     private String numero;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 15)
+    @Column(name = "telefone")
     private String telefone;
+
+    public Pessoa() {
+    }
+
+    public Pessoa(Integer idPessoa) {
+        this.idPessoa = idPessoa;
+    }
 
     public Pessoa(Integer idPessoa, String nome, String cpf, String logradouro, String cep, String bairro, String uf, String numero, String telefone) {
         this.idPessoa = idPessoa;
@@ -41,13 +86,6 @@ public class Pessoa implements Serializable {
         this.uf = uf;
         this.numero = numero;
         this.telefone = telefone;
-    }
-
-    public Pessoa() {
-    }
-
-    public Pessoa(Integer idPessoa) {
-        this.idPessoa = idPessoa;
     }
 
     public Integer getIdPessoa() {

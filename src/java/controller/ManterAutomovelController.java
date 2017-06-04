@@ -20,7 +20,7 @@ import model.Automovel;
  */
 public class ManterAutomovelController extends HttpServlet {
 
-    private Automovel Automovel;
+    private Automovel automovel;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -39,9 +39,9 @@ public class ManterAutomovelController extends HttpServlet {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
             if (!operacao.equals("incluir")) {
-                int idAutomovel = Integer.parseInt(request.getParameter("txtIdAutomovel"));
-                Automovel = AutomovelDAO.getInstance().getAutomovel(idAutomovel);
-                request.setAttribute("Automovel", Automovel);
+                int idAutomovel = Integer.parseInt(request.getParameter("idAutomovel"));
+                automovel = AutomovelDAO.getInstance().getAutomovel(idAutomovel);
+                request.setAttribute("Automovel", automovel);
             }
             RequestDispatcher view = request.getRequestDispatcher("/manterAutomovel.jsp");
             view.forward(request, response);
@@ -65,18 +65,18 @@ public class ManterAutomovelController extends HttpServlet {
             float pesoChassi = Float.parseFloat(request.getParameter("txtPesoChassi"));
             float custoTotal = Float.parseFloat(request.getParameter("txtCustoTotal"));
             if (operacao.equals("incluir")) {
-                Automovel = new Automovel(idAutomovel, cor, nome, dataTerminoProjeto, pesoCarro, pesoChassi, custoTotal);
-                AutomovelDAO.getInstance().salvar(Automovel);
+                automovel = new Automovel(idAutomovel, cor, nome, dataTerminoProjeto, pesoCarro, pesoChassi, custoTotal);
+                AutomovelDAO.getInstance().salvar(automovel);
             } else if (operacao.equals("editar")) {
-                Automovel.setCor(cor);
-                Automovel.setNome(nome);
-                Automovel.setDataTerminoProjeto(dataTerminoProjeto);
-                Automovel.setPesoCarro(pesoCarro);
-                Automovel.setPesoChassi(pesoChassi);
-                Automovel.setCustoTotal(custoTotal);
-                AutomovelDAO.getInstance().alterar(Automovel);
+                automovel.setCor(cor);
+                automovel.setNome(nome);
+                automovel.setDataTerminoProjeto(dataTerminoProjeto);
+                automovel.setPesoCarro(pesoCarro);
+                automovel.setPesoChassi(pesoChassi);
+                automovel.setCustoTotal(custoTotal);
+                AutomovelDAO.getInstance().alterar(automovel);
             } else if (operacao.equals("excluir")) {
-                AutomovelDAO.getInstance().excluir(Automovel);
+                AutomovelDAO.getInstance().excluir(automovel);
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarAutomovelController");
             view.forward(request, response);

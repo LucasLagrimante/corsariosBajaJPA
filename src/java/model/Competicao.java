@@ -6,32 +6,60 @@
 package model;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author lucas
  */
-@Entity(name = "competicao")
+@Entity(name = "Competicao")
 @Table(name = "competicao")
 public class Competicao implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "idCompeticao")
     private Integer idCompeticao;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 40)
+    @Column(name = "nome")
     private String nome;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 30)
+    @Column(name = "data")
     private String data;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 8)
+    @Column(name = "hora")
     private String hora;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 40)
+    @Column(name = "local")
     private String local;
-    @ManyToOne
     @JoinColumn(name = "FK_tipopista", referencedColumnName = "idTipopista")
+    @ManyToOne(optional = false)
     private Tipopista fKtipopista;
+
+    public Competicao() {
+    }
+
+    public Competicao(Integer idCompeticao) {
+        this.idCompeticao = idCompeticao;
+    }
 
     public Competicao(Integer idCompeticao, String nome, String data, String hora, String local, Tipopista fKtipopista) {
         this.idCompeticao = idCompeticao;
@@ -40,13 +68,6 @@ public class Competicao implements Serializable {
         this.hora = hora;
         this.local = local;
         this.fKtipopista = fKtipopista;
-    }
-
-    public Competicao() {
-    }
-
-    public Competicao(Integer idCompeticao) {
-        this.idCompeticao = idCompeticao;
     }
 
     public Competicao(Integer idCompeticao, String nome, String data, String hora, String local) {

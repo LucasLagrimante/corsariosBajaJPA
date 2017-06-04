@@ -81,10 +81,10 @@
                     <tbody>
                         <c:forEach items="${tiposPista}" var="tipoPista">
                             <tr>
-                                <td><c:out value="${tipoPista.idTipoPista}" /></td>
-                                <td><c:out value="${tipoPista.nome}" /></td>
-                                <td><a class="brown-text text-darken-4" href="ManterTipopistaController?acao=prepararOperacao&operacao=editar&idTipoPista=<c:out value="${tipoPista.idTipoPista}" />">Editar</a></td>
-                                <td><a class="brown-text text-darken-4" href="ManterTipopistaController?acao=prepararOperacao&operacao=excluir&idTipoPista=<c:out value="${tipoPista.idTipoPista}" />">Excluir</a></td>
+                                <td>${tipoPista.idTipoPista}</td>
+                                <td>${tipoPista.nome}</td>
+                                <td><a class="brown-text text-darken-4" href="ManterTipopistaController?acao=prepararOperacao&operacao=editar&idTipoPista=${tipoPista.idTipoPista}">Editar</a></td>
+                                <td><a class="brown-text text-darken-4" href="ManterTipopistaController?acao=prepararOperacao&operacao=excluir&idTipoPista=${tipoPista.idTipoPista}">Excluir</a></td>
                             </tr>
                         </c:forEach>
                         <tr> 

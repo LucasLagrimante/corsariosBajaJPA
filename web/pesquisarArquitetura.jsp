@@ -82,11 +82,11 @@
                     <tbody>
                         <c:forEach items="${arquiteturas}" var="arquitetura">
                             <tr>
-                                <td><c:out value="${arquitetura.idArquitetura}" /></td>
-                                <td><c:out value="${arquitetura.caminhoImagem}" /></td>
-                                <td><c:out value="${arquitetura.idAutomovel}" /></td>
-                                <td><a class="brown-text text-darken-4" href="ManterArquiteturaController?acao=prepararOperacao&operacao=editar&idArquitetura=<c:out value="${arquitetura.idArquitetura}" />">Editar</a></td>
-                                <td><a class="brown-text text-darken-4" href="ManterArquiteturaController?acao=prepararOperacao&operacao=excluir&idArquitetura=<c:out value="${arquitetura.idArquitetura}" />">Excluir</a></td>
+                                <td>${arquitetura.idArquitetura}</td>
+                                <td>${arquitetura.caminhoImagem}</td>
+                                <td>${arquitetura.fKautomovel.nome}</td>
+                                <td><a class="brown-text text-darken-4" href="ManterArquiteturaController?acao=prepararOperacao&operacao=editar&idArquitetura=${arquitetura.idArquitetura}">Editar</a></td>
+                                <td><a class="brown-text text-darken-4" href="ManterArquiteturaController?acao=prepararOperacao&operacao=excluir&idArquitetura=${arquitetura.idArquitetura}">Excluir</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

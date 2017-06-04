@@ -6,30 +6,50 @@
 package model;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author lucas
  */
-@Entity(name = "peca")
+@Entity(name = "Peca")
 @Table(name = "peca")
 public class Peca implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @Id
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "idPeca")
     private Integer idPeca;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "quantidade")
     private int quantidade;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 40)
+    @Column(name = "nome")
     private String nome;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 40)
+    @Column(name = "modelo")
     private String modelo;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "precoCompra")
     private float precoCompra;
-    @ManyToOne
     @JoinColumn(name = "FK_tipopeca", referencedColumnName = "idTipopeca")
+    @ManyToOne(optional = false)
     private Tipopeca fKtipopeca;
 
     public Peca(Integer idPeca, int quantidade, String nome, String modelo, float precoCompra, Tipopeca fKtipopeca) {

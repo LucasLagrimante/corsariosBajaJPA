@@ -85,15 +85,15 @@
                 <tbody>
                     <c:forEach items="${automoveis}" var="automovel">
                         <tr>
-                            <td><c:out value="${automovel.idAutomovel}" /></td>
-                            <td><c:out value="${automovel.nome}" /></td>
-                            <td><c:out value="${automovel.cor}" /></td>
-                            <td><c:out value="${automovel.dataTerminoProjeto}" /></td>
-                            <td><c:out value="${automovel.pesoCarro}" /></td>
-                            <td><c:out value="${automovel.pesoChassi}" /></td>
-                            <td><c:out value="${automovel.custoTotal}" /></td>
-                            <td><a class="brown-text text-darken-4" href="ManterAutomovelController?acao=prepararOperacao&operacao=editar&idAutomovel=<c:out value="${automovel.idAutomovel}" />">Editar</a></td>
-                            <td><a class="brown-text text-darken-4" href="ManterAutomovelController?acao=prepararOperacao&operacao=excluir&idAutomovel=<c:out value="${automovel.idAutomovel}" />">Excluir</a></td>
+                            <td>${automovel.idAutomovel}</td>
+                            <td>${automovel.nome}</td>
+                            <td>${automovel.cor}</td>
+                            <td>${automovel.dataTerminoProjeto}</td>
+                            <td>${automovel.pesoCarro}</td>
+                            <td>${automovel.pesoChassi}</td>
+                            <td>${automovel.custoTotal}</td>
+                            <td><a class="brown-text text-darken-4" href="ManterAutomovelController?acao=prepararOperacao&operacao=editar&idAutomovel=${automovel.idAutomovel}">Editar</a></td>
+                            <td><a class="brown-text text-darken-4" href="ManterAutomovelController?acao=prepararOperacao&operacao=excluir&idAutomovel=${automovel.idAutomovel}">Excluir</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

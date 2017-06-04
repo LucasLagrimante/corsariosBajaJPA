@@ -6,28 +6,37 @@
 package model;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author lucas
  */
-@Entity(name = "arquitetura")
+@Entity(name = "Arquitetura")
 @Table(name = "arquitetura")
 public class Arquitetura implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "idArquitetura")
     private Integer idArquitetura;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "caminhoImagem")
     private String caminhoImagem;
-    @ManyToOne
     @JoinColumn(name = "FK_automovel", referencedColumnName = "idAutomovel")
+    @ManyToOne
     private Automovel fKautomovel;
 
     public Arquitetura() {
@@ -37,19 +46,14 @@ public class Arquitetura implements Serializable {
         this.idArquitetura = idArquitetura;
     }
 
-    public Arquitetura(Integer idArquitetura, String caminhoImagem) {
-        this.idArquitetura = idArquitetura;
-        this.caminhoImagem = caminhoImagem;
-    }
-
-    public Integer getIdArquitetura() {
-        return idArquitetura;
-    }
-
     public Arquitetura(Integer idArquitetura, String caminhoImagem, Automovel fKautomovel) {
         this.idArquitetura = idArquitetura;
         this.caminhoImagem = caminhoImagem;
         this.fKautomovel = fKautomovel;
+    }
+
+    public Integer getIdArquitetura() {
+        return idArquitetura;
     }
 
     public void setIdArquitetura(Integer idArquitetura) {

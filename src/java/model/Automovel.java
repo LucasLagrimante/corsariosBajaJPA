@@ -6,25 +6,54 @@
 package model;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author lucas
  */
-@Entity(name = "automovel")
+@Entity(name = "Automovel")
 @Table(name = "automovel")
 public class Automovel implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @Id
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "idAutomovel")
     private Integer idAutomovel;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 15)
+    @Column(name = "cor")
     private String cor;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 40)
+    @Column(name = "nome")
     private String nome;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 30)
+    @Column(name = "dataTerminoProjeto")
     private String dataTerminoProjeto;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "pesoCarro")
     private float pesoCarro;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "pesoChassi")
     private float pesoChassi;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "custoTotal")
     private float custoTotal;
 
     public Automovel() {
@@ -122,7 +151,6 @@ public class Automovel implements Serializable {
 
     @Override
     public String toString() {
-        return "modelo.Automovel[ idAutomovel=" + idAutomovel + " ]";
+        return "model.Automovel[ idAutomovel=" + idAutomovel + " ]";
     }
-
 }

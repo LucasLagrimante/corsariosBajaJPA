@@ -81,11 +81,11 @@
                 <tbody>
                     <c:forEach items="${integrantes}" var="integrante">
                         <tr>
-                            <td><c:out value="${integrante.matricula}" /></td>
-                            <td><c:out value="${integrante.cargaHorariaDisponivel}" /></td>
-                            <td><c:out value="${integrante.idPessoa}" /></td>
-                            <td><a class="brown-text text-darken-4" href="ManterIntegranteController?acao=prepararOperacao&operacao=editar&txtMatricula=<c:out value="${integrante.matricula}" />">Editar</a></td>
-                            <td><a class="brown-text text-darken-4" href="ManterIntegranteController?acao=prepararOperacao&operacao=excluir&txtMatricula=<c:out value="${integrante.matricula}" />">Excluir</a></td>
+                            <td>${integrante.matricula}</td>
+                            <td>${integrante.cargaHorariaDisponivel}</td>
+                            <td>${integrante.idPessoa}</td>
+                            <td><a class="brown-text text-darken-4" href="ManterIntegranteController?acao=prepararOperacao&operacao=editar&txtMatricula=${integrante.matricula}">Editar</a></td>
+                            <td><a class="brown-text text-darken-4" href="ManterIntegranteController?acao=prepararOperacao&operacao=excluir&txtMatricula=${integrante.matricula}">Excluir</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

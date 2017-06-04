@@ -2,6 +2,35 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/TipopistaDAO.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/model/Frequencia.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/DesignDAO.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/FrequenciaDAO.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/PessoaDAO.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/AutomovelDAO.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/model/Desempenho.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/model/Tipopeca.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/model/Arquitetura.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterIntegranteController.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/ArquiteturaDAO.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/TipopecaDAO.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/DesempenhotesteDAO.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/DesempenhoDAO.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/model/Integrante.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/model/Design.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/PecaDAO.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/CompeticaoDAO.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/model/Automovel.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/model/Peca.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/AvaliacaoDAO.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/model/Avaliacao.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/model/Pessoa.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/model/Desempenhoteste.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/model/Competicao.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterAutomovelController.java</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/conf/persistence.xml</file>
+            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/IntegranteDAO.java</file>
+        </group>
     </open-files>
 </project-private>

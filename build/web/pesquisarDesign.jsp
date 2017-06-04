@@ -82,11 +82,11 @@
                     <tbody>
                         <c:forEach items="${designs}" var="design">
                             <tr>
-                                <td><c:out value="${design.idDesign}" /></td>
-                                <td><c:out value="${design.caminhoImagem}" /></td>
-                                <td><c:out value="${design.idAutomovel}" /></td>
-                                <td><a class="brown-text text-darken-4" href="ManterDesignController?acao=prepararOperacao&operacao=editar&idDesign=<c:out value="${design.idDesign}" />">Editar</a></td>
-                                <td><a class="brown-text text-darken-4" href="ManterDesignController?acao=prepararOperacao&operacao=excluir&idDesign=<c:out value="${design.idDesign}" />">Excluir</a></td>
+                                <td>${design.idDesign}</td>
+                                <td>${design.caminhoImagem}</td>
+                                <td>${design.idAutomovel}</td>
+                                <td><a class="brown-text text-darken-4" href="ManterDesignController?acao=prepararOperacao&operacao=editar&idDesign=${design.idDesign}">Editar</a></td>
+                                <td><a class="brown-text text-darken-4" href="ManterDesignController?acao=prepararOperacao&operacao=excluir&idDesign=${design.idDesign}">Excluir</a></td>
                             </tr>
                         </c:forEach>
                         <tr> 

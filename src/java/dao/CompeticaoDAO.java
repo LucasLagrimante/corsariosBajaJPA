@@ -104,7 +104,7 @@ public class CompeticaoDAO {
         List<Competicao> competicoes = null;
         try {
             tx.begin();
-            TypedQuery<Competicao> query = em.createQuery("select c from competicao c", Competicao.class);
+            TypedQuery<Competicao> query = em.createQuery("select c from Competicao c", Competicao.class);
             competicoes = query.getResultList();
             tx.commit();
         } catch (Exception e) {

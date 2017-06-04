@@ -102,7 +102,7 @@ public class DesempenhoDAO {
         List<Desempenho> desempenhos = null;
         try {
             tx.begin();
-            TypedQuery<Desempenho> query = em.createQuery("select d from desempenho d", Desempenho.class);
+            TypedQuery<Desempenho> query = em.createQuery("select d from Desempenho d", Desempenho.class);
             desempenhos = query.getResultList();
             tx.commit();
         } catch (Exception e) {
@@ -122,7 +122,7 @@ public class DesempenhoDAO {
         List<Desempenho> desempenhos = null;
         try {
             tx.begin();
-            TypedQuery<Desempenho> query = em.createQuery("select d from desempenho d", Desempenho.class);
+            TypedQuery<Desempenho> query = em.createQuery("select d from Desempenho d", Desempenho.class);
             desempenhos = query.getResultList();
             tx.commit();
         } catch (Exception e) {

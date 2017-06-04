@@ -104,7 +104,7 @@ public class PessoaDAO {
         List<Pessoa> pessoas = null;
         try {
             tx.begin();
-            TypedQuery<Pessoa> query = em.createQuery("select p from pessoa p", Pessoa.class);
+            TypedQuery<Pessoa> query = em.createQuery("select p from Pessoa p", Pessoa.class);
             pessoas = query.getResultList();
             tx.commit();
         } catch (Exception e) {
