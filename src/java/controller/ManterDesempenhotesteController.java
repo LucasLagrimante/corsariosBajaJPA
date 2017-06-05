@@ -68,7 +68,7 @@ public class ManterDesempenhotesteController extends HttpServlet {
             throws ServletException, IOException {
         try {
             String operacao = request.getParameter("operacao");
-            int idDesempenho = Integer.parseInt(request.getParameter("txtIdDesempenho"));
+            int idDesempenho = Integer.parseInt(request.getParameter("txtIdDesempenhoteste"));
             String nome = request.getParameter("txtNome");
             String data = request.getParameter("txtData");
             String hora = request.getParameter("txtHora");

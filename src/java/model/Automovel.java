@@ -14,10 +14,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-/**
- *
- * @author lucas
- */
 @Entity(name = "Automovel")
 @Table(name = "automovel")
 public class Automovel implements Serializable {
@@ -153,5 +149,4 @@ public class Automovel implements Serializable {
     public String toString() {
         return "model.Automovel[ idAutomovel=" + idAutomovel + " ]";
     }
-
 }
