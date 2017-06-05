@@ -201,7 +201,7 @@ INSERT INTO `desempenho` (`idDesempenho`, `nome`, `data`, `hora`, `aceleracaoMed
 
 DROP TABLE IF EXISTS `desempenhoteste`;
 CREATE TABLE IF NOT EXISTS `desempenhoteste` (
-  `idDesempenhoTeste` int(11) NOT NULL,
+  `idDesempenhoteste` int(11) NOT NULL,
   `nome` varchar(20) NOT NULL,
   `data` varchar(30) NOT NULL,
   `hora` varchar(8) NOT NULL,
@@ -212,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `desempenhoteste` (
   `FK_automovel` int(11) NOT NULL,
   `FK_tipopista` int(11) NOT NULL,
   `FK_motorista` int(11) NOT NULL,
-  PRIMARY KEY (`idDesempenhoTeste`),
+  PRIMARY KEY (`idDesempenhoteste`),
   KEY `FK_automovel_desempenhoteste` (`FK_automovel`),
   KEY `FK_tipopista_desempenhoteste` (`FK_tipopista`),
   KEY `FK_integrante_desempenhoteste` (`FK_motorista`)
@@ -222,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `desempenhoteste` (
 -- Fazendo dump de dados para tabela `desempenhoteste`
 --
 
-INSERT INTO `desempenhoteste` (`idDesempenhoTeste`, `nome`, `data`, `hora`, `velocidadeMedia`, `aceleracaoMedia`, `tempoPista`, `frenagem`, `FK_automovel`, `FK_tipopista`, `FK_motorista`) VALUES
+INSERT INTO `desempenhoteste` (`idDesempenhoteste`, `nome`, `data`, `hora`, `velocidadeMedia`, `aceleracaoMedia`, `tempoPista`, `frenagem`, `FK_automovel`, `FK_tipopista`, `FK_motorista`) VALUES
 (1, 'JFFFF TESTE', '2014-12-02', '16:00', 6, 33, '01:33', 9, 1, 1, 1),
 (2, 'Fast Fast TESTE', '2015-10-02', '18:00', 7, 35, '02:33', 8, 2, 2, 2),
 (3, 'Badumtis TESTE', '2012-09-02', '20:00', 8, 40, '00:33', 7, 3, 3, 3),

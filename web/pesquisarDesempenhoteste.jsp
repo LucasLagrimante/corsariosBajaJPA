@@ -88,21 +88,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${desempenhosTeste}" var="desempenhoTeste">
+                        <c:forEach items="${desempenhosteste}" var="desempenhoteste">
                             <tr>
-                                <td>${desempenhoTeste.idDesempenhoTeste}</td>
-                                <td>${desempenhoTeste.idAutomovel}</td>
-                                <td>${desempenhoTeste.idTipoPista}</td>
-                                <td>${desempenhoTeste.matricula}</td>
-                                <td>${desempenhoTeste.nome}</td>
-                                <td>${desempenhoTeste.data}</td>
-                                <td>${desempenhoTeste.hora}</td>
-                                <td>${desempenhoTeste.aceleracaoMedia}</td>
-                                <td>${desempenhoTeste.velocidadeMedia}</td>
-                                <td>${desempenhoTeste.tempoPista}</td>
-                                <td>${desempenhoTeste.frenagem}</td>
-                                <td><a class="brown-text text-darken-4" href="ManterDesempenhotesteController?acao=prepararOperacao&operacao=editar&idDesempenhoTeste=${desempenhoTeste.idDesempenhoTeste}">Editar</a></td>
-                                <td><a class="brown-text text-darken-4" href="ManterDesempenhotesteController?acao=prepararOperacao&operacao=excluir&idDesempenhoTeste=${desempenhoTeste.idDesempenhoTeste}">Excluir</a></td>
+                                <td>${desempenhoteste.idDesempenhoteste}</td>
+                                <td>${desempenhoteste.FKautomovel.nome}</td>
+                                <td>${desempenhoteste.FKtipopista.nome}</td>
+                                <td>${desempenhoteste.FKmotorista.FKpessoa.nome}</td>
+                                <td>${desempenhoteste.nome}</td>
+                                <td>${desempenhoteste.data}</td>
+                                <td>${desempenhoteste.hora}</td>
+                                <td>${desempenhoteste.aceleracaoMedia}</td>
+                                <td>${desempenhoteste.velocidadeMedia}</td>
+                                <td>${desempenhoteste.tempoPista}</td>
+                                <td>${desempenhoteste.frenagem}</td>
+                                <td><a class="brown-text text-darken-4" href="ManterDesempenhotesteController?acao=prepararOperacao&operacao=editar&idDesempenhoteste=${desempenhoteste.idDesempenhoteste}">Editar</a></td>
+                                <td><a class="brown-text text-darken-4" href="ManterDesempenhotesteController?acao=prepararOperacao&operacao=excluir&idDesempenhoteste=${desempenhoteste.idDesempenhoteste}">Excluir</a></td>
                             </tr>
                         </c:forEach>
                         <tr> 

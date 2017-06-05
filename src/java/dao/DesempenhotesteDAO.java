@@ -85,7 +85,7 @@ public class DesempenhotesteDAO {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            em.remove(em.getReference(Desempenhoteste.class, desempenhoTeste.getIdDesempenhoTeste()));
+            em.remove(em.getReference(Desempenhoteste.class, desempenhoTeste.getIdDesempenhoteste()));
             tx.commit();
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {

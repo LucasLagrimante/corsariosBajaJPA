@@ -8,12 +8,15 @@ package model;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -22,6 +25,9 @@ import javax.validation.constraints.Size;
 @Entity(name = "Tipopista")
 @Table(name = "tipopista")
 public class Tipopista implements Serializable {
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fKtipopista")
+    private Collection<Desempenhoteste> desempenhotesteCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -86,6 +92,15 @@ public class Tipopista implements Serializable {
     @Override
     public String toString() {
         return "model.Tipopista[ idTipopista=" + idTipopista + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Desempenhoteste> getDesempenhotesteCollection() {
+        return desempenhotesteCollection;
+    }
+
+    public void setDesempenhotesteCollection(Collection<Desempenhoteste> desempenhotesteCollection) {
+        this.desempenhotesteCollection = desempenhotesteCollection;
     }
 
 }

@@ -91,7 +91,7 @@
                                     <td>${competicao.data}</td>
                                     <td>${competicao.hora}</td>
                                     <td>${competicao.local}</td>
-                                    <td>${competicao.idTipoPista}</td>
+                                    <td>${competicao.FKtipopista.nome}</td>
                                     <td><a class="brown-text text-darken-4" href="ManterCompeticaoController?acao=prepararOperacao&operacao=editar&idCompeticao=${competicao.idCompeticao}">Editar</a></td>
                                     <td><a class="brown-text text-darken-4" href="ManterCompeticaoController?acao=prepararOperacao&operacao=excluir&idCompeticao=${competicao.idCompeticao}">Excluir</a></td>
                                 </tr>

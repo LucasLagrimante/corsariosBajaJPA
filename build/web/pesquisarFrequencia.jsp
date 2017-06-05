@@ -68,13 +68,12 @@
             </div>
         </nav>
         <div class="container">
-            <br><br><br><br>
             <h3 align="center">Pesquisa de Frequência</h3>
             <table class="striped centered">
                 <thead>
                     <tr>
                         <th>Código Frequência</th>
-                        <th>Matricula Integrante</th>
+                        <th>Integrante</th>
                         <th>Data</th>
                         <th>Estado</th>
                         <th colspan="2">Ação</th>
@@ -84,11 +83,11 @@
                     <c:forEach items="${frequencias}" var="frequencia">
                         <tr>
                             <td>${frequencia.idFrequencia}</td>
-                            <td>${frequencia.matricula}</td>
+                            <td>${frequencia.FKintegrante.FKpessoa.nome}</td>
                             <td>${frequencia.data}</td>
                             <td>${frequencia.estado}</td>
-                            <td><a class="brown-text text-darken-4" href="ManterFrequenciaController?acao=prepararOperacao&operacao=editar&txtIdFrequencia=${frequencia.idFrequencia}">Editar</a></td>
-                            <td><a class="brown-text text-darken-4" href="ManterFrequenciaController?acao=prepararOperacao&operacao=excluir&txtIdFrequencia=${frequencia.idFrequencia}">Excluir</a></td>
+                            <td><a class="brown-text text-darken-4" href="ManterFrequenciaController?acao=prepararOperacao&operacao=editar&idFrequencia=${frequencia.idFrequencia}">Editar</a></td>
+                            <td><a class="brown-text text-darken-4" href="ManterFrequenciaController?acao=prepararOperacao&operacao=excluir&idFrequencia=${frequencia.idFrequencia}">Excluir</a></td>
                         </tr>
                     </c:forEach>
 

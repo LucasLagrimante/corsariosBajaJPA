@@ -83,9 +83,9 @@
                         <tr>
                             <td>${integrante.matricula}</td>
                             <td>${integrante.cargaHorariaDisponivel}</td>
-                            <td>${integrante.idPessoa}</td>
-                            <td><a class="brown-text text-darken-4" href="ManterIntegranteController?acao=prepararOperacao&operacao=editar&txtMatricula=${integrante.matricula}">Editar</a></td>
-                            <td><a class="brown-text text-darken-4" href="ManterIntegranteController?acao=prepararOperacao&operacao=excluir&txtMatricula=${integrante.matricula}">Excluir</a></td>
+                            <td>${integrante.FKpessoa.nome}</td>
+                            <td><a class="brown-text text-darken-4" href="ManterIntegranteController?acao=prepararOperacao&operacao=editar&matricula=${integrante.matricula}">Editar</a></td>
+                            <td><a class="brown-text text-darken-4" href="ManterIntegranteController?acao=prepararOperacao&operacao=excluir&matricula=${integrante.matricula}">Excluir</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

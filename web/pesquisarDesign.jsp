@@ -84,7 +84,7 @@
                             <tr>
                                 <td>${design.idDesign}</td>
                                 <td>${design.caminhoImagem}</td>
-                                <td>${design.idAutomovel}</td>
+                                <td>${design.FKautomovel.nome}</td>
                                 <td><a class="brown-text text-darken-4" href="ManterDesignController?acao=prepararOperacao&operacao=editar&idDesign=${design.idDesign}">Editar</a></td>
                                 <td><a class="brown-text text-darken-4" href="ManterDesignController?acao=prepararOperacao&operacao=excluir&idDesign=${design.idDesign}">Excluir</a></td>
                             </tr>

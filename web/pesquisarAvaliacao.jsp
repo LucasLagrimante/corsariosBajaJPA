@@ -68,7 +68,7 @@
                     <thead>
                         <tr>
                             <th>Código Avaliação</th>
-                            <th>Matricula Integante</th>
+                            <th>Integante</th>
                             <th>Frequencia Avaliação</th>
                             <th>Desempenho Avaliação</th>
                             <th>Data Avaliação</th>
@@ -79,7 +79,7 @@
                         <c:forEach items="${avaliacoes}" var="avaliacao">
                             <tr>
                                 <td>${avaliacao.idAvaliacao}</td>
-                                <td>${avaliacao.matricula}</td>
+                                <td>${avaliacao.FKintegrante.FKpessoa.nome}</td>
                                 <td>${avaliacao.frequencia}</td>
                                 <td>${avaliacao.comparecimento}</td>
                                 <td>${avaliacao.data}</td>

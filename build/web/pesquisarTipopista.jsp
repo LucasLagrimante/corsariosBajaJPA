@@ -79,12 +79,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${tipospista}" var="tipospista">
+                        <c:forEach items="${tipospista}" var="tipopista">
                             <tr>
-                                <td>${tipospista.idTipopista}</td>
-                                <td>${tipospista.nome}</td>
-                                <td><a class="brown-text text-darken-4" href="ManterTipopistaController?acao=prepararOperacao&operacao=editar&idTipoPista=${tipospista.idTipopista}">Editar</a></td>
-                                <td><a class="brown-text text-darken-4" href="ManterTipopistaController?acao=prepararOperacao&operacao=excluir&idTipoPista=${tipospista.idTipopista}">Excluir</a></td>
+                                <td>${tipopista.idTipopista}</td>
+                                <td>${tipopista.nome}</td>
+                                <td><a class="brown-text text-darken-4" href="ManterTipopistaController?acao=prepararOperacao&operacao=editar&idTipopista=${tipopista.idTipopista}">Editar</a></td>
+                                <td><a class="brown-text text-darken-4" href="ManterTipopistaController?acao=prepararOperacao&operacao=excluir&idTipopista=${tipopista.idTipopista}">Excluir</a></td>
                             </tr>
                         </c:forEach>
                         <tr> 

@@ -6,13 +6,17 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -21,6 +25,9 @@ import javax.validation.constraints.Size;
 @Entity(name = "Pessoa")
 @Table(name = "pessoa")
 public class Pessoa implements Serializable {
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fKpessoa")
+    private Collection<Integrante> integranteCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -183,6 +190,15 @@ public class Pessoa implements Serializable {
     @Override
     public String toString() {
         return "model.Pessoa[ idPessoa=" + idPessoa + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Integrante> getIntegranteCollection() {
+        return integranteCollection;
+    }
+
+    public void setIntegranteCollection(Collection<Integrante> integranteCollection) {
+        this.integranteCollection = integranteCollection;
     }
 
 }

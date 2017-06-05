@@ -91,9 +91,9 @@
                     <c:forEach items="${desempenhos}" var="desempenho">
                         <tr>
                             <td>${desempenho.idDesempenho}</td>
-                            <td>${desempenho.idAutomovel}</td>
-                            <td>${desempenho.idTipoPista}</td>
-                            <td>${desempenho.matricula}</td>
+                            <td>${desempenho.FKautomovel.nome}</td>
+                            <td>${desempenho.FKtipopista.nome}</td>
+                            <td>${desempenho.FKmotorista.FKpessoa.nome}</td>
                             <td>${desempenho.nome}</td>
                             <td>${desempenho.data}</td>
                             <td>${desempenho.hora}</td>

@@ -89,9 +89,9 @@
                             <td>${peca.quantidade}</td>
                             <td>${peca.modelo}</td>
                             <td>${peca.precoCompra}</td>                   
-                            <td>${peca.idTipoPeca}</td>
-                            <td><a class="brown-text text-darken-4" href="ManterPecaController?acao=prepararOperacao&operacao=editar&txtIdPeca=${peca.idPeca}">Editar</a></td>
-                            <td><a class="brown-text text-darken-4" href="ManterPecaController?acao=prepararOperacao&operacao=excluir&txtIdPeca=${peca.idPeca}">Excluir</a></td>
+                            <td>${peca.FKtipopeca.nome}</td>
+                            <td><a class="brown-text text-darken-4" href="ManterPecaController?acao=prepararOperacao&operacao=editar&idPeca=${peca.idPeca}">Editar</a></td>
+                            <td><a class="brown-text text-darken-4" href="ManterPecaController?acao=prepararOperacao&operacao=excluir&idPeca=${peca.idPeca}">Excluir</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

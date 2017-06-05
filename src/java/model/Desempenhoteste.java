@@ -28,8 +28,8 @@ public class Desempenhoteste implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "idDesempenhoTeste")
-    private Integer idDesempenhoTeste;
+    @Column(name = "idDesempenhoteste")
+    private Integer idDesempenhoteste;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
@@ -49,20 +49,6 @@ public class Desempenhoteste implements Serializable {
     @NotNull
     @Column(name = "velocidadeMedia")
     private float velocidadeMedia;
-
-    public Desempenhoteste(Integer idDesempenhoTeste, String nome, String data, String hora, float velocidadeMedia, float aceleracaoMedia, String tempoPista, float frenagem, Automovel fKautomovel, Integrante fKmotorista, Tipopista fKtipopista) {
-        this.idDesempenhoTeste = idDesempenhoTeste;
-        this.nome = nome;
-        this.data = data;
-        this.hora = hora;
-        this.velocidadeMedia = velocidadeMedia;
-        this.aceleracaoMedia = aceleracaoMedia;
-        this.tempoPista = tempoPista;
-        this.frenagem = frenagem;
-        this.fKautomovel = fKautomovel;
-        this.fKmotorista = fKmotorista;
-        this.fKtipopista = fKtipopista;
-    }
     @Basic(optional = false)
     @NotNull
     @Column(name = "aceleracaoMedia")
@@ -89,12 +75,12 @@ public class Desempenhoteste implements Serializable {
     public Desempenhoteste() {
     }
 
-    public Desempenhoteste(Integer idDesempenhoTeste) {
-        this.idDesempenhoTeste = idDesempenhoTeste;
+    public Desempenhoteste(Integer idDesempenhoteste) {
+        this.idDesempenhoteste = idDesempenhoteste;
     }
 
-    public Desempenhoteste(Integer idDesempenhoTeste, String nome, String data, String hora, float velocidadeMedia, float aceleracaoMedia, String tempoPista, float frenagem) {
-        this.idDesempenhoTeste = idDesempenhoTeste;
+    public Desempenhoteste(Integer idDesempenhoteste, String nome, String data, String hora, float velocidadeMedia, float aceleracaoMedia, String tempoPista, float frenagem) {
+        this.idDesempenhoteste = idDesempenhoteste;
         this.nome = nome;
         this.data = data;
         this.hora = hora;
@@ -104,12 +90,12 @@ public class Desempenhoteste implements Serializable {
         this.frenagem = frenagem;
     }
 
-    public Integer getIdDesempenhoTeste() {
-        return idDesempenhoTeste;
+    public Integer getIdDesempenhoteste() {
+        return idDesempenhoteste;
     }
 
-    public void setIdDesempenhoTeste(Integer idDesempenhoTeste) {
-        this.idDesempenhoTeste = idDesempenhoTeste;
+    public void setIdDesempenhoteste(Integer idDesempenhoteste) {
+        this.idDesempenhoteste = idDesempenhoteste;
     }
 
     public String getNome() {
@@ -195,7 +181,7 @@ public class Desempenhoteste implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idDesempenhoTeste != null ? idDesempenhoTeste.hashCode() : 0);
+        hash += (idDesempenhoteste != null ? idDesempenhoteste.hashCode() : 0);
         return hash;
     }
 
@@ -206,7 +192,7 @@ public class Desempenhoteste implements Serializable {
             return false;
         }
         Desempenhoteste other = (Desempenhoteste) object;
-        if ((this.idDesempenhoTeste == null && other.idDesempenhoTeste != null) || (this.idDesempenhoTeste != null && !this.idDesempenhoTeste.equals(other.idDesempenhoTeste))) {
+        if ((this.idDesempenhoteste == null && other.idDesempenhoteste != null) || (this.idDesempenhoteste != null && !this.idDesempenhoteste.equals(other.idDesempenhoteste))) {
             return false;
         }
         return true;
@@ -214,7 +200,7 @@ public class Desempenhoteste implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Desempenhoteste[ idDesempenhoTeste=" + idDesempenhoTeste + " ]";
+        return "model.Desempenhoteste[ idDesempenhoteste=" + idDesempenhoteste + " ]";
     }
 
 }

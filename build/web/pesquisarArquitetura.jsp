@@ -84,7 +84,7 @@
                             <tr>
                                 <td>${arquitetura.idArquitetura}</td>
                                 <td>${arquitetura.caminhoImagem}</td>
-                                <td>${arquitetura.fKautomovel.nome}</td>
+                                <td>${arquitetura.FKautomovel.nome}</td>
                                 <td><a class="brown-text text-darken-4" href="ManterArquiteturaController?acao=prepararOperacao&operacao=editar&idArquitetura=${arquitetura.idArquitetura}">Editar</a></td>
                                 <td><a class="brown-text text-darken-4" href="ManterArquiteturaController?acao=prepararOperacao&operacao=excluir&idArquitetura=${arquitetura.idArquitetura}">Excluir</a></td>
                             </tr>
