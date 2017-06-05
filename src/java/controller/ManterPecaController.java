@@ -69,10 +69,10 @@ public class ManterPecaController extends HttpServlet {
             String modelo = request.getParameter("txtModelo");
             float precoCompra = Float.parseFloat(request.getParameter("txtPrecoCompra"));
             //chave estrangeira
-            int idTipoPeca = Integer.parseInt(request.getParameter("selectTipoPeca"));
+            int idTipopeca = Integer.parseInt(request.getParameter("selectTipopeca"));
             Tipopeca tipopeca = null;
-            if (idTipoPeca != 0) {
-                tipopeca = TipopecaDAO.getInstance().getTipopeca(idTipoPeca);
+            if (idTipopeca != 0) {
+                tipopeca = TipopecaDAO.getInstance().getTipopeca(idTipopeca);
             }
             if (operacao.equals("incluir")) {
                 peca = new Peca(idPeca, quantidade, nome, modelo, precoCompra, tipopeca);

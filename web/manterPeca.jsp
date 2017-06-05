@@ -105,19 +105,19 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectTipoPeca" value="${peca.tipopeca.idTipoPeca}"></c:if>
-                        <select id="tipoPeca" name="selectTipoPeca" required="required"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
-                            <c:forEach items="${tipopecas}" var="tipopeca">
-                                <option value="${tipopeca.idTipoPeca}" <c:if test="${peca.tipopeca.idTipoPeca == tipopeca.idTipoPeca}"> selected</c:if>> ${tipopeca.nome} </option>
+                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectTipopeca" value="${peca.tipopeca.idTipopeca}"></c:if>
+                        <select id="tipopeca" name="selectTipopeca" required="required"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
+                            <c:forEach items="${tipospeca}" var="tipopeca">
+                                <option value="${tipopeca.idTipopeca}" <c:if test="${peca.tipopeca.idTipopeca == tipopeca.idTipopeca}"> selected</c:if>> ${tipopeca.nome} </option>
                             </c:forEach>
                         </select>
-                        <label data-error="errado" data-success="certo" for="tipoPeca">Tipo Peça</label>
+                        <label data-error="errado" data-success="certo" for="tipopeca">Tipo Peça</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col s12 center-align">
-                        <a class="waves-effect waves-light btn brown darken-4" id="cadastrarTipoPeca">Cadastrar Tipos de Peça</a>
+                        <a class="waves-effect waves-light btn brown darken-4" id="cadastrarTipopeca">Cadastrar Tipos de Peça</a>
                         <button class="btn waves-effect waves-light brown darken-4" type="submit" value="Confirmar">
                             Confirmar <i class="material-icons right">send</i>
                         </button>
@@ -138,8 +138,8 @@
             hover: true // Activate on hover
         });
 
-        $("#cadastrarTipoPeca").click(function () {
-            window.location.href = 'http://localhost:8084/corsariosBaja/ManterTipopecaController?acao=prepararIncluir';
-        });
+        $("#cadastrarTipopeca").click(function () {
+            window.location.href = 'http://localhost:8080/corsariosBajaJPA/ManterTipopecaController?acao=prepararOperacao&operacao=incluir';
+    });
     });
 </script>

@@ -78,7 +78,7 @@ public class ManterDesempenhotesteController extends HttpServlet {
             float frenagem = Float.parseFloat(request.getParameter("txtFrenagem"));
             //chave estrangeira
             int idAutomovel = Integer.parseInt(request.getParameter("selectAutomovel"));
-            int idTipopista = Integer.parseInt(request.getParameter("selectTipoPista"));
+            int idTipopista = Integer.parseInt(request.getParameter("selectTipopista"));
             int matricula = Integer.parseInt(request.getParameter("selectIntegrante"));
             Automovel automovel = null;
             if (idAutomovel != 0) {
