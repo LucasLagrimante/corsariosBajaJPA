@@ -16,12 +16,12 @@
     <class>model.Pessoa</class>
     <class>model.Tipopeca</class>
     <class>model.Tipopista</class>
-    <validation-mode>NONE</validation-mode>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/corsariosBajaJPA?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="eclipselink.jdbc.user" value="root"/>
-      <property name="eclipselink.jdbc.password" value=""/>
+      <property name="javax.persistence.jdbc.password" value=""/>
     </properties>
   </persistence-unit>
 </persistence>
