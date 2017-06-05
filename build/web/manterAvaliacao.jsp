@@ -62,7 +62,7 @@
         </nav>
         <div class="container">
             <h3 align="center">${operacao} Avaliação</h3>
-            <form   action="ManterAvaliacaoController?acao=confirmarOperacao&operacao=${operacao}" method="POST" name="frmManterAvaliacao">
+            <form action="ManterAvaliacaoController?acao=confirmarOperacao&operacao=${operacao}" method="POST" name="frmManterAvaliacao">
                 <div class="row">
                     <div class="input-field col s6 offset-m3">
                         <input id="id" name="txtIdAvaliacao" type="text" class="validate" value="${avaliacao.idAvaliacao}" required="required" pattern="[0-9]+$" <c:if test="${operacao != 'incluir'}"> readonly</c:if>>
@@ -104,7 +104,7 @@
                         <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectIntegrante" value="${avaliacao.integrante.matricula}"></c:if>
                         <select id="integrante" name="selectIntegrante" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
                             <c:forEach items="${integrantes}" var="integrante">
-                                <option value="${integrante.matricula}" <c:if test="${avaliacao.integrante.matricula == integrante.matricula}"> selected</c:if>> ${integrante.pessoa.nome} </option>
+                                <option value="${integrante.matricula}" <c:if test="${avaliacao.integrante.matricula == integrante.matricula}"> selected</c:if>> ${integrante.FKpessoa.nome} </option>
                             </c:forEach>
                         </select>
                         <label for="integrante">Integrante</label>

@@ -50,7 +50,7 @@ public class ManterDesempenhotesteController extends HttpServlet {
             request.setAttribute("integrantes", IntegranteDAO.getInstance().obterIntegrantes());
             //fim chave estrangeira
             if (!operacao.equals("incluir")) {
-                int idDesempenhoteste = Integer.parseInt(request.getParameter("txtIdDesempenhoTeste"));
+                int idDesempenhoteste = Integer.parseInt(request.getParameter("idDesempenhoteste"));
                 desempenhoteste = DesempenhotesteDAO.getInstance().getDesempenhoteste(idDesempenhoteste);
                 request.setAttribute("desempenhoteste", desempenhoteste);
             }
@@ -95,8 +95,7 @@ public class ManterDesempenhotesteController extends HttpServlet {
             }
             //fim chave estrangeira
             if (operacao.equals("incluir")) {
-                Desempenho desempenho = new Desempenho(idDesempenho, nome, data, hora, velocidadeMedia, aceleracaoMedia, tempoPista, frenagem, automovel, integrante, tipopista);
-
+                desempenhoteste = new Desempenhoteste(idDesempenho, nome, data, hora, velocidadeMedia, aceleracaoMedia, tempoPista, frenagem, automovel, integrante, tipopista);
                 DesempenhotesteDAO.getInstance().salvar(desempenhoteste);
             } else if (operacao.equals("editar")) {
                 desempenhoteste.setNome(nome);

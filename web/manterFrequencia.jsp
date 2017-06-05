@@ -92,7 +92,7 @@
                         <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectIntegrante" value="${frequencia.integrante.matricula}"></c:if>
                         <select id="integrante" name="selectIntegrante" required <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
                             <c:forEach items="${integrantes}" var="integrante">
-                                <option value="${integrante.matricula}" <c:if test="${frequencia.integrante.matricula == integrante.matricula}"> selected</c:if>> ${integrante.pessoa.nome} </option>
+                                <option value="${integrante.matricula}" <c:if test="${frequencia.integrante.matricula == integrante.matricula}"> selected</c:if>> ${integrante.FKpessoa.nome} </option>
                             </c:forEach>
                         </select>
                         <label for="integrante">Integrante</label>

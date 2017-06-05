@@ -79,7 +79,7 @@ public class Desempenhoteste implements Serializable {
         this.idDesempenhoteste = idDesempenhoteste;
     }
 
-    public Desempenhoteste(Integer idDesempenhoteste, String nome, String data, String hora, float velocidadeMedia, float aceleracaoMedia, String tempoPista, float frenagem) {
+    public Desempenhoteste(Integer idDesempenhoteste, String nome, String data, String hora, float velocidadeMedia, float aceleracaoMedia, String tempoPista, float frenagem, Automovel fKautomovel, Integrante fKmotorista, Tipopista fKtipopista) {
         this.idDesempenhoteste = idDesempenhoteste;
         this.nome = nome;
         this.data = data;
@@ -88,6 +88,9 @@ public class Desempenhoteste implements Serializable {
         this.aceleracaoMedia = aceleracaoMedia;
         this.tempoPista = tempoPista;
         this.frenagem = frenagem;
+        this.fKautomovel = fKautomovel;
+        this.fKmotorista = fKmotorista;
+        this.fKtipopista = fKtipopista;
     }
 
     public Integer getIdDesempenhoteste() {

@@ -99,19 +99,19 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectTipoPista" value="${competicao.tipopista.idTipoPista}"></c:if>
-                        <select id="tipoPista" name="selectTipoPista" required="required"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
+                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectTipopista" value="${competicao.tipopista.idTipopista}"></c:if>
+                        <select id="tipopista" name="selectTipopista" required="required"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
                             <c:forEach items="${tipospista}" var="tipopista">
-                                <option value="${tipopista.idTipoPista}" <c:if test="${competicao.tipopista.idTipoPista == tipopista.idTipoPista}"> selected</c:if>> ${tipopista.nome} </option>
+                                <option value="${tipopista.idTipopista}" <c:if test="${competicao.tipopista.idTipopista == tipopista.idTipopista}"> selected</c:if>> ${tipopista.nome} </option>
                             </c:forEach>
                         </select>
-                        <label for="tipoPista">Tipo Pista</label>
+                        <label for="tipopista">Tipo Pista</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col s12 center-align">
-                        <a class="waves-effect waves-light btn brown darken-4" id="cadastrarTipoPista">Cadastrar Tipos de Pista</a>
+                        <a class="waves-effect waves-light btn brown darken-4" id="cadastrarTipopista">Cadastrar Tipos de Pista</a>
                         <button class="btn waves-effect waves-light brown darken-4" type="submit" value="Confirmar">
                             Confirmar <i class="material-icons right">send</i>
                         </button>
@@ -151,7 +151,7 @@
             selectYears: 15 // Creates a dropdown of 15 years to control year
         });
 
-        $("#cadastrarTipoPista").click(function () {
+        $("#cadastrarTipopista").click(function () {
             window.location.href = 'http://localhost:8084/corsariosBaja/ManterTipopistaController?acao=prepararIncluir';
         });
     });

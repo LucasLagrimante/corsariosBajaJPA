@@ -66,10 +66,10 @@
             <form action="ManterIntegranteController?acao=confirmarOperacao&operacao=${operacao}" method="POST" name="frmManterIntegrante">
                 <div class="row">
                     <div class="input-field col s6 offset-m3">
-                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectPessoa" value="${integrante.pessoa.idPessoa}"></c:if>
+                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectPessoa" value="${integrante.FKpessoa.idPessoa}"></c:if>
                         <select id="pessoa" name="selectPessoa"  required="required"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
                             <c:forEach items="${pessoas}" var="pessoa">
-                                <option value="${pessoa.idPessoa}" <c:if test="${integrante.pessoa.idPessoa == pessoa.idPessoa}"> selected</c:if>> ${pessoa.nome} </option>
+                                <option value="${pessoa.idPessoa}" <c:if test="${integrante.FKpessoa.idPessoa == pessoa.idPessoa}"> selected</c:if>> ${pessoa.nome} </option>
                             </c:forEach>
                         </select>
                         <label  for="pessoa">Pessoa</label>

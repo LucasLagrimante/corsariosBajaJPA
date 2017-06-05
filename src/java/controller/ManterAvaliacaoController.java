@@ -44,8 +44,8 @@ public class ManterAvaliacaoController extends HttpServlet {
             request.setAttribute("integrantes", IntegranteDAO.getInstance().obterIntegrantes());
             //fim chave estrangeira
             if (!operacao.equals("incluir")) {
-                int codAvaliacao = Integer.parseInt(request.getParameter("codAvaliacao"));
-                avaliacao = AvaliacaoDAO.getInstance().getAvaliacao(codAvaliacao);
+                int idAvaliacao = Integer.parseInt(request.getParameter("idAvaliacao"));
+                avaliacao = AvaliacaoDAO.getInstance().getAvaliacao(idAvaliacao);
                 request.setAttribute("avaliacao", avaliacao);
             }
             RequestDispatcher view = request.getRequestDispatcher("/manterAvaliacao.jsp");

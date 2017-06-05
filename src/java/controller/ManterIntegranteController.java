@@ -45,7 +45,7 @@ public class ManterIntegranteController extends HttpServlet {
             request.setAttribute("operacao", operacao);
             request.setAttribute("pessoas", PessoaDAO.getInstance().obterPessoas());
             if (!operacao.equals("incluir")) {
-                int idIntegrante = Integer.parseInt(request.getParameter("txtIdIntegrante"));
+                int idIntegrante = Integer.parseInt(request.getParameter("idIntegrante"));
                 integrante = IntegranteDAO.getInstance().getIntegrante(idIntegrante);
                 request.setAttribute("integrante", integrante);
             }
@@ -72,7 +72,7 @@ public class ManterIntegranteController extends HttpServlet {
                 pessoa = PessoaDAO.getInstance().getPessoa(idPessoa);
             }
             if (operacao.equals("incluir")) {
-                Integrante integrante = new Integrante(matricula, cargaHorariaDisponivel, pessoa);
+                integrante = new Integrante(matricula, cargaHorariaDisponivel, pessoa);
                 IntegranteDAO.getInstance().salvar(integrante);
             } else if (operacao.equals("editar")) {
                 integrante.setCargaHorariaDisponivel(cargaHorariaDisponivel);

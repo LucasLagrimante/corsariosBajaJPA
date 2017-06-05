@@ -47,7 +47,7 @@ public class ManterFrequenciaController extends HttpServlet {
             request.setAttribute("integrantes", IntegranteDAO.getInstance().obterIntegrantes());
             //fim chave estrangeira
             if (!operacao.equals("incluir")) {
-                int idFrequencia = Integer.parseInt(request.getParameter("txtIdFrequencia"));
+                int idFrequencia = Integer.parseInt(request.getParameter("IdFrequencia"));
                 frequencia = FrequenciaDAO.getInstance().getFrequencia(idFrequencia);
                 request.setAttribute("frequencia", frequencia);
             }
@@ -76,7 +76,7 @@ public class ManterFrequenciaController extends HttpServlet {
                 integrante = IntegranteDAO.getInstance().getIntegrante(matricula);
             }
             if (operacao.equals("incluir")) {
-                Frequencia frequencia = new Frequencia(idFrequencia, data, estado, integrante);
+                frequencia = new Frequencia(idFrequencia, data, estado, integrante);
                 FrequenciaDAO.getInstance().salvar(frequencia);
             } else if (operacao.equals("editar")) {
                 frequencia.setData(data);

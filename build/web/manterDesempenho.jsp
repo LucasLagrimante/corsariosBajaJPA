@@ -78,13 +78,13 @@
 
                 <div class="row">
                     <div class="input-field col s6 offset-m3">
-                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectTipoPista" value="${desempenho.tipopista.idTipoPista}"></c:if>
-                        <select name="selectTipoPista" required="required"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
+                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectTipopista" value="${desempenho.tipopista.idTipopista}"></c:if>
+                        <select name="selectTipopista" required="required"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
                             <c:forEach items="${tipospista}" var="tipopista">
-                                <option value="${tipopista.idTipoPista}" <c:if test="${desempenho.tipopista.idTipoPista == tipopista.idTipoPista}"> selected</c:if>> ${tipopista.nome} </option>
+                                <option value="${tipopista.idTipopista}" <c:if test="${desempenho.tipopista.idTipopista == tipopista.idTipopista}"> selected</c:if>> ${tipopista.nome} </option>
                             </c:forEach>
                         </select>
-                        <label data-error="errado" data-success="certo" for="tipoPista">Tipo Pista</label>
+                        <label data-error="errado" data-success="certo" for="tipopista">Tipo Pista</label>
                     </div>
                 </div>
 
@@ -93,7 +93,7 @@
                         <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectIntegrante" value="${desempenho.integrante.matricula}"></c:if>
                         <select id="motorista" name="selectIntegrante" required="required"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
                             <c:forEach items="${integrantes}" var="integrante">
-                                <option value="${integrante.matricula}" <c:if test="${desempenho.integrante.matricula == integrante.matricula}"> selected</c:if>> ${integrante.pessoa.nome} </option>
+                                <option value="${integrante.matricula}" <c:if test="${desempenho.integrante.matricula == integrante.matricula}"> selected</c:if>> ${integrante.FKpessoa.nome} </option>
                             </c:forEach>
                         </select>
                         <label data-error="errado" data-success="certo" for="motorista">Motorista</label>

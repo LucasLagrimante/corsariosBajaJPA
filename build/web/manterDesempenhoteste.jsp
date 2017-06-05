@@ -63,14 +63,14 @@
         </nav>
         <div class="container">
             <h3 align="center">${operacao} Desempenho Teste</h3>
-            <form action="ManterDesempenhotesteController?acao=confirmarOperacao&operacao=${operacao}" method="POST" name="frmManterDesempenhoTeste">
+            <form action="ManterDesempenhotesteController?acao=confirmarOperacao&operacao=${operacao}" method="POST" name="frmManterDesempenhoteste">
 
                 <div class="row">
                     <div class="input-field col s6 offset-m3">
-                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectAutomovel" value="${desempenhoTeste.automovel.idAutomovel}"></c:if>
+                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectAutomovel" value="${desempenhoteste.automovel.idAutomovel}"></c:if>
                         <select id="automovel" name="selectAutomovel" required="required"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
                             <c:forEach items="${automoveis}" var="automovel">
-                                <option value="${automovel.idAutomovel}" <c:if test="${desempenhoTeste.automovel.idAutomovel == automovel.idAutomovel}"> selected</c:if>> ${automovel.nome} </option>
+                                <option value="${automovel.idAutomovel}" <c:if test="${desempenhoteste.automovel.idAutomovel == automovel.idAutomovel}"> selected</c:if>> ${automovel.nome} </option>
                             </c:forEach>
                         </select>
                         <label for="automovel">Automóvel</label>
@@ -79,10 +79,10 @@
 
                 <div class="row">
                     <div class="input-field col s6 offset-m3">
-                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectTipoPista" value="${desempenhoTeste.tipopista.idTipoPista}"></c:if>
-                        <select id="tipoPista" name="selectTipoPista" required="required"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
+                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectTipopista" value="${desempenhoteste.tipopista.idTipopista}"></c:if>
+                        <select id="tipoPista" name="selectTipopista" required="required"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
                             <c:forEach items="${tipospista}" var="tipopista">
-                                <option value="${tipopista.idTipoPista}" <c:if test="${desempenhoTeste.tipopista.idTipoPista == tipopista.idTipoPista}"> selected</c:if>> ${tipopista.nome} </option>
+                                <option value="${tipopista.idTipopista}" <c:if test="${desempenhoteste.tipopista.idTipopista == tipopista.idTipopista}"> selected</c:if>> ${tipopista.nome} </option>
                             </c:forEach>
                         </select>
                         <label for="tipoPista">Tipo Pista</label>
@@ -91,10 +91,10 @@
 
                 <div class="row">
                     <div class="input-field col s6 offset-m3">
-                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectIntegrante" value="${desempenhoTeste.integrante.matricula}"></c:if>
+                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectIntegrante" value="${desempenhoteste.integrante.matricula}"></c:if>
                         <select id="motorista" name="selectIntegrante" required="required"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
                             <c:forEach items="${integrantes}" var="integrante">
-                                <option value="${integrante.matricula}" <c:if test="${desempenhoTeste.integrante.matricula == integrante.matricula}"> selected</c:if>> ${integrante.pessoa.nome} </option>
+                                <option value="${integrante.matricula}" <c:if test="${desempenhoteste.integrante.matricula == integrante.matricula}"> selected</c:if>> ${integrante.FKpessoa.nome} </option>
                             </c:forEach>
                         </select>
                         <label for="motorista">Motorista</label>
@@ -103,56 +103,56 @@
 
                 <div class="row">
                     <div class="input-field col s6 offset-m3">
-                        <input id="ida" name="txtIdDesempenhoTeste" value="${desempenhoTeste.idDesempenhoTeste}" class="validate" type="text" required="required" pattern="[0-9]+$"<c:if test="${operacao != 'incluir'}"> readonly</c:if>>
+                        <input id="ida" name="txtIdDesempenhoteste" value="${desempenhoteste.idDesempenhoteste}" class="validate" type="text" required="required" pattern="[0-9]+$"<c:if test="${operacao != 'incluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="ida">ID</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="nome" name="txtNome" value="${desempenhoTeste.nome}" type="text" required="required" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>        
+                            <input id="nome" name="txtNome" value="${desempenhoteste.nome}" type="text" required="required" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>        
                             <label for="nome">Nome</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="data" name="txtData" value="${desempenhoTeste.data}" type="text" required="required" class="datepicker"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                            <input id="data" name="txtData" value="${desempenhoteste.data}" type="text" required="required" class="datepicker"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
                             <label for="data">Data</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="hora" name="txtHora" value="${desempenhoTeste.hora}" type="text"  class="validate" required="required" maxlength="8" pattern="^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="hora" name="txtHora" value="${desempenhoteste.hora}" type="text"  class="validate" required="required" maxlength="8" pattern="^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="hora">Hora</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="aceleracaoMedia" name="txtAceleracaoMedia" value="${desempenhoTeste.aceleracaoMedia}" class="validate" type="text" required="required" pattern="(?:\d*\.)?\d+"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="aceleracaoMedia" name="txtAceleracaoMedia" value="${desempenhoteste.aceleracaoMedia}" class="validate" type="text" required="required" pattern="(?:\d*\.)?\d+"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="aceleracaoMedia">Aceleração Média</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="velocidadeMedia" name="txtVelocidadeMedia" value="${desempenhoTeste.velocidadeMedia}" class="validate"  type="text" required="required" pattern="(?:\d*\.)?\d+"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="velocidadeMedia" name="txtVelocidadeMedia" value="${desempenhoteste.velocidadeMedia}" class="validate"  type="text" required="required" pattern="(?:\d*\.)?\d+"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="velocidadeMedia">Velocidade Média</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="tempoPista" name="txtTempoPista" value="${desempenhoTeste.tempoPista}" class="validate" required="required" type="text" maxlength="8" pattern="^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="tempoPista" name="txtTempoPista" value="${desempenhoteste.tempoPista}" class="validate" required="required" type="text" maxlength="8" pattern="^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="tempoPista">Tempo de Pista</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="frenagem" name="txtFrenagem" value="${desempenhoTeste.frenagem}" class="validate" type="text" required="required" pattern="(?:\d*\.)?\d+" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="frenagem" name="txtFrenagem" value="${desempenhoteste.frenagem}" class="validate" type="text" required="required" pattern="(?:\d*\.)?\d+" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                         <label data-error="errado" data-success="certo" for="frenagem">Frenagem</label>
                     </div>
                 </div>

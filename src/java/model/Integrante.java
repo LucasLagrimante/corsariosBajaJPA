@@ -6,19 +6,15 @@
 package model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -27,9 +23,6 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity(name = "Integrante")
 @Table(name = "integrante")
 public class Integrante implements Serializable {
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fKmotorista")
-    private Collection<Desempenhoteste> desempenhotesteCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -113,14 +106,4 @@ public class Integrante implements Serializable {
     public String toString() {
         return "model.Integrante[ matricula=" + matricula + " ]";
     }
-
-    @XmlTransient
-    public Collection<Desempenhoteste> getDesempenhotesteCollection() {
-        return desempenhotesteCollection;
-    }
-
-    public void setDesempenhotesteCollection(Collection<Desempenhoteste> desempenhotesteCollection) {
-        this.desempenhotesteCollection = desempenhotesteCollection;
-    }
-
 }

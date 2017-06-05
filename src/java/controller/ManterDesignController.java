@@ -44,7 +44,7 @@ public class ManterDesignController extends HttpServlet {
             request.setAttribute("automoveis", AutomovelDAO.getInstance().obterAutomoveis());
             //fim chave estrangeira
             if (!operacao.equals("incluir")) {
-                int idDesign = Integer.parseInt(request.getParameter("txtIdDesign"));
+                int idDesign = Integer.parseInt(request.getParameter("idDesign"));
                 design = DesignDAO.getInstance().getDesign(idDesign);
                 request.setAttribute("design", design);
             }
@@ -62,18 +62,16 @@ public class ManterDesignController extends HttpServlet {
             throws ServletException, IOException {
         try {
             String operacao = request.getParameter("operacao");
-             int idDesign = Integer.parseInt(request.getParameter("txtIdDesign"));
-             String caminhoImagem = request.getParameter("txtCaminhoImagem");
-             //cheve estrangeira
-             int idAutomovel = Integer.parseInt(request.getParameter("selectAutomovel"));
-             Automovel automovel = null;
-
+            int idDesign = Integer.parseInt(request.getParameter("txtIdDesign"));
+            String caminhoImagem = request.getParameter("txtCaminhoImagem");
+            //cheve estrangeira
+            int idAutomovel = Integer.parseInt(request.getParameter("selectAutomovel"));
+            Automovel automovel = null;
             if (idAutomovel != 0) {
-            automovel = AutomovelDAO.getInstance().getAutomovel(idAutomovel);
-
+                automovel = AutomovelDAO.getInstance().getAutomovel(idAutomovel);
             }
             if (operacao.equals("incluir")) {
-                Design design = new Design(idDesign, caminhoImagem, automovel);
+                design = new Design(idDesign, caminhoImagem, automovel);
                 DesignDAO.getInstance().salvar(design);
             } else if (operacao.equals("editar")) {
                 design.setCaminhoImagem(caminhoImagem);

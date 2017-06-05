@@ -39,7 +39,7 @@ public class ManterDesempenhoController extends HttpServlet {
         }
 
     }
- 
+
     public void prepararOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         try {
             String operacao = request.getParameter("operacao");
@@ -50,7 +50,7 @@ public class ManterDesempenhoController extends HttpServlet {
             request.setAttribute("integrantes", IntegranteDAO.getInstance().obterIntegrantes());
             //fim chave estrangeira
             if (!operacao.equals("incluir")) {
-                int idDesempenho = Integer.parseInt(request.getParameter("txtIdDesempenho"));
+                int idDesempenho = Integer.parseInt(request.getParameter("idDesempenho"));
                 desempenho = DesempenhoDAO.getInstance().getDesempenho(idDesempenho);
                 request.setAttribute("desempenho", desempenho);
             }
@@ -95,8 +95,7 @@ public class ManterDesempenhoController extends HttpServlet {
             }
             //fim chave estrangeira
             if (operacao.equals("incluir")) {
-                Desempenho desempenho = new Desempenho(idDesempenho, nome, data, hora, velocidadeMedia, aceleracaoMedia, tempoPista, frenagem, automovel, integrante, tipopista);
-
+                desempenho = new Desempenho(idDesempenho, nome, data, hora, velocidadeMedia, aceleracaoMedia, tempoPista, frenagem, automovel, integrante, tipopista);
                 DesempenhoDAO.getInstance().salvar(desempenho);
             } else if (operacao.equals("editar")) {
                 desempenho.setNome(nome);
