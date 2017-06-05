@@ -31,6 +31,7 @@ public class DesempenhoDAO {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         try {
+            tx.begin();
             em.persist(desempenho);
             tx.commit();
         } catch (Exception e) {
@@ -47,6 +48,7 @@ public class DesempenhoDAO {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         try {
+            tx.begin();
             em.merge(desempenho);
             tx.commit();
         } catch (Exception e) {
@@ -59,7 +61,7 @@ public class DesempenhoDAO {
         }
     }
 
-    public Desempenho getDesempenho(int id) {
+    public Desempenho getDesempenho(Integer id) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         Desempenho desempenho = null;

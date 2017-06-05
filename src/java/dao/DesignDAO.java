@@ -61,7 +61,7 @@ public class DesignDAO {
         }
     }
 
-    public Design getDesign(int id) {
+    public Design getDesign(Integer id) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         Design design = null;

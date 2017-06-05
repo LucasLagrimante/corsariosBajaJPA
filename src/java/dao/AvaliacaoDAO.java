@@ -61,7 +61,7 @@ public class AvaliacaoDAO {
         }
     }
 
-    public Avaliacao getAvaliacao(int id) {
+    public Avaliacao getAvaliacao(Integer id) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         Avaliacao avaliacao = null;

@@ -61,7 +61,7 @@ public class PecaDAO {
         }
     }
 
-    public Peca getPeca(int id) {
+    public Peca getPeca(Integer id) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         Peca peca = null;

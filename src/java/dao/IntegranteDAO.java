@@ -60,7 +60,7 @@ public class IntegranteDAO {
         }
     }
 
-    public Integrante getIntegrante(int id) {
+    public Integrante getIntegrante(Integer id) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         Integrante integrante = null;

@@ -43,7 +43,7 @@ public class ManterArquiteturaController extends HttpServlet {
             request.setAttribute("automoveis", AutomovelDAO.getInstance().obterAutomoveis());
             //fim chave estrangeira
             if (!operacao.equals("incluir")) {
-                int idArquitetura = Integer.parseInt(request.getParameter("idArquitetura"));
+                Integer idArquitetura = Integer.parseInt(request.getParameter("idArquitetura"));
                 arquitetura = ArquiteturaDAO.getInstance().getArquitetura(idArquitetura);
                 request.setAttribute("arquitetura", arquitetura);
             }
@@ -64,21 +64,27 @@ public class ManterArquiteturaController extends HttpServlet {
             int idArquitetura = Integer.parseInt(request.getParameter("txtIdArquitetura"));
             String caminhoImagem = request.getParameter("txtCaminhoImagem");
             //chave estrangeira
-            int idAutomovel = Integer.parseInt(request.getParameter("selectAutomovel"));
+            Integer idAutomovel = Integer.parseInt(request.getParameter("selectAutomovel"));
             Automovel automovel = null;
             if (idAutomovel != 0) {
                 automovel = AutomovelDAO.getInstance().getAutomovel(idAutomovel);
             }
             //fim chave estrangeira
-            if (operacao.equals("incluir")) {
-                arquitetura = new Arquitetura(idArquitetura, caminhoImagem, automovel);
-                ArquiteturaDAO.getInstance().salvar(arquitetura);
-            } else if (operacao.equals("editar")) {
-                arquitetura.setCaminhoImagem(caminhoImagem);
-                arquitetura.setFKautomovel(automovel);
-                ArquiteturaDAO.getInstance().alterar(arquitetura);
-            } else if (operacao.equals("excluir")) {
-                ArquiteturaDAO.getInstance().excluir(arquitetura);
+            switch (operacao) {
+                case "incluir":
+                    arquitetura = new Arquitetura(idArquitetura, caminhoImagem, automovel);
+                    ArquiteturaDAO.getInstance().salvar(arquitetura);
+                    break;
+                case "editar":
+                    arquitetura.setCaminhoImagem(caminhoImagem);
+                    arquitetura.setFKautomovel(automovel);
+                    ArquiteturaDAO.getInstance().alterar(arquitetura);
+                    break;
+                case "excluir":
+                    ArquiteturaDAO.getInstance().excluir(arquitetura);
+                    break;
+                default:
+                    break;
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarArquiteturaController");
             view.forward(request, response);

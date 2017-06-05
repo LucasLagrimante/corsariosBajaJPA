@@ -61,7 +61,7 @@ public class PessoaDAO {
         }
     }
 
-    public Pessoa getPessoa(int id) {
+    public Pessoa getPessoa(Integer id) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         Pessoa pessoa = null;

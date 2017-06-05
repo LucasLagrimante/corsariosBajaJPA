@@ -64,19 +64,25 @@ public class ManterAutomovelController extends HttpServlet {
             float pesoCarro = Float.parseFloat(request.getParameter("txtPesoCarro"));
             float pesoChassi = Float.parseFloat(request.getParameter("txtPesoChassi"));
             float custoTotal = Float.parseFloat(request.getParameter("txtCustoTotal"));
-            if (operacao.equals("incluir")) {
-                automovel = new Automovel(idAutomovel, cor, nome, dataTerminoProjeto, pesoCarro, pesoChassi, custoTotal);
-                AutomovelDAO.getInstance().salvar(automovel);
-            } else if (operacao.equals("editar")) {
-                automovel.setCor(cor);
-                automovel.setNome(nome);
-                automovel.setDataTerminoProjeto(dataTerminoProjeto);
-                automovel.setPesoCarro(pesoCarro);
-                automovel.setPesoChassi(pesoChassi);
-                automovel.setCustoTotal(custoTotal);
-                AutomovelDAO.getInstance().alterar(automovel);
-            } else if (operacao.equals("excluir")) {
-                AutomovelDAO.getInstance().excluir(automovel);
+            switch (operacao) {
+                case "incluir":
+                    automovel = new Automovel(idAutomovel, cor, nome, dataTerminoProjeto, pesoCarro, pesoChassi, custoTotal);
+                    AutomovelDAO.getInstance().salvar(automovel);
+                    break;
+                case "editar":
+                    automovel.setCor(cor);
+                    automovel.setNome(nome);
+                    automovel.setDataTerminoProjeto(dataTerminoProjeto);
+                    automovel.setPesoCarro(pesoCarro);
+                    automovel.setPesoChassi(pesoChassi);
+                    automovel.setCustoTotal(custoTotal);
+                    AutomovelDAO.getInstance().alterar(automovel);
+                    break;
+                case "excluir":
+                    AutomovelDAO.getInstance().excluir(automovel);
+                    break;
+                default:
+                    break;
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarAutomovelController");
             view.forward(request, response);

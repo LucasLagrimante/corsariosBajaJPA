@@ -44,7 +44,7 @@ public class ManterAvaliacaoController extends HttpServlet {
             request.setAttribute("integrantes", IntegranteDAO.getInstance().obterIntegrantes());
             //fim chave estrangeira
             if (!operacao.equals("incluir")) {
-                int idAvaliacao = Integer.parseInt(request.getParameter("idAvaliacao"));
+                Integer idAvaliacao = Integer.parseInt(request.getParameter("idAvaliacao"));
                 avaliacao = AvaliacaoDAO.getInstance().getAvaliacao(idAvaliacao);
                 request.setAttribute("avaliacao", avaliacao);
             }
@@ -67,23 +67,29 @@ public class ManterAvaliacaoController extends HttpServlet {
             String comparecimento = request.getParameter("txtComparecimento");
             String data = request.getParameter("txtData");
             //chave estrangeira
-            int matricula = Integer.parseInt(request.getParameter("selectIntegrante"));
+            Integer matricula = Integer.parseInt(request.getParameter("selectIntegrante"));
             Integrante integrante = null;
             if (matricula != 0) {
                 integrante = IntegranteDAO.getInstance().getIntegrante(matricula);
             }
             //fim chave estrangeira
-            if (operacao.equals("incluir")) {
-                avaliacao = new Avaliacao(idAvaliacao, frequencia, comparecimento, data, integrante);
-                AvaliacaoDAO.getInstance().salvar(avaliacao);
-            } else if (operacao.equals("editar")) {
-                avaliacao.setFrequencia(frequencia);
-                avaliacao.setComparecimento(comparecimento);
-                avaliacao.setData(data);
-                avaliacao.setFKintegrante(integrante);
-                AvaliacaoDAO.getInstance().alterar(avaliacao);
-            } else if (operacao.equals("excluir")) {
-                AvaliacaoDAO.getInstance().excluir(avaliacao);
+            switch (operacao) {
+                case "incluir":
+                    avaliacao = new Avaliacao(idAvaliacao, frequencia, comparecimento, data, integrante);
+                    AvaliacaoDAO.getInstance().salvar(avaliacao);
+                    break;
+                case "editar":
+                    avaliacao.setFrequencia(frequencia);
+                    avaliacao.setComparecimento(comparecimento);
+                    avaliacao.setData(data);
+                    avaliacao.setFKintegrante(integrante);
+                    AvaliacaoDAO.getInstance().alterar(avaliacao);
+                    break;
+                case "excluir":
+                    AvaliacaoDAO.getInstance().excluir(avaliacao);
+                    break;
+                default:
+                    break;
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarAvaliacaoController");
             view.forward(request, response);

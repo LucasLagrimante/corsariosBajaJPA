@@ -61,7 +61,7 @@ public class TipopecaDAO {
         }
     }
 
-    public Tipopeca getTipopeca(int id) {
+    public Tipopeca getTipopeca(Integer id) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         Tipopeca tipopeca = null;

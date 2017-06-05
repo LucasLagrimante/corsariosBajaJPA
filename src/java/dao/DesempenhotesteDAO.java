@@ -61,7 +61,7 @@ public class DesempenhotesteDAO {
         }
     }
 
-    public Desempenhoteste getDesempenhoteste(int id) {
+    public Desempenhoteste getDesempenhoteste(Integer id) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         Desempenhoteste desempenhoTeste = null;

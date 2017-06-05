@@ -44,7 +44,7 @@ public class ManterDesignController extends HttpServlet {
             request.setAttribute("automoveis", AutomovelDAO.getInstance().obterAutomoveis());
             //fim chave estrangeira
             if (!operacao.equals("incluir")) {
-                int idDesign = Integer.parseInt(request.getParameter("idDesign"));
+                Integer idDesign = Integer.parseInt(request.getParameter("idDesign"));
                 design = DesignDAO.getInstance().getDesign(idDesign);
                 request.setAttribute("design", design);
             }
@@ -65,20 +65,26 @@ public class ManterDesignController extends HttpServlet {
             int idDesign = Integer.parseInt(request.getParameter("txtIdDesign"));
             String caminhoImagem = request.getParameter("txtCaminhoImagem");
             //cheve estrangeira
-            int idAutomovel = Integer.parseInt(request.getParameter("selectAutomovel"));
+            Integer idAutomovel = Integer.parseInt(request.getParameter("selectAutomovel"));
             Automovel automovel = null;
             if (idAutomovel != 0) {
                 automovel = AutomovelDAO.getInstance().getAutomovel(idAutomovel);
             }
-            if (operacao.equals("incluir")) {
-                design = new Design(idDesign, caminhoImagem, automovel);
-                DesignDAO.getInstance().salvar(design);
-            } else if (operacao.equals("editar")) {
-                design.setCaminhoImagem(caminhoImagem);
-                design.setFKautomovel(automovel);
-                DesignDAO.getInstance().alterar(design);
-            } else if (operacao.equals("excluir")) {
-                DesignDAO.getInstance().excluir(design);
+            switch (operacao) {
+                case "incluir":
+                    design = new Design(idDesign, caminhoImagem, automovel);
+                    DesignDAO.getInstance().salvar(design);
+                    break;
+                case "editar":
+                    design.setCaminhoImagem(caminhoImagem);
+                    design.setFKautomovel(automovel);
+                    DesignDAO.getInstance().alterar(design);
+                    break;
+                case "excluir":
+                    DesignDAO.getInstance().excluir(design);
+                    break;
+                default:
+                    break;
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarDesignController");
             view.forward(request, response);

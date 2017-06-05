@@ -61,7 +61,7 @@ public class FrequenciaDAO {
         }
     }
 
-    public Frequencia getFrequencia(int id) {
+    public Frequencia getFrequencia(Integer id) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         Frequencia frequencia = null;

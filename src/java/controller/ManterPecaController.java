@@ -45,7 +45,7 @@ public class ManterPecaController extends HttpServlet {
             request.setAttribute("operacao", operacao);
             request.setAttribute("tipospeca", TipopecaDAO.getInstance().obterTipospeca());
             if (!operacao.equals("incluir")) {
-                int idPeca = Integer.parseInt(request.getParameter("idPeca"));
+                Integer idPeca = Integer.parseInt(request.getParameter("idPeca"));
                 peca = PecaDAO.getInstance().getPeca(idPeca);
                 request.setAttribute("peca", peca);
             }
@@ -69,23 +69,29 @@ public class ManterPecaController extends HttpServlet {
             String modelo = request.getParameter("txtModelo");
             float precoCompra = Float.parseFloat(request.getParameter("txtPrecoCompra"));
             //chave estrangeira
-            int idTipopeca = Integer.parseInt(request.getParameter("selectTipopeca"));
+            Integer idTipopeca = Integer.parseInt(request.getParameter("selectTipopeca"));
             Tipopeca tipopeca = null;
             if (idTipopeca != 0) {
                 tipopeca = TipopecaDAO.getInstance().getTipopeca(idTipopeca);
             }
-            if (operacao.equals("incluir")) {
-                peca = new Peca(idPeca, quantidade, nome, modelo, precoCompra, tipopeca);
-                PecaDAO.getInstance().salvar(peca);
-            } else if (operacao.equals("editar")) {
-                peca.setQuantidade(quantidade);
-                peca.setNome(nome);
-                peca.setModelo(modelo);
-                peca.setPrecoCompra(precoCompra);
-                peca.setFKtipopeca(tipopeca);
-                PecaDAO.getInstance().alterar(peca);
-            } else if (operacao.equals("excluir")) {
-                PecaDAO.getInstance().excluir(peca);
+            switch (operacao) {
+                case "incluir":
+                    peca = new Peca(idPeca, quantidade, nome, modelo, precoCompra, tipopeca);
+                    PecaDAO.getInstance().salvar(peca);
+                    break;
+                case "editar":
+                    peca.setQuantidade(quantidade);
+                    peca.setNome(nome);
+                    peca.setModelo(modelo);
+                    peca.setPrecoCompra(precoCompra);
+                    peca.setFKtipopeca(tipopeca);
+                    PecaDAO.getInstance().alterar(peca);
+                    break;
+                case "excluir":
+                    PecaDAO.getInstance().excluir(peca);
+                    break;
+                default:
+                    break;
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarPecaController");
             view.forward(request, response);

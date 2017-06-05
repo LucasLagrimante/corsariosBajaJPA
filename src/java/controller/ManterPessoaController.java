@@ -39,7 +39,7 @@ public class ManterPessoaController extends HttpServlet {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
             if (!operacao.equals("incluir")) {
-                int idPessoa = Integer.parseInt(request.getParameter("idPessoa"));
+                Integer idPessoa = Integer.parseInt(request.getParameter("idPessoa"));
                 pessoa = PessoaDAO.getInstance().getPessoa(idPessoa);
                 request.setAttribute("Pessoa", pessoa);
             }
@@ -66,21 +66,27 @@ public class ManterPessoaController extends HttpServlet {
             String uf = request.getParameter("txtUf");
             String numero = request.getParameter("txtNumero");
             String telefone = request.getParameter("txtTelefone");
-            if (operacao.equals("incluir")) {
-                pessoa = new Pessoa(idPessoa, nome, cpf, logradouro, cep, bairro, uf, numero, telefone);
-                PessoaDAO.getInstance().salvar(pessoa);
-            } else if (operacao.equals("editar")) {
-                pessoa.setNome(nome);
-                pessoa.setCpf(cpf);
-                pessoa.setLogradouro(logradouro);
-                pessoa.setCep(cep);
-                pessoa.setBairro(bairro);
-                pessoa.setUf(uf);
-                pessoa.setNumero(numero);
-                pessoa.setTelefone(telefone);
-                PessoaDAO.getInstance().alterar(pessoa);
-            } else if (operacao.equals("excluir")) {
-                PessoaDAO.getInstance().excluir(pessoa);
+            switch (operacao) {
+                case "incluir":
+                    pessoa = new Pessoa(idPessoa, nome, cpf, logradouro, cep, bairro, uf, numero, telefone);
+                    PessoaDAO.getInstance().salvar(pessoa);
+                    break;
+                case "editar":
+                    pessoa.setNome(nome);
+                    pessoa.setCpf(cpf);
+                    pessoa.setLogradouro(logradouro);
+                    pessoa.setCep(cep);
+                    pessoa.setBairro(bairro);
+                    pessoa.setUf(uf);
+                    pessoa.setNumero(numero);
+                    pessoa.setTelefone(telefone);
+                    PessoaDAO.getInstance().alterar(pessoa);
+                    break;
+                case "excluir":
+                    PessoaDAO.getInstance().excluir(pessoa);
+                    break;
+                default:
+                    break;
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarPessoaController");
             view.forward(request, response);

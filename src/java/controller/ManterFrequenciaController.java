@@ -47,7 +47,7 @@ public class ManterFrequenciaController extends HttpServlet {
             request.setAttribute("integrantes", IntegranteDAO.getInstance().obterIntegrantes());
             //fim chave estrangeira
             if (!operacao.equals("incluir")) {
-                int idFrequencia = Integer.parseInt(request.getParameter("IdFrequencia"));
+                Integer idFrequencia = Integer.parseInt(request.getParameter("IdFrequencia"));
                 frequencia = FrequenciaDAO.getInstance().getFrequencia(idFrequencia);
                 request.setAttribute("frequencia", frequencia);
             }
@@ -69,22 +69,27 @@ public class ManterFrequenciaController extends HttpServlet {
             String data = request.getParameter("txtData");
             String estado = request.getParameter("radioEstado");
             //chave estrangeira
-            int matricula = Integer.parseInt(request.getParameter("selectIntegrante"));
+            Integer matricula = Integer.parseInt(request.getParameter("selectIntegrante"));
             Integrante integrante = null;
-
             if (matricula != 0) {
                 integrante = IntegranteDAO.getInstance().getIntegrante(matricula);
             }
-            if (operacao.equals("incluir")) {
-                frequencia = new Frequencia(idFrequencia, data, estado, integrante);
-                FrequenciaDAO.getInstance().salvar(frequencia);
-            } else if (operacao.equals("editar")) {
-                frequencia.setData(data);
-                frequencia.setEstado(estado);
-                frequencia.setFKintegrante(integrante);
-                FrequenciaDAO.getInstance().alterar(frequencia);
-            } else if (operacao.equals("excluir")) {
-                FrequenciaDAO.getInstance().excluir(frequencia);
+            switch (operacao) {
+                case "incluir":
+                    frequencia = new Frequencia(idFrequencia, data, estado, integrante);
+                    FrequenciaDAO.getInstance().salvar(frequencia);
+                    break;
+                case "editar":
+                    frequencia.setData(data);
+                    frequencia.setEstado(estado);
+                    frequencia.setFKintegrante(integrante);
+                    FrequenciaDAO.getInstance().alterar(frequencia);
+                    break;
+                case "excluir":
+                    FrequenciaDAO.getInstance().excluir(frequencia);
+                    break;
+                default:
+                    break;
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarFrequenciaController");
             view.forward(request, response);

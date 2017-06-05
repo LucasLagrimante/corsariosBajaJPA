@@ -38,7 +38,7 @@ public class ManterTipopistaController extends HttpServlet {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
             if (!operacao.equals("incluir")) {
-                int idTipopista = Integer.parseInt(request.getParameter("txtIdTipopista"));
+                Integer idTipopista = Integer.parseInt(request.getParameter("txtIdTipopista"));
                 tipopista = TipopistaDAO.getInstance().getTipopista(idTipopista);
                 request.setAttribute("tipopista", tipopista);
             }
@@ -58,14 +58,20 @@ public class ManterTipopistaController extends HttpServlet {
             String operacao = request.getParameter("operacao");
             int idTipopista = Integer.parseInt(request.getParameter("txtIdTipopista"));
             String nome = request.getParameter("txtNome");
-            if (operacao.equals("incluir")) {
-                tipopista = new Tipopista(idTipopista, nome);
-                TipopistaDAO.getInstance().salvar(tipopista);
-            } else if (operacao.equals("editar")) {
-                tipopista.setNome(nome);
-                TipopistaDAO.getInstance().alterar(tipopista);
-            } else if (operacao.equals("excluir")) {
-                TipopistaDAO.getInstance().excluir(tipopista);
+            switch (operacao) {
+                case "incluir":
+                    tipopista = new Tipopista(idTipopista, nome);
+                    TipopistaDAO.getInstance().salvar(tipopista);
+                    break;
+                case "editar":
+                    tipopista.setNome(nome);
+                    TipopistaDAO.getInstance().alterar(tipopista);
+                    break;
+                case "excluir":
+                    TipopistaDAO.getInstance().excluir(tipopista);
+                    break;
+                default:
+                    break;
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarTipopistaController");
             view.forward(request, response);

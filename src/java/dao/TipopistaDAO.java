@@ -61,7 +61,7 @@ public class TipopistaDAO {
         }
     }
 
-    public Tipopista getTipopista(int id) {
+    public Tipopista getTipopista(Integer id) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         Tipopista tipopista = null;

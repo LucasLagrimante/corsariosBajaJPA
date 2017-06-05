@@ -56,7 +56,7 @@ public class AutomovelDAO {
         }
     }
 
-    public Automovel getAutomovel(int id) {
+    public Automovel getAutomovel(Integer id) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         Automovel automovel = null;

@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Automovel;
-import model.Desempenho;
 import model.Desempenhoteste;
 import model.Integrante;
 import model.Tipopista;
@@ -50,7 +49,7 @@ public class ManterDesempenhotesteController extends HttpServlet {
             request.setAttribute("integrantes", IntegranteDAO.getInstance().obterIntegrantes());
             //fim chave estrangeira
             if (!operacao.equals("incluir")) {
-                int idDesempenhoteste = Integer.parseInt(request.getParameter("idDesempenhoteste"));
+                Integer idDesempenhoteste = Integer.parseInt(request.getParameter("idDesempenhoteste"));
                 desempenhoteste = DesempenhotesteDAO.getInstance().getDesempenhoteste(idDesempenhoteste);
                 request.setAttribute("desempenhoteste", desempenhoteste);
             }
@@ -77,9 +76,9 @@ public class ManterDesempenhotesteController extends HttpServlet {
             String tempoPista = request.getParameter("txtTempoPista");
             float frenagem = Float.parseFloat(request.getParameter("txtFrenagem"));
             //chave estrangeira
-            int idAutomovel = Integer.parseInt(request.getParameter("selectAutomovel"));
-            int idTipopista = Integer.parseInt(request.getParameter("selectTipopista"));
-            int matricula = Integer.parseInt(request.getParameter("selectIntegrante"));
+            Integer idAutomovel = Integer.parseInt(request.getParameter("selectAutomovel"));
+            Integer idTipopista = Integer.parseInt(request.getParameter("selectTipopista"));
+            Integer matricula = Integer.parseInt(request.getParameter("selectIntegrante"));
             Automovel automovel = null;
             if (idAutomovel != 0) {
                 automovel = AutomovelDAO.getInstance().getAutomovel(idAutomovel);
@@ -94,23 +93,29 @@ public class ManterDesempenhotesteController extends HttpServlet {
                 integrante = IntegranteDAO.getInstance().getIntegrante(matricula);
             }
             //fim chave estrangeira
-            if (operacao.equals("incluir")) {
-                desempenhoteste = new Desempenhoteste(idDesempenho, nome, data, hora, velocidadeMedia, aceleracaoMedia, tempoPista, frenagem, automovel, integrante, tipopista);
-                DesempenhotesteDAO.getInstance().salvar(desempenhoteste);
-            } else if (operacao.equals("editar")) {
-                desempenhoteste.setNome(nome);
-                desempenhoteste.setData(data);
-                desempenhoteste.setHora(hora);
-                desempenhoteste.setVelocidadeMedia(velocidadeMedia);
-                desempenhoteste.setAceleracaoMedia(aceleracaoMedia);
-                desempenhoteste.setTempoPista(tempoPista);
-                desempenhoteste.setFrenagem(frenagem);
-                desempenhoteste.setFKautomovel(automovel);
-                desempenhoteste.setFKtipopista(tipopista);
-                desempenhoteste.setFKmotorista(integrante);
-                DesempenhotesteDAO.getInstance().alterar(desempenhoteste);
-            } else if (operacao.equals("excluir")) {
-                DesempenhotesteDAO.getInstance().excluir(desempenhoteste);
+            switch (operacao) {
+                case "incluir":
+                    desempenhoteste = new Desempenhoteste(idDesempenho, nome, data, hora, velocidadeMedia, aceleracaoMedia, tempoPista, frenagem, automovel, integrante, tipopista);
+                    DesempenhotesteDAO.getInstance().salvar(desempenhoteste);
+                    break;
+                case "editar":
+                    desempenhoteste.setNome(nome);
+                    desempenhoteste.setData(data);
+                    desempenhoteste.setHora(hora);
+                    desempenhoteste.setVelocidadeMedia(velocidadeMedia);
+                    desempenhoteste.setAceleracaoMedia(aceleracaoMedia);
+                    desempenhoteste.setTempoPista(tempoPista);
+                    desempenhoteste.setFrenagem(frenagem);
+                    desempenhoteste.setFKautomovel(automovel);
+                    desempenhoteste.setFKtipopista(tipopista);
+                    desempenhoteste.setFKmotorista(integrante);
+                    DesempenhotesteDAO.getInstance().alterar(desempenhoteste);
+                    break;
+                case "excluir":
+                    DesempenhotesteDAO.getInstance().excluir(desempenhoteste);
+                    break;
+                default:
+                    break;
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarDesempenhotesteController");
             view.forward(request, response);

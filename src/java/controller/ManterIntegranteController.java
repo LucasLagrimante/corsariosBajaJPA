@@ -45,7 +45,7 @@ public class ManterIntegranteController extends HttpServlet {
             request.setAttribute("operacao", operacao);
             request.setAttribute("pessoas", PessoaDAO.getInstance().obterPessoas());
             if (!operacao.equals("incluir")) {
-                int idIntegrante = Integer.parseInt(request.getParameter("idIntegrante"));
+                Integer idIntegrante = Integer.parseInt(request.getParameter("idIntegrante"));
                 integrante = IntegranteDAO.getInstance().getIntegrante(idIntegrante);
                 request.setAttribute("integrante", integrante);
             }
@@ -66,20 +66,26 @@ public class ManterIntegranteController extends HttpServlet {
             int matricula = Integer.parseInt(request.getParameter("txtMatricula"));
             String cargaHorariaDisponivel = request.getParameter("txtCargaHorariaDisponivel");
             //chave estrangeira
-            int idPessoa = Integer.parseInt(request.getParameter("selectPessoa"));
+            Integer idPessoa = Integer.parseInt(request.getParameter("selectPessoa"));
             Pessoa pessoa = null;
             if (idPessoa != 0) {
                 pessoa = PessoaDAO.getInstance().getPessoa(idPessoa);
             }
-            if (operacao.equals("incluir")) {
-                integrante = new Integrante(matricula, cargaHorariaDisponivel, pessoa);
-                IntegranteDAO.getInstance().salvar(integrante);
-            } else if (operacao.equals("editar")) {
-                integrante.setCargaHorariaDisponivel(cargaHorariaDisponivel);
-                integrante.setFKpessoa(pessoa);
-                IntegranteDAO.getInstance().alterar(integrante);
-            } else if (operacao.equals("excluir")) {
-                IntegranteDAO.getInstance().excluir(integrante);
+            switch (operacao) {
+                case "incluir":
+                    integrante = new Integrante(matricula, cargaHorariaDisponivel, pessoa);
+                    IntegranteDAO.getInstance().salvar(integrante);
+                    break;
+                case "editar":
+                    integrante.setCargaHorariaDisponivel(cargaHorariaDisponivel);
+                    integrante.setFKpessoa(pessoa);
+                    IntegranteDAO.getInstance().alterar(integrante);
+                    break;
+                case "excluir":
+                    IntegranteDAO.getInstance().excluir(integrante);
+                    break;
+                default:
+                    break;
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarIntegranteController");
             view.forward(request, response);

@@ -8,7 +8,6 @@ import dao.AutomovelDAO;
 import dao.DesempenhoDAO;
 import dao.IntegranteDAO;
 import dao.TipopistaDAO;
-
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -50,7 +49,7 @@ public class ManterDesempenhoController extends HttpServlet {
             request.setAttribute("integrantes", IntegranteDAO.getInstance().obterIntegrantes());
             //fim chave estrangeira
             if (!operacao.equals("incluir")) {
-                int idDesempenho = Integer.parseInt(request.getParameter("idDesempenho"));
+                Integer idDesempenho = Integer.parseInt(request.getParameter("idDesempenho"));
                 desempenho = DesempenhoDAO.getInstance().getDesempenho(idDesempenho);
                 request.setAttribute("desempenho", desempenho);
             }
@@ -77,9 +76,9 @@ public class ManterDesempenhoController extends HttpServlet {
             String tempoPista = request.getParameter("txtTempoPista");
             float frenagem = Float.parseFloat(request.getParameter("txtFrenagem"));
             //chave estrangeira
-            int idAutomovel = Integer.parseInt(request.getParameter("selectAutomovel"));
-            int idTipopista = Integer.parseInt(request.getParameter("selectTipopista"));
-            int matricula = Integer.parseInt(request.getParameter("selectIntegrante"));
+            Integer idAutomovel = Integer.parseInt(request.getParameter("selectAutomovel"));
+            Integer idTipopista = Integer.parseInt(request.getParameter("selectTipopista"));
+            Integer matricula = Integer.parseInt(request.getParameter("selectIntegrante"));
             Automovel automovel = null;
             if (idAutomovel != 0) {
                 automovel = AutomovelDAO.getInstance().getAutomovel(idAutomovel);
@@ -93,23 +92,29 @@ public class ManterDesempenhoController extends HttpServlet {
                 integrante = IntegranteDAO.getInstance().getIntegrante(matricula);
             }
             //fim chave estrangeira
-            if (operacao.equals("incluir")) {
-                desempenho = new Desempenho(idDesempenho, nome, data, hora, velocidadeMedia, aceleracaoMedia, tempoPista, frenagem, automovel, integrante, tipopista);
-                DesempenhoDAO.getInstance().salvar(desempenho);
-            } else if (operacao.equals("editar")) {
-                desempenho.setNome(nome);
-                desempenho.setData(data);
-                desempenho.setHora(hora);
-                desempenho.setVelocidadeMedia(velocidadeMedia);
-                desempenho.setAceleracaoMedia(aceleracaoMedia);
-                desempenho.setTempoPista(tempoPista);
-                desempenho.setFrenagem(frenagem);
-                desempenho.setFKautomovel(automovel);
-                desempenho.setFKtipopista(tipopista);
-                desempenho.setFKmotorista(integrante);
-                DesempenhoDAO.getInstance().alterar(desempenho);
-            } else if (operacao.equals("excluir")) {
-                DesempenhoDAO.getInstance().excluir(desempenho);
+            switch (operacao) {
+                case "incluir":
+                    desempenho = new Desempenho(idDesempenho, nome, data, hora, velocidadeMedia, aceleracaoMedia, tempoPista, frenagem, automovel, integrante, tipopista);
+                    DesempenhoDAO.getInstance().salvar(desempenho);
+                    break;
+                case "editar":
+                    desempenho.setNome(nome);
+                    desempenho.setData(data);
+                    desempenho.setHora(hora);
+                    desempenho.setVelocidadeMedia(velocidadeMedia);
+                    desempenho.setAceleracaoMedia(aceleracaoMedia);
+                    desempenho.setTempoPista(tempoPista);
+                    desempenho.setFrenagem(frenagem);
+                    desempenho.setFKautomovel(automovel);
+                    desempenho.setFKtipopista(tipopista);
+                    desempenho.setFKmotorista(integrante);
+                    DesempenhoDAO.getInstance().alterar(desempenho);
+                    break;
+                case "excluir":
+                    DesempenhoDAO.getInstance().excluir(desempenho);
+                    break;
+                default:
+                    break;
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarDesempenhoController");
             view.forward(request, response);

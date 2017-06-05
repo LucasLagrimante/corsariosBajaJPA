@@ -42,7 +42,7 @@ public class ManterCompeticaoController extends HttpServlet {
             request.setAttribute("operacao", operacao);
             request.setAttribute("tipospista", TipopistaDAO.getInstance().obterTipospista());
             if (!operacao.equals("incluir")) {
-                int idCompeticao = Integer.parseInt(request.getParameter("idCompeticao"));
+                Integer idCompeticao = Integer.parseInt(request.getParameter("idCompeticao"));
                 competicao = CompeticaoDAO.getInstance().getCompeticao(idCompeticao);
                 request.setAttribute("competicao", competicao);
             }
@@ -66,23 +66,29 @@ public class ManterCompeticaoController extends HttpServlet {
             String hora = request.getParameter("txtHora");
             String local = request.getParameter("txtLocal");
             //chave estrangeira
-            int idTipopista = Integer.parseInt(request.getParameter("selectTipopista"));
+            Integer idTipopista = Integer.parseInt(request.getParameter("selectTipopista"));
             Tipopista tipopista = null;
             if (idTipopista != 0) {
                 tipopista = TipopistaDAO.getInstance().getTipopista(idTipopista);
             }
-            if (operacao.equals("incluir")) {
-                competicao = new Competicao(idCompeticao, nome, data, hora, local, tipopista);
-                CompeticaoDAO.getInstance().salvar(competicao);
-            } else if (operacao.equals("editar")) {
-                competicao.setNome(nome);
-                competicao.setData(data);
-                competicao.setHora(hora);
-                competicao.setLocal(local);
-                competicao.setFKtipopista(tipopista);
-                CompeticaoDAO.getInstance().alterar(competicao);
-            } else if (operacao.equals("excluir")) {
-                CompeticaoDAO.getInstance().excluir(competicao);
+            switch (operacao) {
+                case "incluir":
+                    competicao = new Competicao(idCompeticao, nome, data, hora, local, tipopista);
+                    CompeticaoDAO.getInstance().salvar(competicao);
+                    break;
+                case "editar":
+                    competicao.setNome(nome);
+                    competicao.setData(data);
+                    competicao.setHora(hora);
+                    competicao.setLocal(local);
+                    competicao.setFKtipopista(tipopista);
+                    CompeticaoDAO.getInstance().alterar(competicao);
+                    break;
+                case "excluir":
+                    CompeticaoDAO.getInstance().excluir(competicao);
+                    break;
+                default:
+                    break;
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarCompeticaoController");
             view.forward(request, response);

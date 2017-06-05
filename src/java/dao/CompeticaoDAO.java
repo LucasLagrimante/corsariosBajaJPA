@@ -61,7 +61,7 @@ public class CompeticaoDAO {
         }
     }
 
-    public Competicao getCompeticao(int id) {
+    public Competicao getCompeticao(Integer id) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         Competicao competicao = null;

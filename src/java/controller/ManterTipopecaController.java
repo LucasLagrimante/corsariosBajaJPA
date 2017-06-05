@@ -38,7 +38,7 @@ public class ManterTipopecaController extends HttpServlet {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
             if (!operacao.equals("incluir")) {
-                int idTipopeca = Integer.parseInt(request.getParameter("idTipopeca"));
+                Integer idTipopeca = Integer.parseInt(request.getParameter("idTipopeca"));
                 tipopeca = TipopecaDAO.getInstance().getTipopeca(idTipopeca);
                 request.setAttribute("tipopeca", tipopeca);
             }
@@ -58,14 +58,20 @@ public class ManterTipopecaController extends HttpServlet {
             String operacao = request.getParameter("operacao");
             int idTipopeca = Integer.parseInt(request.getParameter("txtIdTipopeca"));
             String nome = request.getParameter("txtNome");
-            if (operacao.equals("incluir")) {
-                tipopeca = new Tipopeca(idTipopeca, nome);
-                TipopecaDAO.getInstance().salvar(tipopeca);
-            } else if (operacao.equals("editar")) {
-                tipopeca.setNome(nome);
-                TipopecaDAO.getInstance().alterar(tipopeca);
-            } else if (operacao.equals("excluir")) {
-                TipopecaDAO.getInstance().excluir(tipopeca);
+            switch (operacao) {
+                case "incluir":
+                    tipopeca = new Tipopeca(idTipopeca, nome);
+                    TipopecaDAO.getInstance().salvar(tipopeca);
+                    break;
+                case "editar":
+                    tipopeca.setNome(nome);
+                    TipopecaDAO.getInstance().alterar(tipopeca);
+                    break;
+                case "excluir":
+                    TipopecaDAO.getInstance().excluir(tipopeca);
+                    break;
+                default:
+                    break;
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarTipopecaController");
             view.forward(request, response);

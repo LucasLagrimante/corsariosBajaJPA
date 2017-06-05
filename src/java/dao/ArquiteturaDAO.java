@@ -61,7 +61,7 @@ public class ArquiteturaDAO {
         }
     }
 
-    public Arquitetura getArquitetura(int id) {
+    public Arquitetura getArquitetura(Integer id) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         Arquitetura arquitetura = null;
