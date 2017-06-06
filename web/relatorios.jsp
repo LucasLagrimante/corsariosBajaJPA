@@ -68,7 +68,6 @@
                     <option value="competicaoTipoPista"> Competição Tipo Pista</option>
                     <option value="designAutomovel"> Design Automovel</option>
                     <option value="integranteFrequencia"> Integrante Frequência</option>
-                    <option value="investidorPessoa"> Investidor Pessoa</option>
                     <option value="groupAutomovelCor"> Group Automovel Cor</option>
                     <option value="groupDesempenhoPista"> Group Desempenho Tipo Pista</option>
                 </select>
@@ -97,9 +96,6 @@
             }
             if ($("[name='selectRelatorio'] option:selected").val() === "integranteFrequencia") {
                 window.location.href = 'RelatorioController?relatorioNome=reportIntegranteFrequencia.jasper';
-            }
-            if ($("[name='selectRelatorio'] option:selected").val() === "investidorPessoa") {
-                window.location.href = 'RelatorioController?relatorioNome=reportInvestidorPessoa.jasper';
             }
             if ($("[name='selectRelatorio'] option:selected").val() === "groupAutomovelCor") {
                 window.location.href = 'RelatorioController?relatorioNome=reportGroupAutomovelCor.jasper';
