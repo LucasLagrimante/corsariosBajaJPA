@@ -105,9 +105,8 @@
                 <div class="input-field col s4 center-align">
                     <select name="selectEstado" required="required">
                         <option value="" disabled selected>Escolha...</option>
-                        <c:forEach items="${estados}" var="estado">
-                            <option value="${estado}"> ${estado}</option>
-                        </c:forEach>
+                        <option value="presente"> Presente</option>
+                        <option value="ausente"> Ausente</option>
                     </select>
                 </div>
 

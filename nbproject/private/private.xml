@@ -2,24 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterPecaController.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/web/pesquisarAutomovel.jsp</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterDesempenhoController.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterTipopecaController.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/web/manterAutomovel.jsp</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterArquiteturaController.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/dao/AutomovelDAO.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterAvaliacaoController.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterTipopistaController.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/web/manterArquitetura.jsp</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterDesempenhotesteController.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterFrequenciaController.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterIntegranteController.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterCompeticaoController.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterAutomovelController.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterPessoaController.java</file>
-            <file>file:/home/lucas/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterDesignController.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

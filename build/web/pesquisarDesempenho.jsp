@@ -121,7 +121,7 @@
                     <select name="selectPista" required="required">
                         <option value="" disabled selected>Escolha...</option>
                         <c:forEach items="${tipospista}" var="tipopista">
-                            <option value="${pista.nome}"> ${pista.nome}</option>
+                            <option value="${tipopista.nome}"> ${tipopista.nome}</option>
                         </c:forEach>
                     </select>
                 </div>

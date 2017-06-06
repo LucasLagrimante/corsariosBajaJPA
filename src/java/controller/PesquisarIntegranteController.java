@@ -5,6 +5,7 @@
 package controller;
 
 import dao.IntegranteDAO;
+import dao.PessoaDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
@@ -31,6 +32,7 @@ public class PesquisarIntegranteController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("integrantes", IntegranteDAO.getInstance().obterIntegrantes());
+        request.setAttribute("pessoas", PessoaDAO.getInstance().obterPessoas());
         RequestDispatcher view = request.getRequestDispatcher("/pesquisarIntegrante.jsp");
         view.forward(request, response);
     }

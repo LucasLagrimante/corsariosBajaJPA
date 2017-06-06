@@ -464,59 +464,59 @@ INSERT INTO `tipopista` (`idTipopista`, `nome`) VALUES
 -- Restrições para tabelas `arquitetura`
 --
 ALTER TABLE `arquitetura`
-  ADD CONSTRAINT `FK_arquitetura_automovel` FOREIGN KEY (`FK_automovel`) REFERENCES `automovel` (`idAutomovel`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_arquitetura_automovel` FOREIGN KEY (`FK_automovel`) REFERENCES `automovel` (`idAutomovel`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Restrições para tabelas `avaliacao`
 --
 ALTER TABLE `avaliacao`
-  ADD CONSTRAINT `FK_integrante_avaliacao` FOREIGN KEY (`FK_integrante`) REFERENCES `integrante` (`matricula`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_integrante_avaliacao` FOREIGN KEY (`FK_integrante`) REFERENCES `integrante` (`matricula`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Restrições para tabelas `competicao`
 --
 ALTER TABLE `competicao`
-  ADD CONSTRAINT `FK_tipopista_competicao` FOREIGN KEY (`FK_tipopista`) REFERENCES `tipopista` (`idTipopista`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_tipopista_competicao` FOREIGN KEY (`FK_tipopista`) REFERENCES `tipopista` (`idTipopista`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Restrições para tabelas `desempenho`
 --
 ALTER TABLE `desempenho`
-  ADD CONSTRAINT `FK_automovel_desempenho` FOREIGN KEY (`FK_automovel`) REFERENCES `automovel` (`idAutomovel`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_integrante_desempenho` FOREIGN KEY (`FK_motorista`) REFERENCES `integrante` (`matricula`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_tipopista_desempenho` FOREIGN KEY (`FK_tipopista`) REFERENCES `tipopista` (`idTipopista`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_automovel_desempenho` FOREIGN KEY (`FK_automovel`) REFERENCES `automovel` (`idAutomovel`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_integrante_desempenho` FOREIGN KEY (`FK_motorista`) REFERENCES `integrante` (`matricula`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_tipopista_desempenho` FOREIGN KEY (`FK_tipopista`) REFERENCES `tipopista` (`idTipopista`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Restrições para tabelas `desempenhoteste`
 --
 ALTER TABLE `desempenhoteste`
-  ADD CONSTRAINT `FK_automovel_desempenhoteste` FOREIGN KEY (`FK_automovel`) REFERENCES `automovel` (`idAutomovel`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_integrante_desempenhoteste` FOREIGN KEY (`FK_motorista`) REFERENCES `integrante` (`matricula`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_tipopista_desempenhoteste` FOREIGN KEY (`FK_tipopista`) REFERENCES `tipopista` (`idTipopista`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_automovel_desempenhoteste` FOREIGN KEY (`FK_automovel`) REFERENCES `automovel` (`idAutomovel`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_integrante_desempenhoteste` FOREIGN KEY (`FK_motorista`) REFERENCES `integrante` (`matricula`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_tipopista_desempenhoteste` FOREIGN KEY (`FK_tipopista`) REFERENCES `tipopista` (`idTipopista`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Restrições para tabelas `design`
 --
 ALTER TABLE `design`
-  ADD CONSTRAINT `FK_automovel_design` FOREIGN KEY (`FK_automovel`) REFERENCES `automovel` (`idAutomovel`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_automovel_design` FOREIGN KEY (`FK_automovel`) REFERENCES `automovel` (`idAutomovel`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Restrições para tabelas `frequencia`
 --
 ALTER TABLE `frequencia`
-  ADD CONSTRAINT `FK_integrante_frequencia` FOREIGN KEY (`FK_integrante`) REFERENCES `integrante` (`matricula`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_integrante_frequencia` FOREIGN KEY (`FK_integrante`) REFERENCES `integrante` (`matricula`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Restrições para tabelas `integrante`
 --
 ALTER TABLE `integrante`
-  ADD CONSTRAINT `FK_pessoa_integrante` FOREIGN KEY (`FK_pessoa`) REFERENCES `pessoa` (`idPessoa`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_pessoa_integrante` FOREIGN KEY (`FK_pessoa`) REFERENCES `pessoa` (`idPessoa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Restrições para tabelas `peca`
 --
 ALTER TABLE `peca`
-  ADD CONSTRAINT `FK_tipopeca_peca` FOREIGN KEY (`FK_tipopeca`) REFERENCES `tipopeca` (`idTipopeca`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_tipopeca_peca` FOREIGN KEY (`FK_tipopeca`) REFERENCES `tipopeca` (`idTipopeca`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

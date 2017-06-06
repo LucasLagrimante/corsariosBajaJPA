@@ -103,7 +103,7 @@
                     <select name="selectPessoa" required="required">
                         <option value="" disabled selected>Escolha...</option>
                         <c:forEach items="${pessoas}" var="pessoa">
-                            <option value="${pessoa}"> ${pessoa}</option>
+                            <option value="${pessoa.nome}"> ${pessoa.nome}</option>
                         </c:forEach>
                     </select>
                 </div>

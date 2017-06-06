@@ -111,15 +111,15 @@
                 <div class="input-field col s4 center-align">
                     <select name="selectCor" required="required">
                         <option value="" disabled selected>Escolha...</option>
-                        <c:forEach items="${cores}" var="cor">
-                            <option value="${cor}"> ${cor}</option>
+                        <c:forEach items="${automoveis}" var="automovel">
+                            <option value="${automovel.cor}"> ${automovel.cor}</option>
                         </c:forEach>
                     </select>
 
                     <select name="selectPeso" required="required"> 
                         <option value="" disabled selected>Escolha...</option>
-                        <c:forEach items="${pesos}" var="peso">
-                            <option value="${peso}"> ${peso}</option>
+                        <c:forEach items="${automoveis}" var="automovel">
+                            <option value="${automovel.pesoCarro}"> ${automovel.pesoCarro}</option>
                         </c:forEach>
                     </select>
                 </div>
