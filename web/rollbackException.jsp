@@ -65,7 +65,7 @@
             </div>
         </nav>
         <div class="container">
-            <h3 align="center">Para preservar a integridade do banco de dados, não foi possivel excluir o registro!</h3>
+            <h3 align="center">Para preservar a integridade do banco de dados, não foi possível excluir o registro!</h3>
         </div>
     </body>
 </html>
