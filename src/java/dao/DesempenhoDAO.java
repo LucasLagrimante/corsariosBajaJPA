@@ -4,17 +4,12 @@
  */
 package dao;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 import model.Desempenho;
-import model.Tipopista;
 
 public class DesempenhoDAO {
 
@@ -88,6 +83,8 @@ public class DesempenhoDAO {
             tx.begin();
             em.remove(em.getReference(Desempenho.class, desempenho.getIdDesempenho()));
             tx.commit();
+        } catch (RollbackException e) {
+            throw new RollbackException("Para preservar a integridade do banco de dados, não foi possivel excluir o registro!");
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {
                 tx.rollback();

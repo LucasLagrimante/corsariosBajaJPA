@@ -14,7 +14,7 @@ public class BD {
     public static Connection getConexao() throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Class.forName("com.mysql.jdbc.Driver");
-        conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/corsariosBajaJPA", "root", "");
+        conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/corsariosbaja", "root", "");
         return conexao;
     }
 

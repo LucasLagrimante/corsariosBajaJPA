@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pesquisa de DesempenhoTeste</title>
+        <title>Pesquisa de Desempenho Teste</title>
         <link rel="shortcut icon" href="images/favicon.ico">
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -62,6 +62,7 @@
                 <ul class="right hide-on-med-and-down">
                     <!-- Dropdown Trigger -->
                     <li><a href="index.jsp">Início</a></li>
+                     <li><a href="relatorios.jsp">Relatórios</a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="menuCadastro">Cadastro<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="menuPesquisa">Pesquisa<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>

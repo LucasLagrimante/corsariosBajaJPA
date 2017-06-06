@@ -7,6 +7,7 @@ package dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 import model.Automovel;
 
@@ -82,6 +83,8 @@ public class AutomovelDAO {
             tx.begin();
             em.remove(em.getReference(Automovel.class, automovel.getIdAutomovel()));
             tx.commit();
+        } catch (RollbackException e) {
+            throw new RollbackException("Para preservar a integridade do banco de dados, não foi possivel excluir o registro!");
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {
                 tx.rollback();

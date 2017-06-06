@@ -2,6 +2,42 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/src/java/dao/AutomovelDAO.java</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterAvaliacaoController.java</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/index.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/manterDesempenhoteste.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/manterIntegrante.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/manterArquitetura.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/pesquisarAvaliacao.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/relatorios.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/pesquisarCompeticao.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/pesquisarTipopeca.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/src/java/dao/ArquiteturaDAO.java</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/pesquisarDesempenhoteste.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/src/java/relatorio/RelatorioController.java</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/pesquisarDesempenho.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/pesquisarPeca.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/pesquisarTipopista.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/manterAvaliacao.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/manterFrequencia.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/pesquisarArquitetura.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/pesquisarAutomovel.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/manterDesempenho.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/manterCompeticao.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/manterPeca.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/manterTipopeca.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/pesquisarDesign.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/manterPessoa.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/pesquisarIntegrante.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/manterTipopista.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/pesquisarPessoa.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/src/java/dao/BD.java</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/src/java/controller/PesquisarDesempenhoController.java</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/manterDesign.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/manterAutomovel.jsp</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/src/java/controller/ManterAutomovelController.java</file>
+            <file>file:/E:/Aluno/Documents/NetBeansProjects/corsariosBajaJPA/web/pesquisarFrequencia.jsp</file>
+        </group>
     </open-files>
 </project-private>
