@@ -5,6 +5,7 @@
 package controller;
 
 import dao.DesempenhoDAO;
+import dao.TipopistaDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
@@ -12,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Tipopista;
 
 /**
  *
@@ -31,6 +33,7 @@ public class PesquisarDesempenhoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("desempenhos", DesempenhoDAO.getInstance().obterDesempenhos());
+        request.setAttribute("tipospista", TipopistaDAO.getInstance().obterTipospista());
         RequestDispatcher view = request.getRequestDispatcher("/pesquisarDesempenho.jsp");
         view.forward(request, response);
     }

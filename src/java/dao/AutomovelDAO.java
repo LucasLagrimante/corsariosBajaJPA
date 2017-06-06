@@ -113,43 +113,4 @@ public class AutomovelDAO {
         return automoveis;
     }
 
-    public List<Automovel> obterCores() {
-        EntityManager em = PersistenceUtil.getEntityManager();
-        EntityTransaction tx = em.getTransaction();
-        List<Automovel> automoveis = null;
-        try {
-            tx.begin();
-            TypedQuery<Automovel> query = em.createQuery("select a from Automovel a", Automovel.class);
-            automoveis = query.getResultList();
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null && tx.isActive()) {
-                tx.rollback();
-            }
-            throw new RuntimeException(e);
-        } finally {
-            PersistenceUtil.close(em);
-        }
-        return automoveis;
-    }
-
-    public List<Automovel> obterPesos() {
-        EntityManager em = PersistenceUtil.getEntityManager();
-        EntityTransaction tx = em.getTransaction();
-        List<Automovel> automoveis = null;
-        try {
-            tx.begin();
-            TypedQuery<Automovel> query = em.createQuery("select a from Automovel a", Automovel.class);
-            automoveis = query.getResultList();
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null && tx.isActive()) {
-                tx.rollback();
-            }
-            throw new RuntimeException(e);
-        } finally {
-            PersistenceUtil.close(em);
-        }
-        return automoveis;
-    }
 }

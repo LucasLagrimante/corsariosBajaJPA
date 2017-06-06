@@ -14,6 +14,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import model.Desempenho;
+import model.Tipopista;
 
 public class DesempenhoDAO {
 
@@ -117,25 +118,4 @@ public class DesempenhoDAO {
         }
         return desempenhos;
     }
-
-    public List<Desempenho> obterPistas() {
-        EntityManager em = PersistenceUtil.getEntityManager();
-        EntityTransaction tx = em.getTransaction();
-        List<Desempenho> desempenhos = null;
-        try {
-            tx.begin();
-            TypedQuery<Desempenho> query = em.createQuery("select d from Desempenho d", Desempenho.class);
-            desempenhos = query.getResultList();
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null && tx.isActive()) {
-                tx.rollback();
-            }
-            throw new RuntimeException(e);
-        } finally {
-            PersistenceUtil.close(em);
-        }
-        return desempenhos;
-    }
-
 }

@@ -4,11 +4,6 @@
  */
 package dao;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -98,26 +93,6 @@ public class IntegranteDAO {
 
     // OBTER PARA OS SELECTS
     public List<Integrante> obterIntegrantes() {
-        EntityManager em = PersistenceUtil.getEntityManager();
-        EntityTransaction tx = em.getTransaction();
-        List<Integrante> integrantes = null;
-        try {
-            tx.begin();
-            TypedQuery<Integrante> query = em.createQuery("select i from Integrante i", Integrante.class);
-            integrantes = query.getResultList();
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null && tx.isActive()) {
-                tx.rollback();
-            }
-            throw new RuntimeException(e);
-        } finally {
-            PersistenceUtil.close(em);
-        }
-        return integrantes;
-    }
-
-    public List<Integrante> obterPessoas() {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         List<Integrante> integrantes = null;

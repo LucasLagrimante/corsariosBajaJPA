@@ -120,8 +120,8 @@
                 <div class="input-field col s4 center-align">
                     <select name="selectPista" required="required">
                         <option value="" disabled selected>Escolha...</option>
-                        <c:forEach items="${pistas}" var="pista">
-                            <option value="${pista}"> ${pista}</option>
+                        <c:forEach items="${tipospista}" var="tipopista">
+                            <option value="${pista.nome}"> ${pista.nome}</option>
                         </c:forEach>
                     </select>
                 </div>
