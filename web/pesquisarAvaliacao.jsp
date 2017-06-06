@@ -56,52 +56,69 @@
                 <ul class="right hide-on-med-and-down">
                     <!-- Dropdown Trigger -->
                     <li><a href="index.jsp">Início</a></li>
-                     <li><a href="relatorios.jsp">Relatórios</a></li>
+                    <li><a href="relatorios.jsp">Relatórios</a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="menuCadastro">Cadastro<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="menuPesquisa">Pesquisa<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
             </div>
         </nav>
         <div class="container">
-            <form>
-                <h3 align="center">Pesquisa de Avaliação</h3>
-                <table class="striped centered">
-                    <thead>
+            <h3 align="center">Pesquisa de Avaliação</h3>
+            <table class="striped centered">
+                <thead>
+                    <tr>
+                        <th>Código Avaliação</th>
+                        <th>Integante</th>
+                        <th>Frequencia Avaliação</th>
+                        <th>Desempenho Avaliação</th>
+                        <th>Data Avaliação</th>
+                        <th colspan="2">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${avaliacoes}" var="avaliacao">
                         <tr>
-                            <th>Código Avaliação</th>
-                            <th>Integante</th>
-                            <th>Frequencia Avaliação</th>
-                            <th>Desempenho Avaliação</th>
-                            <th>Data Avaliação</th>
-                            <th colspan="2">Ação</th>
+                            <td>${avaliacao.idAvaliacao}</td>
+                            <td>${avaliacao.FKintegrante.FKpessoa.nome}</td>
+                            <td>${avaliacao.frequencia}</td>
+                            <td>${avaliacao.comparecimento}</td>
+                            <td>${avaliacao.data}</td>
+                            <td><a class="brown-text text-darken-4" href="ManterAvaliacaoController?acao=prepararOperacao&operacao=editar&idAvaliacao=${avaliacao.idAvaliacao}">Editar</a></td>
+                            <td><a class="brown-text text-darken-4" href="ManterAvaliacaoController?acao=prepararOperacao&operacao=excluir&idAvaliacao=${avaliacao.idAvaliacao}">Excluir</a></td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${avaliacoes}" var="avaliacao">
-                            <tr>
-                                <td>${avaliacao.idAvaliacao}</td>
-                                <td>${avaliacao.FKintegrante.FKpessoa.nome}</td>
-                                <td>${avaliacao.frequencia}</td>
-                                <td>${avaliacao.comparecimento}</td>
-                                <td>${avaliacao.data}</td>
-                                <td><a class="brown-text text-darken-4" href="ManterAvaliacaoController?acao=prepararOperacao&operacao=editar&idAvaliacao=${avaliacao.idAvaliacao}">Editar</a></td>
-                                <td><a class="brown-text text-darken-4" href="ManterAvaliacaoController?acao=prepararOperacao&operacao=excluir&idAvaliacao=${avaliacao.idAvaliacao}">Excluir</a></td>
-                            </tr>
-                        </c:forEach>
-                        <tr> 
-                            <td align="center" colspan="9"> 
-                                <a class="waves-effect waves-light btn-large brown darken-4" id="imprimir">Imprimir <i class="material-icons right">print</i></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
+                    </c:forEach>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="input-field col s4 center-align">
+                    <select name="selectTipoRelatorio" required="required">
+                        <option value="" disabled selected>Escolha...</option>
+                        <option value="completo">Relatório Completo</option>
+                        <option value="filtroComparecimento">Filtro Por Comparecimento</option>
+                    </select>
+                </div>
+              
+                <div class="input-field col s4 center-align">
+                    <select name="selectComparecimento" required="required">
+                        <option value="" disabled selected>Escolha...</option>
+                        <option value="pessimo"> Péssimo</option>
+                        <option value="regular"> Regular</option>
+                        <option value="otimo"> Ótimo</option>
+                    </select>
+                </div>
+
+                <div class="input-field col s4 center-align">
+                    <a class="waves-effect waves-light btn-large brown darken-4" id="imprimir">Imprimir <i class="material-icons right">print</i></a>
+                </div>
+            </div>
         </div>
     </body>
 </html>
 <script type="text/javascript">
     $(document).ready(function () {
         $('select').material_select();
+         $("[name='selectTipoRelatorio']").material_select();
+        $("[name='selectComparecimento']").material_select('destroy');
 
         $('body').css('background-image', "url('images/fundo.png')");
 
@@ -112,6 +129,25 @@
 
         $("#imprimir").click(function () {
             window.location.href = 'RelatorioController?relatorioNome=reportAvaliacao.jasper';
+        });
+        $("[name='selectTipoRelatorio']").change(function () {
+            if ($("[name='selectTipoRelatorio'] option:selected").val() === "completo") {
+                $("[name='selectTipoRelatorio']").material_select();
+                $("[name='selectComparecimento']").material_select('destroy');
+            }
+            if ($("[name='selectTipoRelatorio'] option:selected").val() === "filtroComparecimento") {
+                $("[name='selectTipoRelatorio']").material_select();
+                $("[name='selectComparecimento']").material_select();
+            }
+        });
+        $("#imprimir").click(function () {
+            if ($("[name='selectTipoRelatorio'] option:selected").val() === "completo") {
+                window.location.href = 'RelatorioController?relatorioNome=reportAvaliacao.jasper';
+            }
+            if ($("[name='selectTipoRelatorio'] option:selected").val() === "filtroComparecimento") {
+                window.location.href = 'RelatorioController?relatorioNome=reportAvaliacaoPorDesempenho.jasper&parametro=' + $("[name='selectComparecimento'] option:selected").val();
+            }
+
         });
     });
 </script>
