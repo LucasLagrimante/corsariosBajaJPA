@@ -62,17 +62,17 @@
         </nav>
         <div class="container">
             <h3 align="center">${operacao} Tipo de Pista</h3>
-            <form  action="ManterTipopistaController?acao=confirmarOperacao&operacao=${operacao}" method="POST" name="frmManterTipoPista">
+            <form  action="ManterTipopistaController?acao=confirmarOperacao&operacao=${operacao}" method="POST" name="frmManterTipopista">
                 <div class="row">
                     <div class="input-field col s6 offset-m3">
-                        <input id="id" name="txtIdTipopista" class="validate" type="text" value="${tipoPista.idTipoPista}"    required="required" pattern="[0-9]+$"<c:if test="${operacao != 'incluir'}"> readonly</c:if>>
+                        <input id="id" name="txtIdTipopista" class="validate" type="text" value="${tipopista.idTipopista}"    required="required" pattern="[0-9]+$"<c:if test="${operacao != 'incluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="id">ID</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="nome" name="txtNome" class="validate" type="text" value="${tipoPista.nome}" required="required" pattern="[a-zA-Z\s]+$"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="nome" name="txtNome" class="validate" type="text" value="${tipopista.nome}" required="required" pattern="[a-zA-Z\s]+$"<c:if test="${operacao == 'excluir'}"> readonly</c:if>>
                         <label  data-error="errado" data-success="certo" for="nome">Nome da Pista</label>
                     </div>
                 </div>

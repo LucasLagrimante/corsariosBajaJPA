@@ -41,7 +41,7 @@ public class ManterAutomovelController extends HttpServlet {
             if (!operacao.equals("incluir")) {
                 int idAutomovel = Integer.parseInt(request.getParameter("idAutomovel"));
                 automovel = AutomovelDAO.getInstance().getAutomovel(idAutomovel);
-                request.setAttribute("Automovel", automovel);
+                request.setAttribute("automovel", automovel);
             }
             RequestDispatcher view = request.getRequestDispatcher("/manterAutomovel.jsp");
             view.forward(request, response);

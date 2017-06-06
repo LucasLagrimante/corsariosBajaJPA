@@ -74,7 +74,7 @@
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
                             <p class="range-field">
-                                <input type="range" id="quantidade" name="txtQuantidade" required="required"  min="1" max="100" value="${peca.quantidade}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                                <input type="range" id="quantidade" name="txtQuantidade" required="required"  min="1" max="100" value="${peca.quantidade}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>/>
                             </p> 
                             <label for="quantidade">Quantidade</label>
                         </div>
@@ -82,14 +82,14 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="nome" name="txtNome" type="text" required="required" value="${peca.nome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="nome" name="txtNome" type="text" required="required" value="${peca.nome}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="nome">Nome</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="modelo" name="txtModelo" type="text" required="required" value="${peca.modelo}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="modelo" name="txtModelo" type="text" required="required" value="${peca.modelo}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="modelo">Modelo</label>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="preco" name="txtPrecoCompra" type="text" class="validate" required="required" pattern="(?:\d*\.)?\d+"  value="${peca.precoCompra}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="preco" name="txtPrecoCompra" type="text" class="validate" required="required" pattern="(?:\d*\.)?\d+"  value="${peca.precoCompra}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="preco">Preço</label>
                         </div>
                     </div>
@@ -105,10 +105,10 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectTipopeca" value="${peca.tipopeca.idTipopeca}"></c:if>
-                        <select id="tipopeca" name="selectTipopeca" required="required"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
+                        <c:if test="${operacao == 'excluir'}"><input type="hidden" name="selectTipopeca" value="${peca.FKtipopeca.idTipopeca}"></c:if>
+                        <select id="tipopeca" name="selectTipopeca" required="required"<c:if test="${operacao == 'excluir'}"> disabled</c:if>>   
                             <c:forEach items="${tipospeca}" var="tipopeca">
-                                <option value="${tipopeca.idTipopeca}" <c:if test="${peca.tipopeca.idTipopeca == tipopeca.idTipopeca}"> selected</c:if>> ${tipopeca.nome} </option>
+                                <option value="${tipopeca.idTipopeca}" <c:if test="${peca.FKtipopeca.idTipopeca == tipopeca.idTipopeca}"> selected</c:if>> ${tipopeca.nome} </option>
                             </c:forEach>
                         </select>
                         <label data-error="errado" data-success="certo" for="tipopeca">Tipo Peça</label>

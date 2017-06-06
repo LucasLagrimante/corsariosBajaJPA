@@ -70,14 +70,14 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="nome" name="txtNome" type="text" value="${competicao.nome}" required="required" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>      
+                            <input id="nome" name="txtNome" type="text" value="${competicao.nome}" required="required" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>      
                             <label for="nome">Nome</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="data" name="txtData" type="text" class="datepicker" value="${competicao.data}" required="required" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                            <input id="data" name="txtData" type="text" class="datepicker" value="${competicao.data}" required="required" <c:if test="${operacao == 'excluir'}"> disabled</c:if>>
                             <label for="data">Data</label>
                         </div>
                     </div>
@@ -85,24 +85,24 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="hora" name="txtHora" value="${competicao.hora}" class="validate" required="required" type="text" required="required" maxlength="8" pattern="^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="hora" name="txtHora" value="${competicao.hora}" class="validate" required="required" type="text" required="required" maxlength="8" pattern="^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="hora">Hora</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="local" name="txtLocal" required="required" type="text" value="${competicao.local}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>      
+                            <input id="local" name="txtLocal" required="required" type="text" value="${competicao.local}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>      
                             <label for="local">Local</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectTipopista" value="${competicao.tipopista.idTipopista}"></c:if>
-                        <select id="tipopista" name="selectTipopista" required="required"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
+                        <c:if test="${operacao == 'excluir'}"><input type="hidden" name="selectTipopista" value="${competicao.FKtipopista.idTipopista}"></c:if>
+                        <select id="tipopista" name="selectTipopista" required="required"<c:if test="${operacao == 'excluir'}"> disabled</c:if>>   
                             <c:forEach items="${tipospista}" var="tipopista">
-                                <option value="${tipopista.idTipopista}" <c:if test="${competicao.tipopista.idTipopista == tipopista.idTipopista}"> selected</c:if>> ${tipopista.nome} </option>
+                                <option value="${tipopista.idTipopista}" <c:if test="${competicao.FKtipopista.idTipopista == tipopista.idTipopista}"> selected</c:if>> ${tipopista.nome} </option>
                             </c:forEach>
                         </select>
                         <label for="tipopista">Tipo Pista</label>

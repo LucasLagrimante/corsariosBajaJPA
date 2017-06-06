@@ -65,14 +65,14 @@
             <form  action="ManterTipopecaController?acao=confirmarOperacao&operacao=${operacao}" method="POST" name="frmManterTipopeca">
                 <div class="row">
                     <div class="input-field col s6 offset-m3">
-                        <input id="id" class="validate" name="txtIdTipopeca" type="text" value="${tipoPeca.idTipopeca}" required class="validate" pattern="[0-9]+$"<c:if test="${operacao != 'incluir'}"> readonly</c:if>>
+                        <input id="id" class="validate" name="txtIdTipopeca" type="text" value="${tipopeca.idTipopeca}" required class="validate" pattern="[0-9]+$"<c:if test="${operacao != 'incluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="id">ID</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="nome" name="txtNome" class="validate" type="text" value="${tipoPeca.nome}" required="required" pattern="[a-zA-Z\s]+$"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="nome" name="txtNome" class="validate" type="text" value="${tipopeca.nome}" required="required" pattern="[a-zA-Z\s]+$"<c:if test="${operacao == 'excluir'}"> readonly</c:if>>
                         <label adata-error="errado" data-success="certo" for="nome">Nome da Peca</label>
                     </div>
                 </div>

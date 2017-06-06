@@ -68,10 +68,10 @@
             <form action="ManterArquiteturaController?acao=confirmarOperacao&operacao=${operacao}" method="POST" name="frmManterArquitetura" >
                 <div class="row">
                     <div class="input-field col s6 offset-m3 offset-m3" >
-                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectAutomovel" value="${arquitetura.automovel.idAutomovel}"></c:if>
-                        <select id="automovel" name="selectAutomovel" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
+                        <c:if test="${operacao == 'excluir'}"><input type="hidden" name="selectAutomovel" value="${arquitetura.FKautomovel.idAutomovel}"></c:if>
+                        <select id="automovel" name="selectAutomovel" <c:if test="${operacao == 'excluir'}"> disabled</c:if>>   
                             <c:forEach items="${automoveis}" var="automovel">
-                                <option value="${automovel.idAutomovel}" <c:if test="${arquitetura.automovel.idAutomovel == automovel.idAutomovel}"> selected</c:if>> ${automovel.nome} </option>
+                                <option value="${automovel.idAutomovel}" <c:if test="${arquitetura.FKautomovel.idAutomovel == automovel.idAutomovel}"> selected</c:if>> ${automovel.nome} </option>
                             </c:forEach>
                         </select>
                         <label for="automovel">Automóvel</label>
@@ -87,7 +87,7 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="imagem" name="txtCaminhoImagem" type="text" required="required" value="${arquitetura.caminhoImagem}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="imagem" name="txtCaminhoImagem" type="text" required="required" value="${arquitetura.caminhoImagem}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
                         <label for="imagem">Imagem</label>
                     </div>
                 </div>

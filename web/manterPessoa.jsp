@@ -73,42 +73,42 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="nome" name="txtNome" required="required" type="text" value="${pessoa.nome}" pattern="[a-z\s]+$" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="nome" name="txtNome" required="required" type="text" value="${pessoa.nome}" pattern="[a-z\s]+$" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
                             <label for="nome">Nome</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="cpf" name="txtCpf" class="validate" maxlength="14" required="required" type="text" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})" value="${pessoa.cpf}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="cpf" name="txtCpf" class="validate" maxlength="14" required="required" type="text" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})" value="${pessoa.cpf}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="cpf">CPF</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="logradouro" name="txtLogradouro" required="required" type="text" value="${pessoa.logradouro}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="logradouro" name="txtLogradouro" required="required" type="text" value="${pessoa.logradouro}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
                             <label for="logradouro">Logradouro</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="cep" name="txtCep" required="required" class="validate" type="text" pattern= "\d{5}-?\d{3}" maxlength="9" value="${pessoa.cep}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="cep" name="txtCep" required="required" class="validate" type="text" pattern= "\d{5}-?\d{3}" maxlength="9" value="${pessoa.cep}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="cep">CEP</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="bairro" name="txtBairro" required="required" type="text" value="${pessoa.bairro}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="bairro" name="txtBairro" required="required" type="text" value="${pessoa.bairro}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
                             <label for="bairro">Bairro</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <select id="uf" name="txtUf" value="${pessoa.uf}" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                            <select id="uf" name="txtUf" value="${pessoa.uf}" <c:if test="${operacao == 'excluir'}"> disabled</c:if>>
                                 <option value="" disabled selected>Escolha</option>
                                 <option value="AC" <c:if test="${pessoa.uf == 'AC'}"> selected</c:if>>Acre</option>
                             <option value="AL" <c:if test="${pessoa.uf == 'AL'}"> selected</c:if>>Alagoas</option>
@@ -144,14 +144,14 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="numero" type="text" name="txtNumero" class="validate" required="required" pattern="[0-9]+$" value="${pessoa.numero}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="numero" type="text" name="txtNumero" class="validate" required="required" pattern="[0-9]+$" value="${pessoa.numero}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="numero">Número</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="telefone" type="text" class="validate"name="txtTelefone" type="tel" required="required" maxlength="15" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" value="${pessoa.telefone}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="telefone" type="text" class="validate"name="txtTelefone" type="tel" required="required" maxlength="15" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" value="${pessoa.telefone}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
                         <label data-error="errado" data-success="certo" for="telefone">Telefone</label>
                     </div>
                 </div>

@@ -73,26 +73,26 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="data" name="txtData" type="text" value="${frequencia.data}" class="datepicker" required="required"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                            <input id="data" name="txtData" type="text" value="${frequencia.data}" class="datepicker" required="required"<c:if test="${operacao == 'excluir'}"> disabled</c:if>>
                             <label for="data">Data</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="presente" required type="radio" name="radioEstado" value="presente" <c:if test="${frequencia.estado == 'presente'}"> checked</c:if> <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                            <input id="presente" required type="radio" name="radioEstado" value="presente" <c:if test="${frequencia.estado == 'presente'}"> checked</c:if> <c:if test="${operacao == 'excluir'}"> disabled</c:if>>
                             <label for="presente">Presente</label>
-                                <input id="ausente" type="radio" name="radioEstado" value="ausente" <c:if test="${frequencia.estado == 'ausente'}"> checked</c:if> <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                                <input id="ausente" type="radio" name="radioEstado" value="ausente" <c:if test="${frequencia.estado == 'ausente'}"> checked</c:if> <c:if test="${operacao == 'excluir'}"> disabled</c:if>>
                             <label for="ausente">Ausente</label>
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectIntegrante" value="${frequencia.integrante.matricula}"></c:if>
-                        <select id="integrante" name="selectIntegrante" required <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
+                        <c:if test="${operacao == 'excluir'}"><input type="hidden" name="selectIntegrante" value="${frequencia.FKintegrante.matricula}"></c:if>
+                        <select id="integrante" name="selectIntegrante" required <c:if test="${operacao == 'excluir'}"> disabled</c:if>>   
                             <c:forEach items="${integrantes}" var="integrante">
-                                <option value="${integrante.matricula}" <c:if test="${frequencia.integrante.matricula == integrante.matricula}"> selected</c:if>> ${integrante.FKpessoa.nome} </option>
+                                <option value="${integrante.matricula}" <c:if test="${frequencia.FKintegrante.matricula == integrante.matricula}"> selected</c:if>> ${integrante.FKpessoa.nome} </option>
                             </c:forEach>
                         </select>
                         <label for="integrante">Integrante</label>

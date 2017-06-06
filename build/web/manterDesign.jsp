@@ -66,10 +66,10 @@
             <form  action="ManterDesignController?acao=confirmarOperacao&operacao=${operacao}" method="POST" name="frmManterDesign">
                 <div class="row">
                     <div class="input-field col s6 offset-m3">
-                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectAutomovel" value="${design.automovel.idAutomovel}"></c:if>
-                        <select id="automovel" name="selectAutomovel" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
+                        <c:if test="${operacao == 'excluir'}"><input type="hidden" name="selectAutomovel" value="${design.FKautomovel.idAutomovel}"></c:if>
+                        <select id="automovel" name="selectAutomovel" <c:if test="${operacao == 'excluir'}"> disabled</c:if>>   
                             <c:forEach items="${automoveis}" var="automovel">
-                                <option value="${automovel.idAutomovel}" <c:if test="${design.automovel.idAutomovel == automovel.idAutomovel}"> selected</c:if>> ${automovel.nome} </option>
+                                <option value="${automovel.idAutomovel}" <c:if test="${design.FKautomovel.idAutomovel == automovel.idAutomovel}"> selected</c:if>> ${automovel.nome} </option>
                             </c:forEach>
                         </select>
                         <label data-error="errado" data-success="certo" for="automovel">Automóvel</label>
@@ -85,7 +85,7 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="caminhoImagem" name="txtCaminhoImagem" type="text" required="required" value="${design.caminhoImagem}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                            <input id="caminhoImagem" name="txtCaminhoImagem" type="text" required="required" value="${design.caminhoImagem}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
                         <label data-error="errado" data-success="certo" for="caminhoImagem">Caminho Imagem</label>
                     </div>
                 </div>

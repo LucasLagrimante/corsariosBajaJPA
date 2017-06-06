@@ -41,7 +41,7 @@ public class ManterPessoaController extends HttpServlet {
             if (!operacao.equals("incluir")) {
                 Integer idPessoa = Integer.parseInt(request.getParameter("idPessoa"));
                 pessoa = PessoaDAO.getInstance().getPessoa(idPessoa);
-                request.setAttribute("Pessoa", pessoa);
+                request.setAttribute("pessoa", pessoa);
             }
             RequestDispatcher view = request.getRequestDispatcher("/manterPessoa.jsp");
             view.forward(request, response);

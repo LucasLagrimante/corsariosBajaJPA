@@ -73,7 +73,7 @@
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
                             <p class="range-field">
-                                <input type="range" id="frequencia" name="txtFrequencia" required="required"  min="0" max="100" value="${avaliacao.frequencia}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                                <input type="range" id="frequencia" name="txtFrequencia" required="required"  min="0" max="100" value="${avaliacao.frequencia}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>/>
                             </p>   
                             <label for="frequencia">Frequência</label>
                         </div>
@@ -81,7 +81,7 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <select id="desempenhoNaAvaliacao" name="txtComparecimento" value="${avaliacao.comparecimento}" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                            <select id="desempenhoNaAvaliacao" name="txtComparecimento" value="${avaliacao.comparecimento}" <c:if test="${operacao == 'excluir'}"> disabled</c:if>>
                               <option value="otimo" <c:if test="${avaliacao.comparecimento == 'otimo'}"> selected</c:if>>Ótimo</option>
                               <option value="bom" <c:if test="${avaliacao.comparecimento == 'bom'}"> selected</c:if>>Bom</option>
                               <option value="medio" <c:if test="${avaliacao.comparecimento == 'medio'}"> selected</c:if>>Médio</option>
@@ -94,17 +94,17 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="data" name="txtData" type="text" required="required" class="datepicker" value="${avaliacao.data}" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                            <input id="data" name="txtData" type="text" required="required" class="datepicker" value="${avaliacao.data}" <c:if test="${operacao == 'excluir'}"> disabled</c:if>>
                             <label for="data">Data</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectIntegrante" value="${avaliacao.integrante.matricula}"></c:if>
-                        <select id="integrante" name="selectIntegrante" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
+                        <c:if test="${operacao == 'excluir'}"><input type="hidden" name="selectIntegrante" value="${avaliacao.FKintegrante.matricula}"></c:if>
+                        <select id="integrante" name="selectIntegrante" <c:if test="${operacao == 'excluir'}"> disabled</c:if>>   
                             <c:forEach items="${integrantes}" var="integrante">
-                                <option value="${integrante.matricula}" <c:if test="${avaliacao.integrante.matricula == integrante.matricula}"> selected</c:if>> ${integrante.FKpessoa.nome} </option>
+                                <option value="${integrante.matricula}" <c:if test="${avaliacao.FKintegrante.matricula == integrante.matricula}"> selected</c:if>> ${integrante.FKpessoa.nome} </option>
                             </c:forEach>
                         </select>
                         <label for="integrante">Integrante</label>
