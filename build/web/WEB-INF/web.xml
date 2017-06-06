@@ -277,4 +277,8 @@
             30
         </session-timeout>
     </session-config>
+    <error-page>
+        <exception-type>javax.persistence.RollbackException</exception-type>					
+        <location>/web/rollbackException.jsp</location>
+    </error-page>
 </web-app>

@@ -31,7 +31,7 @@ public class AutomovelDAO {
             em.persist(automovel);
             tx.commit();
         } catch (RollbackException e) {
-            throw new RollbackException("Para preservar a integridade do banco de dados, não foi possivel excluir o registro!");
+            throw new RollbackException("Para preservar a integridade do banco de dados, não foi possivel excluir o registro!", e);
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
