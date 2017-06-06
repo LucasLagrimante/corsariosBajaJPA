@@ -62,55 +62,69 @@
                 <ul class="right hide-on-med-and-down">
                     <!-- Dropdown Trigger -->
                     <li><a href="index.jsp">Início</a></li>
-                     <li><a href="relatorios.jsp">Relatórios</a></li>
+                    <li><a href="relatorios.jsp">Relatórios</a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="menuCadastro">Cadastro<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="menuPesquisa">Pesquisa<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
             </div>
         </nav>
         <div class="container">
-            <form>
-                <form>
-                    <h3 align="center">Pesquisa de Competição</h3>
-                    <table class="striped centered">
-                        <thead>
-                            <tr>
-                                <th>Código da Competição</th>
-                                <th>Nome da Competição</th>
-                                <th>Data da Competição</th>
-                                <th>Hora da Competição</th>
-                                <th>Local da Competição</th>
-                                <th>Tipo Pista</th>
-                                <th colspan="2">Ação</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${competicoes}" var="competicao">
-                                <tr>
-                                    <td>${competicao.idCompeticao}</td>
-                                    <td>${competicao.nome}</td>
-                                    <td>${competicao.data}</td>
-                                    <td>${competicao.hora}</td>
-                                    <td>${competicao.local}</td>
-                                    <td>${competicao.FKtipopista.nome}</td>
-                                    <td><a class="brown-text text-darken-4" href="ManterCompeticaoController?acao=prepararOperacao&operacao=editar&idCompeticao=${competicao.idCompeticao}">Editar</a></td>
-                                    <td><a class="brown-text text-darken-4" href="ManterCompeticaoController?acao=prepararOperacao&operacao=excluir&idCompeticao=${competicao.idCompeticao}">Excluir</a></td>
-                                </tr>
-                            </c:forEach>
-                            <tr> 
-                                <td  align="center" colspan="9">
-                                    <a class="waves-effect waves-light btn-large brown darken-4" id="imprimir">Imprimir <i class="material-icons right">print</i></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </form>
+            <h3 align="center">Pesquisa de Competição</h3>
+            <table class="striped centered">
+                <thead>
+                    <tr>
+                        <th>Código da Competição</th>
+                        <th>Nome da Competição</th>
+                        <th>Data da Competição</th>
+                        <th>Hora da Competição</th>
+                        <th>Local da Competição</th>
+                        <th>Tipo Pista</th>
+                        <th colspan="2">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${competicoes}" var="competicao">
+                        <tr>
+                            <td>${competicao.idCompeticao}</td>
+                            <td>${competicao.nome}</td>
+                            <td>${competicao.data}</td>
+                            <td>${competicao.hora}</td>
+                            <td>${competicao.local}</td>
+                            <td>${competicao.FKtipopista.nome}</td>
+                            <td><a class="brown-text text-darken-4" href="ManterCompeticaoController?acao=prepararOperacao&operacao=editar&idCompeticao=${competicao.idCompeticao}">Editar</a></td>
+                            <td><a class="brown-text text-darken-4" href="ManterCompeticaoController?acao=prepararOperacao&operacao=excluir&idCompeticao=${competicao.idCompeticao}">Excluir</a></td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="input-field col s4 center-align">
+                    <select name="selectTipoRelatorio" required="required">
+                        <option value="" disabled selected>Escolha...</option>
+                        <option value="completo">Relatório Completo</option>
+                        <option value="filtroLocal">Filtro Por Local de Competição</option>
+                    </select>
+                </div>
+                 <div class="input-field col s4 center-align">
+                <select name="selectLocal" required="required">
+                    <option value="" disabled selected>Escolha...</option>
+                    <c:forEach items="${competicoes}" var="competicao">
+                        <option value="${competicao.local}"> ${competicao.local}</option>
+                    </c:forEach>
+                </select>
+                <div class="input-field col s4 center-align">
+                    <a class="waves-effect waves-light btn-large brown darken-4" id="imprimir">Imprimir <i class="material-icons right">print</i></a>
+                </div>
+            </div>
+
         </div>
     </body>
 </html>
 <script type="text/javascript">
     $(document).ready(function () {
         $('select').material_select();
+        $("[name='selectTipoRelatorio']").material_select();
+        $("[name='selectLocal']").material_select('destroy');
 
         $('body').css('background-image', "url('images/fundo.png')");
 
@@ -121,6 +135,26 @@
 
         $("#imprimir").click(function () {
             window.location.href = 'RelatorioController?relatorioNome=reportCompeticao.jasper';
+        });
+
+        $("[name='selectTipoRelatorio']").change(function () {
+            if ($("[name='selectTipoRelatorio'] option:selected").val() === "completo") {
+                $("[name='selectTipoRelatorio']").material_select();
+                $("[name='selectLocal']").material_select('destroy');
+            }
+            if ($("[name='selectTipoRelatorio'] option:selected").val() === "filtroLocal") {
+                $("[name='selectTipoRelatorio']").material_select();
+                $("[name='selectLocal']").material_select();
+            }
+        });
+        $("#imprimir").click(function () {
+            if ($("[name='selectTipoRelatorio'] option:selected").val() === "completo") {
+                window.location.href = 'RelatorioController?relatorioNome=reportCompeticao.jasper';
+            }
+            if ($("[name='selectTipoRelatorio'] option:selected").val() === "filtroLocal") {
+                window.location.href = 'RelatorioController?relatorioNome=reportCompeticaoPorLocal.jasper&parametro=' + $("[name='selectLocal'] option:selected").val();
+            }
+
         });
     });
 </script>

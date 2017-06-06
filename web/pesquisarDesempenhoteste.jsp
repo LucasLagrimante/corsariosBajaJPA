@@ -120,14 +120,11 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('select').material_select();
-
         $('body').css('background-image', "url('images/fundo.png')");
-
         $('.dropdown-button').dropdown({
             constrainWidth: false, // Does not change width of dropdown to that of the activator
             hover: true // Activate on hover
         });
-
         $("#imprimir").click(function () {
             window.location.href = 'RelatorioController?relatorioNome=reportDesempenhoTeste.jasper';
         });
