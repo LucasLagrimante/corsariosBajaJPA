@@ -97,7 +97,7 @@
                         <option value="filtroComparecimento">Filtro Por Comparecimento</option>
                     </select>
                 </div>
-              
+
                 <div class="input-field col s4 center-align">
                     <select name="selectComparecimento" required="required">
                         <option value="" disabled selected>Escolha...</option>
@@ -117,7 +117,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('select').material_select();
-         $("[name='selectTipoRelatorio']").material_select();
+        $("[name='selectTipoRelatorio']").material_select();
         $("[name='selectComparecimento']").material_select('destroy');
 
         $('body').css('background-image', "url('images/fundo.png')");

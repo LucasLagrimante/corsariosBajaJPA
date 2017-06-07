@@ -105,19 +105,19 @@
                         <option value="filtroLocal">Filtro Por Local de Competição</option>
                     </select>
                 </div>
-                 <div class="input-field col s4 center-align">
-                <select name="selectLocal" required="required">
-                    <option value="" disabled selected>Escolha...</option>
-                    <c:forEach items="${competicoes}" var="competicao">
-                        <option value="${competicao.local}"> ${competicao.local}</option>
-                    </c:forEach>
-                </select>
                 <div class="input-field col s4 center-align">
-                    <a class="waves-effect waves-light btn-large brown darken-4" id="imprimir">Imprimir <i class="material-icons right">print</i></a>
+                    <select name="selectLocal" required="required">
+                        <option value="" disabled selected>Escolha...</option>
+                        <c:forEach items="${competicoes}" var="competicao">
+                            <option value="${competicao.local}"> ${competicao.local}</option>
+                        </c:forEach>
+                    </select>
+                    <div class="input-field col s4 center-align">
+                        <a class="waves-effect waves-light btn-large brown darken-4" id="imprimir">Imprimir <i class="material-icons right">print</i></a>
+                    </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
     </body>
 </html>
 <script type="text/javascript">

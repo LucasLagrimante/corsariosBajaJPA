@@ -129,5 +129,5 @@ public class Frequencia implements Serializable {
     public String toString() {
         return "model.Frequencia[ idFrequencia=" + idFrequencia + " ]";
     }
-    
+
 }

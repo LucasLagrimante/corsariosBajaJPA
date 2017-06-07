@@ -67,7 +67,7 @@
         <div class="container">
             <h1 align="center">ERRO 500!</h1>
             <br>
-            <h3 align="center">Algo deu errado. Se persistir contate o suporte.</h3>
+            <h3 align="center">Erro interno do servidor. Se persistir contate o suporte.</h3>
         </div>
     </body>
 </html>
