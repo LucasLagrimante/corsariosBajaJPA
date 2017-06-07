@@ -278,7 +278,11 @@
         </session-timeout>
     </session-config>
     <error-page>
-        <exception-type>java.lang.RuntimeException</exception-type>					
-        <location>/rollbackException.jsp</location>
+        <error-code>404</error-code>        
+        <location>/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>        
+        <location>/500.jsp</location>
     </error-page>
 </web-app>

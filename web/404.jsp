@@ -65,13 +65,15 @@
             </div>
         </nav>
         <div class="container">
-            <h3 align="center">Para preservar a integridade do banco de dados, não foi possível excluir o registro!</h3>
+            <h1 align="center">ERRO 404!</h1>
+            <br>
+            <h3 align="center">Pagina não encontrada. Se persistir contate o suporte.</h3>
         </div>
     </body>
 </html>
 <script type="text/javascript">
-    $(document).ready(function() {
-         $('select').material_select();
+    $(document).ready(function () {
+        $('select').material_select();
 
         $('body').css('background-image', "url('images/fundo.png')");
 
