@@ -74,7 +74,7 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="nome" name="txtNome" required="required" type="text" value="${pessoa.nome}" pattern="[a-z\s]+$" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
+                            <input id="nome" name="txtNome" required="required" type="text" value="${pessoa.nome}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
                             <label for="nome">Nome</label>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <select id="uf" name="txtUf" value="${pessoa.uf}" <c:if test="${operacao == 'excluir'}"> disabled</c:if>>
+                            <select id="uf" required name="txtUf" value="${pessoa.uf}" <c:if test="${operacao == 'excluir'}"> disabled</c:if>>
                                 <option value="" disabled selected>Escolha</option>
                                 <option value="AC" <c:if test="${pessoa.uf == 'AC'}"> selected</c:if>>Acre</option>
                             <option value="AL" <c:if test="${pessoa.uf == 'AL'}"> selected</c:if>>Alagoas</option>

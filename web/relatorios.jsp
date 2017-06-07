@@ -70,6 +70,7 @@
                     <option value="integranteFrequencia"> Integrante Frequência</option>
                     <option value="groupAutomovelCor"> Group Automovel Cor</option>
                     <option value="groupDesempenhoPista"> Group Desempenho Tipo Pista</option>
+                    <option value="groupDesempenhoPista"> Group Pessoa Por Bairro</option>
                 </select>
             </div>
         </div>
@@ -102,6 +103,9 @@
             }
             if ($("[name='selectRelatorio'] option:selected").val() === "groupDesempenhoPista") {
                 window.location.href = 'RelatorioController?relatorioNome=reportGroupDesempenhoPorTipoPista.jasper';
+            }
+             if ($("[name='selectRelatorio'] option:selected").val() === "groupDesempenhoPista") {
+                window.location.href = 'RelatorioController?relatorioNome=reportGroupPessoaPorBairro.jasper';
             }
         });
 
