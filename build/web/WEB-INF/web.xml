@@ -274,7 +274,7 @@
     </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            25
         </session-timeout>
     </session-config>
     <error-page>
