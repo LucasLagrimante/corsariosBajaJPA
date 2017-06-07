@@ -112,12 +112,12 @@
                             <option value="${competicao.local}"> ${competicao.local}</option>
                         </c:forEach>
                     </select>
-                    <div class="input-field col s4 center-align">
-                        <a class="waves-effect waves-light btn-large brown darken-4" id="imprimir">Imprimir <i class="material-icons right">print</i></a>
-                    </div>
                 </div>
-
+                <div class="input-field col s4 center-align">
+                    <a class="waves-effect waves-light btn-large brown darken-4" id="imprimir">Imprimir <i class="material-icons right">print</i></a>
+                </div>
             </div>
+        </div>
     </body>
 </html>
 <script type="text/javascript">
