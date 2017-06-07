@@ -109,7 +109,7 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <select id="uf" required name="txtUf" value="${pessoa.uf}" <c:if test="${operacao == 'excluir'}"> disabled</c:if>>
+                            <select id="uf" required="required" name="txtUf" value="${pessoa.uf}" <c:if test="${operacao == 'excluir'}"> disabled</c:if>>
                                 <option value="" disabled selected>Escolha</option>
                                 <option value="AC" <c:if test="${pessoa.uf == 'AC'}"> selected</c:if>>Acre</option>
                             <option value="AL" <c:if test="${pessoa.uf == 'AL'}"> selected</c:if>>Alagoas</option>

@@ -153,7 +153,7 @@
         });
 
         $("#cadastrarTipopista").click(function () {
-            window.location.href = 'http://localhost:8084/corsariosBaja/ManterTipopistaController?acao=prepararIncluir';
+            window.location.href = 'http://localhost:8080/corsariosBajaJPA/ManterTipopistaController?acao=prepararOperacao&operacao=incluir';
         });
     });
 </script>
