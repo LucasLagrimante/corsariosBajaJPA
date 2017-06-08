@@ -37,7 +37,7 @@ public class ManterTipopistaController extends HttpServlet {
         try {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
-            if (!operacao.equals("incluir")) {
+            if (!operacao.equals("Incluir")) {
                 Integer idTipopista = Integer.parseInt(request.getParameter("idTipopista"));
                 tipopista = TipopistaDAO.getInstance().getTipopista(idTipopista);
                 request.setAttribute("tipopista", tipopista);
@@ -59,15 +59,15 @@ public class ManterTipopistaController extends HttpServlet {
             int idTipopista = Integer.parseInt(request.getParameter("txtIdTipopista"));
             String nome = request.getParameter("txtNome");
             switch (operacao) {
-                case "incluir":
+                case "Incluir":
                     tipopista = new Tipopista(idTipopista, nome);
                     TipopistaDAO.getInstance().salvar(tipopista);
                     break;
-                case "editar":
+                case "Editar":
                     tipopista.setNome(nome);
                     TipopistaDAO.getInstance().alterar(tipopista);
                     break;
-                case "excluir":
+                case "Excluir":
                     TipopistaDAO.getInstance().excluir(tipopista);
                     break;
                 default:

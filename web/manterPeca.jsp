@@ -20,20 +20,20 @@
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <!-- Dropdown Structure -->
         <ul id="menuCadastro" class="dropdown-content">
-            <li><a class="brown-text text-darken-4" href="ManterAutomovelController?acao=prepararOperacao&operacao=incluir">Automóvel</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterArquiteturaController?acao=prepararOperacao&operacao=incluir">Arquitetura</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterAvaliacaoController?acao=prepararOperacao&operacao=incluir">Avaliação</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterCompeticaoController?acao=prepararOperacao&operacao=incluir">Competição</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterDesempenhoController?acao=prepararOperacao&operacao=incluir">Desempenho de Competicão</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterDesempenhotesteController?acao=prepararOperacao&operacao=incluir">Desempenho de Teste</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterDesignController?acao=prepararOperacao&operacao=incluir">Design</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterFrequenciaController?acao=prepararOperacao&operacao=incluir">Frequência</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterAutomovelController?acao=prepararOperacao&operacao=Incluir">Automóvel</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterArquiteturaController?acao=prepararOperacao&operacao=Incluir">Arquitetura</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterAvaliacaoController?acao=prepararOperacao&operacao=Incluir">Avaliação</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterCompeticaoController?acao=prepararOperacao&operacao=Incluir">Competição</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterDesempenhoController?acao=prepararOperacao&operacao=Incluir">Desempenho de Competicão</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterDesempenhotesteController?acao=prepararOperacao&operacao=Incluir">Desempenho de Teste</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterDesignController?acao=prepararOperacao&operacao=Incluir">Design</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterFrequenciaController?acao=prepararOperacao&operacao=Incluir">Frequência</a></li>
 
-            <li><a class="brown-text text-darken-4" href="ManterIntegranteController?acao=prepararOperacao&operacao=incluir">Integrante</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterPecaController?acao=prepararOperacao&operacao=incluir">Peça</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterPessoaController?acao=prepararOperacao&operacao=incluir">Pessoa</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterTipopecaController?acao=prepararOperacao&operacao=incluir">Tipo de Peça</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterTipopistaController?acao=prepararOperacao&operacao=incluir">Tipo de Pista</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterIntegranteController?acao=prepararOperacao&operacao=Incluir">Integrante</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterPecaController?acao=prepararOperacao&operacao=Incluir">Peça</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterPessoaController?acao=prepararOperacao&operacao=Incluir">Pessoa</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterTipopecaController?acao=prepararOperacao&operacao=Incluir">Tipo de Peça</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterTipopistaController?acao=prepararOperacao&operacao=Incluir">Tipo de Pista</a></li>
         </ul>
         <ul id="menuPesquisa" class="dropdown-content">
             <li><a class="brown-text text-darken-4" href="PesquisarAutomovelController">Automóvel</a></li>
@@ -67,7 +67,7 @@
             <form action="ManterPecaController?acao=confirmarOperacao&operacao=${operacao}" method="POST" name="frmManterPeca">
                 <div class="row">
                     <div class="input-field col s6 offset-m3">
-                        <input id="id" name="txtIdPeca" type="text" required="required" class="validate" pattern="[0-9]+$"  value="${peca.idPeca}" <c:if test="${operacao != 'incluir'}"> readonly</c:if>>
+                        <input id="id" name="txtIdPeca" type="text" required="required" class="validate" pattern="[0-9]+$"  value="${peca.idPeca}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="id">ID</label>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
                             <p class="range-field">
-                                <input type="range" id="quantidade" name="txtQuantidade" required="required"  min="1" max="100" value="${peca.quantidade}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>/>
+                                <input type="range" id="quantidade" name="txtQuantidade" required="required"  min="1" max="100" value="${peca.quantidade}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
                             </p> 
                             <label for="quantidade">Quantidade</label>
                         </div>
@@ -83,14 +83,14 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="nome" name="txtNome" type="text" required="required" value="${peca.nome}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
+                            <input id="nome" name="txtNome" type="text" required="required" value="${peca.nome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="nome">Nome</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="modelo" name="txtModelo" type="text" required="required" value="${peca.modelo}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
+                            <input id="modelo" name="txtModelo" type="text" required="required" value="${peca.modelo}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="modelo">Modelo</label>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="preco" name="txtPrecoCompra" type="text" class="validate" required="required" pattern="(?:\d*\.)?\d+"  value="${peca.precoCompra}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
+                            <input id="preco" name="txtPrecoCompra" type="text" class="validate" required="required" pattern="(?:\d*\.)?\d+"  value="${peca.precoCompra}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="preco">Preço</label>
                         </div>
                     </div>
@@ -106,8 +106,8 @@
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                        <c:if test="${operacao == 'excluir'}"><input type="hidden" name="selectTipopeca" value="${peca.FKtipopeca.idTipopeca}"></c:if>
-                        <select id="tipopeca" name="selectTipopeca" required="required"<c:if test="${operacao == 'excluir'}"> disabled</c:if>>   
+                        <c:if test="${operacao == 'Excluir'}"><input type="hidden" name="selectTipopeca" value="${peca.FKtipopeca.idTipopeca}"></c:if>
+                        <select id="tipopeca" name="selectTipopeca" required="required"<c:if test="${operacao == 'Excluir'}"> disabled</c:if>>   
                             <c:forEach items="${tipospeca}" var="tipopeca">
                                 <option value="${tipopeca.idTipopeca}" <c:if test="${peca.FKtipopeca.idTipopeca == tipopeca.idTipopeca}"> selected</c:if>> ${tipopeca.nome} </option>
                             </c:forEach>
@@ -118,7 +118,6 @@
 
                 <div class="row">
                     <div class="col s12 center-align">
-                        <a class="waves-effect waves-light btn brown darken-4" id="cadastrarTipopeca">Cadastrar Tipos de Peça</a>
                         <button class="btn waves-effect waves-light brown darken-4" type="submit" value="Confirmar">
                             Confirmar <i class="material-icons right">send</i>
                         </button>
@@ -129,7 +128,7 @@
     </body>
 </html>
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('select').material_select();
 
         $('body').css('background-image', "url('images/fundo.png')");
@@ -137,10 +136,6 @@
         $('.dropdown-button').dropdown({
             constrainWidth: false, // Does not change width of dropdown to that of the activator
             hover: true // Activate on hover
-        });
-
-        $("#cadastrarTipopeca").click(function () {
-            window.location.href = 'http://localhost:8080/corsariosBajaJPA/ManterTipopecaController?acao=prepararOperacao&operacao=incluir';
         });
     });
 </script>

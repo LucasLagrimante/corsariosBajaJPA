@@ -48,7 +48,7 @@ public class ManterDesempenhoController extends HttpServlet {
             request.setAttribute("tipospista", TipopistaDAO.getInstance().obterTipospista());
             request.setAttribute("integrantes", IntegranteDAO.getInstance().obterIntegrantes());
             //fim chave estrangeira
-            if (!operacao.equals("incluir")) {
+            if (!operacao.equals("Incluir")) {
                 Integer idDesempenho = Integer.parseInt(request.getParameter("idDesempenho"));
                 desempenho = DesempenhoDAO.getInstance().getDesempenho(idDesempenho);
                 request.setAttribute("desempenho", desempenho);
@@ -93,11 +93,11 @@ public class ManterDesempenhoController extends HttpServlet {
             }
             //fim chave estrangeira
             switch (operacao) {
-                case "incluir":
+                case "Incluir":
                     desempenho = new Desempenho(idDesempenho, nome, data, hora, velocidadeMedia, aceleracaoMedia, tempoPista, frenagem, automovel, integrante, tipopista);
                     DesempenhoDAO.getInstance().salvar(desempenho);
                     break;
-                case "editar":
+                case "Editar":
                     desempenho.setNome(nome);
                     desempenho.setData(data);
                     desempenho.setHora(hora);
@@ -110,7 +110,7 @@ public class ManterDesempenhoController extends HttpServlet {
                     desempenho.setFKmotorista(integrante);
                     DesempenhoDAO.getInstance().alterar(desempenho);
                     break;
-                case "excluir":
+                case "Excluir":
                     DesempenhoDAO.getInstance().excluir(desempenho);
                     break;
                 default:

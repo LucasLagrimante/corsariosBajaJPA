@@ -43,7 +43,7 @@ public class ManterAvaliacaoController extends HttpServlet {
             //chave estrangeira
             request.setAttribute("integrantes", IntegranteDAO.getInstance().obterIntegrantes());
             //fim chave estrangeira
-            if (!operacao.equals("incluir")) {
+            if (!operacao.equals("Incluir")) {
                 Integer idAvaliacao = Integer.parseInt(request.getParameter("idAvaliacao"));
                 avaliacao = AvaliacaoDAO.getInstance().getAvaliacao(idAvaliacao);
                 request.setAttribute("avaliacao", avaliacao);
@@ -74,18 +74,18 @@ public class ManterAvaliacaoController extends HttpServlet {
             }
             //fim chave estrangeira
             switch (operacao) {
-                case "incluir":
+                case "Incluir":
                     avaliacao = new Avaliacao(idAvaliacao, frequencia, comparecimento, data, integrante);
                     AvaliacaoDAO.getInstance().salvar(avaliacao);
                     break;
-                case "editar":
+                case "Editar":
                     avaliacao.setFrequencia(frequencia);
                     avaliacao.setComparecimento(comparecimento);
                     avaliacao.setData(data);
                     avaliacao.setFKintegrante(integrante);
                     AvaliacaoDAO.getInstance().alterar(avaliacao);
                     break;
-                case "excluir":
+                case "Excluir":
                     AvaliacaoDAO.getInstance().excluir(avaliacao);
                     break;
                 default:

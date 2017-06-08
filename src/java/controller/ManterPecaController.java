@@ -44,7 +44,7 @@ public class ManterPecaController extends HttpServlet {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
             request.setAttribute("tipospeca", TipopecaDAO.getInstance().obterTipospeca());
-            if (!operacao.equals("incluir")) {
+            if (!operacao.equals("Incluir")) {
                 Integer idPeca = Integer.parseInt(request.getParameter("idPeca"));
                 peca = PecaDAO.getInstance().getPeca(idPeca);
                 request.setAttribute("peca", peca);
@@ -75,11 +75,11 @@ public class ManterPecaController extends HttpServlet {
                 tipopeca = TipopecaDAO.getInstance().getTipopeca(idTipopeca);
             }
             switch (operacao) {
-                case "incluir":
+                case "Incluir":
                     peca = new Peca(idPeca, quantidade, nome, modelo, precoCompra, tipopeca);
                     PecaDAO.getInstance().salvar(peca);
                     break;
-                case "editar":
+                case "Editar":
                     peca.setQuantidade(quantidade);
                     peca.setNome(nome);
                     peca.setModelo(modelo);
@@ -87,7 +87,7 @@ public class ManterPecaController extends HttpServlet {
                     peca.setFKtipopeca(tipopeca);
                     PecaDAO.getInstance().alterar(peca);
                     break;
-                case "excluir":
+                case "Excluir":
                     PecaDAO.getInstance().excluir(peca);
                     break;
                 default:

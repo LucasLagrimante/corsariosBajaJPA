@@ -18,19 +18,19 @@
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <!-- Dropdown Structure -->
         <ul id="menuCadastro" class="dropdown-content">
-            <li><a class="brown-text text-darken-4" href="ManterAutomovelController?acao=prepararOperacao&operacao=incluir">Automóvel</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterArquiteturaController?acao=prepararOperacao&operacao=incluir">Arquitetura</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterAvaliacaoController?acao=prepararOperacao&operacao=incluir">Avaliação</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterCompeticaoController?acao=prepararOperacao&operacao=incluir">Competição</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterDesempenhoController?acao=prepararOperacao&operacao=incluir">Desempenho de Competicão</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterDesempenhotesteController?acao=prepararOperacao&operacao=incluir">Desempenho de Teste</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterDesignController?acao=prepararOperacao&operacao=incluir">Design</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterFrequenciaController?acao=prepararOperacao&operacao=incluir">Frequência</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterIntegranteController?acao=prepararOperacao&operacao=incluir">Integrante</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterPecaController?acao=prepararOperacao&operacao=incluir">Peça</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterPessoaController?acao=prepararOperacao&operacao=incluir">Pessoa</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterTipopecaController?acao=prepararOperacao&operacao=incluir">Tipo de Peça</a></li>
-            <li><a class="brown-text text-darken-4" href="ManterTipopistaController?acao=prepararOperacao&operacao=incluir">Tipo de Pista</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterAutomovelController?acao=prepararOperacao&operacao=Incluir">Automóvel</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterArquiteturaController?acao=prepararOperacao&operacao=Incluir">Arquitetura</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterAvaliacaoController?acao=prepararOperacao&operacao=Incluir">Avaliação</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterCompeticaoController?acao=prepararOperacao&operacao=Incluir">Competição</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterDesempenhoController?acao=prepararOperacao&operacao=Incluir">Desempenho de Competicão</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterDesempenhotesteController?acao=prepararOperacao&operacao=Incluir">Desempenho de Teste</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterDesignController?acao=prepararOperacao&operacao=Incluir">Design</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterFrequenciaController?acao=prepararOperacao&operacao=Incluir">Frequência</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterIntegranteController?acao=prepararOperacao&operacao=Incluir">Integrante</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterPecaController?acao=prepararOperacao&operacao=Incluir">Peça</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterPessoaController?acao=prepararOperacao&operacao=Incluir">Pessoa</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterTipopecaController?acao=prepararOperacao&operacao=Incluir">Tipo de Peça</a></li>
+            <li><a class="brown-text text-darken-4" href="ManterTipopistaController?acao=prepararOperacao&operacao=Incluir">Tipo de Pista</a></li>
         </ul>
         <ul id="menuPesquisa" class="dropdown-content">
             <li><a class="brown-text text-darken-4" href="PesquisarAutomovelController">Automóvel</a></li>
@@ -64,49 +64,49 @@
             <form action="ManterAutomovelController?acao=confirmarOperacao&operacao=${operacao}" method="POST" name="frmManterAutomovel">
                 <div class="row">
                     <div class="input-field col s6 offset-m3" >
-                        <input id="id" name="txtIdAutomovel" class="validate" type="text" required="required"  pattern="[0-9]+$" value="${automovel.idAutomovel}" <c:if test="${operacao != 'incluir'}"> readonly</c:if>>
+                        <input id="id" name="txtIdAutomovel" class="validate" type="text" required="required"  pattern="[0-9]+$" value="${automovel.idAutomovel}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="id">ID</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="nome" name="txtNome" type="text" value="${automovel.nome}" required="required" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
+                            <input id="nome" name="txtNome" type="text" value="${automovel.nome}" required="required" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                             <label for="nome">Nome</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="cor" name="txtCor" type="text" required="required" value="${automovel.cor}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
+                            <input id="cor" name="txtCor" type="text" required="required" value="${automovel.cor}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                             <label for="nome">Cor</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="dataTermino" name="txtDataTerminoProjeto" class="datepicker" type="text" required="required" value="${automovel.dataTerminoProjeto}" <c:if test="${operacao == 'excluir'}"> disabled</c:if>>
+                            <input id="dataTermino" name="txtDataTerminoProjeto" class="datepicker" type="text" required="required" value="${automovel.dataTerminoProjeto}" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
                             <label for="dataTermino">Data Término Projeto</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="pesoCarro" name="txtPesoCarro" class="validate" type="text" required="required" pattern="(?:\d*\.)?\d+" value="${automovel.pesoCarro}"  <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
+                            <input id="pesoCarro" name="txtPesoCarro" class="validate" type="text" required="required" pattern="(?:\d*\.)?\d+" value="${automovel.pesoCarro}"  <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="pesoCarro">Peso Carro</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="pesoChassi" class="validate" type="text" required="required" pattern="(?:\d*\.)?\d+" name="txtPesoChassi"  value="${automovel.pesoChassi}"  <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
+                            <input id="pesoChassi" class="validate" type="text" required="required" pattern="(?:\d*\.)?\d+" name="txtPesoChassi"  value="${automovel.pesoChassi}"  <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                             <label data-error="errado" data-success="certo" for="pesoChassi">Peso Chassi</label>
                         </div>
                     </div>   
 
                     <div class="row">
                         <div class="input-field col s6 offset-m3">
-                            <input id="custo" type="text" class="validate" required="required" pattern="(?:\d*\.)?\d+" name="txtCustoTotal"  value="${automovel.custoTotal}" <c:if test="${operacao == 'excluir'}"> readonly</c:if>>
+                            <input id="custo" type="text" class="validate" required="required" pattern="(?:\d*\.)?\d+" name="txtCustoTotal"  value="${automovel.custoTotal}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                         <label data-error="errado" data-success="certo" for="custo">Custo Total</label>
                     </div>
                 </div>

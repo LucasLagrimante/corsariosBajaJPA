@@ -38,7 +38,7 @@ public class ManterPessoaController extends HttpServlet {
         try {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
-            if (!operacao.equals("incluir")) {
+            if (!operacao.equals("Incluir")) {
                 Integer idPessoa = Integer.parseInt(request.getParameter("idPessoa"));
                 pessoa = PessoaDAO.getInstance().getPessoa(idPessoa);
                 request.setAttribute("pessoa", pessoa);
@@ -67,11 +67,11 @@ public class ManterPessoaController extends HttpServlet {
             String numero = request.getParameter("txtNumero");
             String telefone = request.getParameter("txtTelefone");
             switch (operacao) {
-                case "incluir":
+                case "Incluir":
                     pessoa = new Pessoa(idPessoa, nome, cpf, logradouro, cep, bairro, uf, numero, telefone);
                     PessoaDAO.getInstance().salvar(pessoa);
                     break;
-                case "editar":
+                case "Editar":
                     pessoa.setNome(nome);
                     pessoa.setCpf(cpf);
                     pessoa.setLogradouro(logradouro);
@@ -82,7 +82,7 @@ public class ManterPessoaController extends HttpServlet {
                     pessoa.setTelefone(telefone);
                     PessoaDAO.getInstance().alterar(pessoa);
                     break;
-                case "excluir":
+                case "Excluir":
                     PessoaDAO.getInstance().excluir(pessoa);
                     break;
                 default:

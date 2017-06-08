@@ -38,7 +38,7 @@ public class ManterAutomovelController extends HttpServlet {
         try {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
-            if (!operacao.equals("incluir")) {
+            if (!operacao.equals("Incluir")) {
                 int idAutomovel = Integer.parseInt(request.getParameter("idAutomovel"));
                 automovel = AutomovelDAO.getInstance().getAutomovel(idAutomovel);
                 request.setAttribute("automovel", automovel);
@@ -65,11 +65,11 @@ public class ManterAutomovelController extends HttpServlet {
             float pesoChassi = Float.parseFloat(request.getParameter("txtPesoChassi"));
             float custoTotal = Float.parseFloat(request.getParameter("txtCustoTotal"));
             switch (operacao) {
-                case "incluir":
+                case "Incluir":
                     automovel = new Automovel(idAutomovel, cor, nome, dataTerminoProjeto, pesoCarro, pesoChassi, custoTotal);
                     AutomovelDAO.getInstance().salvar(automovel);
                     break;
-                case "editar":
+                case "Editar":
                     automovel.setCor(cor);
                     automovel.setNome(nome);
                     automovel.setDataTerminoProjeto(dataTerminoProjeto);
@@ -78,7 +78,7 @@ public class ManterAutomovelController extends HttpServlet {
                     automovel.setCustoTotal(custoTotal);
                     AutomovelDAO.getInstance().alterar(automovel);
                     break;
-                case "excluir":
+                case "Excluir":
                     AutomovelDAO.getInstance().excluir(automovel);
                     break;
                 default:

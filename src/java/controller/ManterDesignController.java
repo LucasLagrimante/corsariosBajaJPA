@@ -43,7 +43,7 @@ public class ManterDesignController extends HttpServlet {
             //chave estrangeira
             request.setAttribute("automoveis", AutomovelDAO.getInstance().obterAutomoveis());
             //fim chave estrangeira
-            if (!operacao.equals("incluir")) {
+            if (!operacao.equals("Incluir")) {
                 Integer idDesign = Integer.parseInt(request.getParameter("idDesign"));
                 design = DesignDAO.getInstance().getDesign(idDesign);
                 request.setAttribute("design", design);
@@ -71,16 +71,16 @@ public class ManterDesignController extends HttpServlet {
                 automovel = AutomovelDAO.getInstance().getAutomovel(idAutomovel);
             }
             switch (operacao) {
-                case "incluir":
+                case "Incluir":
                     design = new Design(idDesign, caminhoImagem, automovel);
                     DesignDAO.getInstance().salvar(design);
                     break;
-                case "editar":
+                case "Editar":
                     design.setCaminhoImagem(caminhoImagem);
                     design.setFKautomovel(automovel);
                     DesignDAO.getInstance().alterar(design);
                     break;
-                case "excluir":
+                case "Excluir":
                     DesignDAO.getInstance().excluir(design);
                     break;
                 default:

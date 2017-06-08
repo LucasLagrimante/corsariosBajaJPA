@@ -42,7 +42,7 @@ public class ManterArquiteturaController extends HttpServlet {
             //chave estrangeira
             request.setAttribute("automoveis", AutomovelDAO.getInstance().obterAutomoveis());
             //fim chave estrangeira
-            if (!operacao.equals("incluir")) {
+            if (!operacao.equals("Incluir")) {
                 Integer idArquitetura = Integer.parseInt(request.getParameter("idArquitetura"));
                 arquitetura = ArquiteturaDAO.getInstance().getArquitetura(idArquitetura);
                 request.setAttribute("arquitetura", arquitetura);
@@ -71,16 +71,16 @@ public class ManterArquiteturaController extends HttpServlet {
             }
             //fim chave estrangeira
             switch (operacao) {
-                case "incluir":
+                case "Incluir":
                     arquitetura = new Arquitetura(idArquitetura, caminhoImagem, automovel);
                     ArquiteturaDAO.getInstance().salvar(arquitetura);
                     break;
-                case "editar":
+                case "Editar":
                     arquitetura.setCaminhoImagem(caminhoImagem);
                     arquitetura.setFKautomovel(automovel);
                     ArquiteturaDAO.getInstance().alterar(arquitetura);
                     break;
-                case "excluir":
+                case "Excluir":
                     ArquiteturaDAO.getInstance().excluir(arquitetura);
                     break;
                 default:

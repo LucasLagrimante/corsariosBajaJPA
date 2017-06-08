@@ -41,7 +41,7 @@ public class ManterCompeticaoController extends HttpServlet {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
             request.setAttribute("tipospista", TipopistaDAO.getInstance().obterTipospista());
-            if (!operacao.equals("incluir")) {
+            if (!operacao.equals("Incluir")) {
                 Integer idCompeticao = Integer.parseInt(request.getParameter("idCompeticao"));
                 competicao = CompeticaoDAO.getInstance().getCompeticao(idCompeticao);
                 request.setAttribute("competicao", competicao);
@@ -72,11 +72,11 @@ public class ManterCompeticaoController extends HttpServlet {
                 tipopista = TipopistaDAO.getInstance().getTipopista(idTipopista);
             }
             switch (operacao) {
-                case "incluir":
+                case "Incluir":
                     competicao = new Competicao(idCompeticao, nome, data, hora, local, tipopista);
                     CompeticaoDAO.getInstance().salvar(competicao);
                     break;
-                case "editar":
+                case "Editar":
                     competicao.setNome(nome);
                     competicao.setData(data);
                     competicao.setHora(hora);
@@ -84,7 +84,7 @@ public class ManterCompeticaoController extends HttpServlet {
                     competicao.setFKtipopista(tipopista);
                     CompeticaoDAO.getInstance().alterar(competicao);
                     break;
-                case "excluir":
+                case "Excluir":
                     CompeticaoDAO.getInstance().excluir(competicao);
                     break;
                 default:
