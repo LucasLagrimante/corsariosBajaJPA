@@ -68,9 +68,9 @@
                     <option value="competicaoTipoPista"> Competição Tipo Pista</option>
                     <option value="designAutomovel"> Design Automovel</option>
                     <option value="integranteFrequencia"> Integrante Frequência</option>
-                    <option value="groupAutomovelCor"> Group Automovel Cor</option>
-                    <option value="groupDesempenhoPista"> Group Desempenho Tipo Pista</option>
-                    <option value="groupDesempenhoPista"> Group Pessoa Por Bairro</option>
+                    <option value="groupAutomovelCor"> Agrupado por Automovel Cor</option>
+                    <option value="groupDesempenhoPista"> Agrupado por Desempenho Tipo Pista</option>
+                    <option value="groupDesempenhoPista"> Agrupado por Pessoa Por Bairro</option>
                 </select>
             </div>
         </div>
