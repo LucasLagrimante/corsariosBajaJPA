@@ -7,11 +7,10 @@ package dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 import model.Competicao;
 
-public class CompeticaoDAO {
+public class CompeticaoDAO implements CrudDAO<Competicao> {
 
     private static CompeticaoDAO instance = new CompeticaoDAO();
 
@@ -19,10 +18,10 @@ public class CompeticaoDAO {
         return instance;
     }
 
-    private CompeticaoDAO() {
+    public CompeticaoDAO() {
     }
 
-    //CLASSES PADRÃO
+    @Override
     public void salvar(Competicao competicao) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -76,6 +75,7 @@ public class CompeticaoDAO {
         return competicao;
     }
 
+    @Override
     public void excluir(Competicao competicao) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -94,7 +94,8 @@ public class CompeticaoDAO {
     }
 
     // OBTER PARA OS SELECTS
-    public List<Competicao> obterCompeticoes() {
+    @Override
+    public List<Competicao> buscar() {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         List<Competicao> competicoes = null;

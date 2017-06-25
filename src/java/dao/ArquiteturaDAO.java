@@ -7,11 +7,10 @@ package dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 import model.Arquitetura;
 
-public class ArquiteturaDAO {
+public class ArquiteturaDAO implements CrudDAO<Arquitetura> {
 
     private static ArquiteturaDAO instance = new ArquiteturaDAO();
 
@@ -19,10 +18,10 @@ public class ArquiteturaDAO {
         return instance;
     }
 
-    private ArquiteturaDAO() {
+    public ArquiteturaDAO() {
     }
 
-    //CLASSES PADRÃO
+    @Override
     public void salvar(Arquitetura arquitetura) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -76,6 +75,7 @@ public class ArquiteturaDAO {
         return arquitetura;
     }
 
+    @Override
     public void excluir(Arquitetura arquitetura) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -93,8 +93,8 @@ public class ArquiteturaDAO {
         }
     }
 
-    // OBTER PARA OS SELECTS
-    public List<Arquitetura> obterArquiteturas() {
+    @Override
+    public List<Arquitetura> buscar() {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         List<Arquitetura> arquiteturas = null;

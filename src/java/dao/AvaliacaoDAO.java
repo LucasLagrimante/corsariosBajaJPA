@@ -7,11 +7,10 @@ package dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 import model.Avaliacao;
 
-public class AvaliacaoDAO {
+public class AvaliacaoDAO implements CrudDAO<Avaliacao> {
 
     private static AvaliacaoDAO instance = new AvaliacaoDAO();
 
@@ -19,10 +18,10 @@ public class AvaliacaoDAO {
         return instance;
     }
 
-    private AvaliacaoDAO() {
+    public AvaliacaoDAO() {
     }
 
-    //CLASSES PADRÃO
+    @Override
     public void salvar(Avaliacao avaliacao) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -76,6 +75,7 @@ public class AvaliacaoDAO {
         return avaliacao;
     }
 
+    @Override
     public void excluir(Avaliacao avaliacao) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -93,8 +93,8 @@ public class AvaliacaoDAO {
         }
     }
 
-    // OBTER PARA OS SELECTS
-    public List<Avaliacao> obterAvaliacoes() {
+    @Override
+    public List<Avaliacao> buscar() {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         List<Avaliacao> avaliacoes = null;

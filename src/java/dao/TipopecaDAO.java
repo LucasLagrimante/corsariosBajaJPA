@@ -7,11 +7,10 @@ package dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 import model.Tipopeca;
 
-public class TipopecaDAO {
+public class TipopecaDAO implements CrudDAO<Tipopeca> {
 
     private static TipopecaDAO instance = new TipopecaDAO();
 
@@ -19,10 +18,10 @@ public class TipopecaDAO {
         return instance;
     }
 
-    private TipopecaDAO() {
+    public TipopecaDAO() {
     }
 
-    //CLASSES PADRÃO
+    @Override
     public void salvar(Tipopeca tipopeca) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -76,6 +75,7 @@ public class TipopecaDAO {
         return tipopeca;
     }
 
+    @Override
     public void excluir(Tipopeca tipopeca) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -93,8 +93,8 @@ public class TipopecaDAO {
         }
     }
 
-    // OBTER PARA OS SELECTS
-    public List<Tipopeca> obterTipospeca() {
+    @Override
+    public List<Tipopeca> buscar() {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         List<Tipopeca> tipospeca = null;

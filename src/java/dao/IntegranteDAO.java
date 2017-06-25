@@ -7,11 +7,10 @@ package dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 import model.Integrante;
 
-public class IntegranteDAO {
+public class IntegranteDAO implements CrudDAO<Integrante> {
 
     private static IntegranteDAO instance = new IntegranteDAO();
 
@@ -19,10 +18,10 @@ public class IntegranteDAO {
         return instance;
     }
 
-    private IntegranteDAO() {
+    public IntegranteDAO() {
     }
 
-    //CLASSES PADRÃO
+    @Override
     public void salvar(Integrante integrante) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -75,6 +74,7 @@ public class IntegranteDAO {
         return integrante;
     }
 
+    @Override
     public void excluir(Integrante integrante) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -92,8 +92,8 @@ public class IntegranteDAO {
         }
     }
 
-    // OBTER PARA OS SELECTS
-    public List<Integrante> obterIntegrantes() {
+    @Override
+    public List<Integrante> buscar() {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         List<Integrante> integrantes = null;

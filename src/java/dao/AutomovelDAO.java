@@ -11,7 +11,7 @@ import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 import model.Automovel;
 
-public class AutomovelDAO {
+public class AutomovelDAO implements CrudDAO<Automovel> {
 
     private static AutomovelDAO instance = new AutomovelDAO();
 
@@ -19,10 +19,10 @@ public class AutomovelDAO {
         return instance;
     }
 
-    private AutomovelDAO() {
+    public AutomovelDAO() {
     }
 
-    //CLASSES PADRÃO
+    @Override
     public void salvar(Automovel automovel) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -78,6 +78,7 @@ public class AutomovelDAO {
         return automovel;
     }
 
+    @Override
     public void excluir(Automovel automovel) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -95,8 +96,8 @@ public class AutomovelDAO {
         }
     }
 
-    // OBTER PARA OS SELECTS
-    public List<Automovel> obterAutomoveis() {
+    @Override
+    public List<Automovel> buscar() {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         List<Automovel> automoveis = null;

@@ -7,11 +7,10 @@ package dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 import model.Desempenho;
 
-public class DesempenhoDAO {
+public class DesempenhoDAO implements CrudDAO<Desempenho> {
 
     private static DesempenhoDAO instance = new DesempenhoDAO();
 
@@ -19,10 +18,10 @@ public class DesempenhoDAO {
         return instance;
     }
 
-    private DesempenhoDAO() {
+    public DesempenhoDAO() {
     }
 
-    //CLASSES PADRÃO
+    @Override
     public void salvar(Desempenho desempenho) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -76,6 +75,7 @@ public class DesempenhoDAO {
         return desempenho;
     }
 
+    @Override
     public void excluir(Desempenho desempenho) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -93,8 +93,8 @@ public class DesempenhoDAO {
         }
     }
 
-    // OBTER PARA OS SELECTS
-    public List<Desempenho> obterDesempenhos() {
+    @Override
+    public List<Desempenho> buscar() {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         List<Desempenho> desempenhos = null;

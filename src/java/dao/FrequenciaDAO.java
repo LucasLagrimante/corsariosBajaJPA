@@ -7,11 +7,10 @@ package dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 import model.Frequencia;
 
-public class FrequenciaDAO {
+public class FrequenciaDAO implements CrudDAO<Frequencia> {
 
     private static FrequenciaDAO instance = new FrequenciaDAO();
 
@@ -19,10 +18,10 @@ public class FrequenciaDAO {
         return instance;
     }
 
-    private FrequenciaDAO() {
+    public FrequenciaDAO() {
     }
 
-    //CLASSES PADRÃO
+    @Override
     public void salvar(Frequencia frequencia) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -76,6 +75,7 @@ public class FrequenciaDAO {
         return frequencia;
     }
 
+    @Override
     public void excluir(Frequencia frequencia) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -93,8 +93,8 @@ public class FrequenciaDAO {
         }
     }
 
-    // OBTER PARA OS SELECTS
-    public List<Frequencia> obterFrequencias() {
+    @Override
+    public List<Frequencia> buscar() {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         List<Frequencia> frequencias = null;

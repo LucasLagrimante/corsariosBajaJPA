@@ -7,11 +7,10 @@ package dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 import model.Design;
 
-public class DesignDAO {
+public class DesignDAO implements CrudDAO<Design> {
 
     private static DesignDAO instance = new DesignDAO();
 
@@ -19,10 +18,10 @@ public class DesignDAO {
         return instance;
     }
 
-    private DesignDAO() {
+    public DesignDAO() {
     }
 
-    //CLASSES PADRÃO
+    @Override
     public void salvar(Design design) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -76,6 +75,7 @@ public class DesignDAO {
         return design;
     }
 
+    @Override
     public void excluir(Design design) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -93,8 +93,8 @@ public class DesignDAO {
         }
     }
 
-    // OBTER PARA OS SELECTS
-    public List<Design> obterDesigns() {
+    @Override
+    public List<Design> buscar() {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         List<Design> designs = null;

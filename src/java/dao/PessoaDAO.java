@@ -11,7 +11,7 @@ import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 import model.Pessoa;
 
-public class PessoaDAO {
+public class PessoaDAO implements CrudDAO<Pessoa> {
 
     private static PessoaDAO instance = new PessoaDAO();
 
@@ -19,10 +19,10 @@ public class PessoaDAO {
         return instance;
     }
 
-    private PessoaDAO() {
+    public PessoaDAO() {
     }
 
-    //CLASSES PADRÃO
+    @Override
     public void salvar(Pessoa pessoa) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -76,6 +76,7 @@ public class PessoaDAO {
         return pessoa;
     }
 
+    @Override
     public void excluir(Pessoa pessoa) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -93,8 +94,8 @@ public class PessoaDAO {
         }
     }
 
-    // OBTER PARA OS SELECTS
-    public List<Pessoa> obterPessoas() {
+    @Override
+    public List<Pessoa> buscar() {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         List<Pessoa> pessoas = null;

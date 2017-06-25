@@ -32,21 +32,21 @@ ORDER BY  desempenho_FK_tipopista]]>
         <groupHeader>
             <band height="33">
                 <staticText>
-                    <reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="4b921367-9dea-4923-9e53-40293f4acd80"/>
+                    <reportElement uuid="4b921367-9dea-4923-9e53-40293f4acd80" mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6"/>
                     <textElement>
                         <font size="12"/>
                     </textElement>
                     <text><![CDATA[Nome]]></text>
                 </staticText>
                 <textField>
-                    <reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="f96edcd6-9f62-4a2d-9e36-1cbf598e5445"/>
+                    <reportElement uuid="f96edcd6-9f62-4a2d-9e36-1cbf598e5445" mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6"/>
                     <textElement>
                         <font size="24" isBold="true"/>
                     </textElement>
                     <textFieldExpression><![CDATA[$F{tipopista_nome}]]></textFieldExpression>
                 </textField>
                 <line>
-                    <reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="5ab7e439-f4d9-40c6-8fdf-5bcdad9647b0"/>
+                    <reportElement uuid="5ab7e439-f4d9-40c6-8fdf-5bcdad9647b0" x="-20" y="32" width="595" height="1" forecolor="#666666"/>
                 </line>
             </band>
         </groupHeader>
@@ -60,16 +60,16 @@ ORDER BY  desempenho_FK_tipopista]]>
     <title>
         <band height="72">
             <frame>
-                <reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="306da208-cf22-4c22-8a23-0ecda86f3977"/>
+                <reportElement uuid="306da208-cf22-4c22-8a23-0ecda86f3977" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
                 <staticText>
-                    <reportElement x="20" y="20" width="310" height="43" forecolor="#FFFFFF" uuid="d65cbdfd-4770-43da-a5be-1dadf04b323d"/>
+                    <reportElement uuid="d65cbdfd-4770-43da-a5be-1dadf04b323d" x="20" y="20" width="310" height="43" forecolor="#FFFFFF"/>
                     <textElement>
                         <font size="21" isBold="true"/>
                     </textElement>
                     <text><![CDATA[Desempenho Tipo Pista]]></text>
                 </staticText>
                 <staticText>
-                    <reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="742fcf68-39ba-4881-aea3-494095f24e2d"/>
+                    <reportElement uuid="742fcf68-39ba-4881-aea3-494095f24e2d" x="395" y="43" width="180" height="20" forecolor="#FFFFFF"/>
                     <textElement textAlignment="Right">
                         <font size="14" isBold="false"/>
                     </textElement>
@@ -84,31 +84,31 @@ ORDER BY  desempenho_FK_tipopista]]>
     <columnHeader>
         <band height="21">
             <line>
-                <reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="8f2d5018-dfc2-4567-beff-1e16261cd729"/>
+                <reportElement uuid="8f2d5018-dfc2-4567-beff-1e16261cd729" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
             </line>
             <staticText>
-                <reportElement mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="acd10956-d4db-43e6-8b10-fdaad4e064cc"/>
+                <reportElement uuid="acd10956-d4db-43e6-8b10-fdaad4e064cc" mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
                 <text><![CDATA[ID]]></text>
             </staticText>
             <staticText>
-                <reportElement mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="7f51295d-31e9-463c-be1d-120d1f8af1c4"/>
+                <reportElement uuid="7f51295d-31e9-463c-be1d-120d1f8af1c4" mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
                 <text><![CDATA[Nome]]></text>
             </staticText>
             <staticText>
-                <reportElement mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="84ee2ba2-b1a6-4f8f-837b-82f1d2ca566e"/>
+                <reportElement uuid="84ee2ba2-b1a6-4f8f-837b-82f1d2ca566e" mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
                 <text><![CDATA[Data]]></text>
             </staticText>
             <staticText>
-                <reportElement mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="b28e7de1-3af6-4534-8658-e09f7b9bd670"/>
+                <reportElement uuid="b28e7de1-3af6-4534-8658-e09f7b9bd670" mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
@@ -119,31 +119,31 @@ ORDER BY  desempenho_FK_tipopista]]>
     <detail>
         <band height="27">
             <line>
-                <reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="5ffbb869-924a-40a6-972f-14be6180ab76"/>
+                <reportElement uuid="5ffbb869-924a-40a6-972f-14be6180ab76" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
             </line>
             <textField isStretchWithOverflow="true">
-                <reportElement x="0" y="0" width="138" height="20" uuid="f8187d42-f7db-4fe7-956f-95bd4acbd5fb"/>
+                <reportElement uuid="f8187d42-f7db-4fe7-956f-95bd4acbd5fb" x="0" y="0" width="138" height="20"/>
                 <textElement>
                     <font size="14"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{desempenho_idDesempenho}]]></textFieldExpression>
             </textField>
             <textField isStretchWithOverflow="true">
-                <reportElement x="138" y="0" width="138" height="20" uuid="02188927-e5a3-4e9a-bdd6-452eab5f92dd"/>
+                <reportElement uuid="02188927-e5a3-4e9a-bdd6-452eab5f92dd" x="138" y="0" width="138" height="20"/>
                 <textElement>
                     <font size="14"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{desempenho_nome}]]></textFieldExpression>
             </textField>
             <textField isStretchWithOverflow="true">
-                <reportElement x="414" y="0" width="138" height="20" uuid="d3e6190a-e3ea-4d00-88d8-68b7d9d50e80"/>
+                <reportElement uuid="d3e6190a-e3ea-4d00-88d8-68b7d9d50e80" x="414" y="0" width="138" height="20"/>
                 <textElement>
                     <font size="14"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{desempenho_hora}]]></textFieldExpression>
             </textField>
             <textField isStretchWithOverflow="true">
-                <reportElement x="276" y="1" width="138" height="19" uuid="c6857533-834a-4f90-b2e0-0ffecddb0b04"/>
+                <reportElement uuid="c6857533-834a-4f90-b2e0-0ffecddb0b04" x="276" y="1" width="138" height="19"/>
                 <textElement>
                     <font size="14"/>
                 </textElement>
@@ -157,21 +157,34 @@ ORDER BY  desempenho_FK_tipopista]]>
     <pageFooter>
         <band height="31">
             <textField>
-                <reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="f02a420b-90f0-4baa-963f-c856858b4a48"/>
+                <reportElement uuid="f02a420b-90f0-4baa-963f-c856858b4a48" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
                 <textElement textAlignment="Right"/>
                 <textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
             </textField>
             <textField evaluationTime="Report">
-                <reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="fe484d91-9640-4b85-bfa6-0dc5cae2c202"/>
+                <reportElement uuid="fe484d91-9640-4b85-bfa6-0dc5cae2c202" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+                <textElement/>
                 <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
             </textField>
             <textField pattern="EEEEE dd MMMMM yyyy">
-                <reportElement x="0" y="4" width="100" height="13" uuid="64a0b588-6dc7-4eb9-b9b6-5a6fa69f8bce"/>
+                <reportElement uuid="64a0b588-6dc7-4eb9-b9b6-5a6fa69f8bce" x="0" y="4" width="100" height="13"/>
+                <textElement/>
                 <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
             </textField>
         </band>
     </pageFooter>
     <summary>
-        <band height="16"/>
+        <band height="36">
+            <staticText>
+                <reportElement uuid="af3195bf-caae-4d81-9ee3-78513069b024" x="403" y="0" width="36" height="20"/>
+                <textElement/>
+                <text><![CDATA[Total:]]></text>
+            </staticText>
+            <textField>
+                <reportElement uuid="d38b50af-3e57-4b59-996e-7547d5e591a9" x="439" y="0" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+            </textField>
+        </band>
     </summary>
 </jasperReport>

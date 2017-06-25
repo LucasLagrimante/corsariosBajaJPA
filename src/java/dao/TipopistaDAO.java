@@ -7,11 +7,10 @@ package dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 import model.Tipopista;
 
-public class TipopistaDAO {
+public class TipopistaDAO implements CrudDAO<Tipopista> {
 
     private static TipopistaDAO instance = new TipopistaDAO();
 
@@ -19,10 +18,10 @@ public class TipopistaDAO {
         return instance;
     }
 
-    private TipopistaDAO() {
+    public TipopistaDAO() {
     }
 
-    //CLASSES PADRÃO
+    @Override
     public void salvar(Tipopista tipopista) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -76,6 +75,7 @@ public class TipopistaDAO {
         return tipopista;
     }
 
+    @Override
     public void excluir(Tipopista tipopista) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -93,8 +93,8 @@ public class TipopistaDAO {
         }
     }
 
-    // OBTER PARA OS SELECTS
-    public List<Tipopista> obterTipospista() {
+    @Override
+    public List<Tipopista> buscar() {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         List<Tipopista> tiposPista = null;
